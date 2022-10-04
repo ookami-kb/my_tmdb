@@ -1,0 +1,81 @@
+{
+    "page": 1,
+    "results": [
+        {
+            "backdrop_path": "/hRb50fOGcXic3NO6kUnL9hRXwsg.jpg",
+            "first_air_date": "2011-04-17",
+            "genre_ids": [
+                10765,
+                18,
+                10759
+            ],
+            "id": 1399,
+            "name": "Game of Thrones",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Game of Thrones",
+            "overview": "Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night's Watch, is all that stands between the realms of men and icy horrors beyond.",
+            "popularity": 1204.679,
+            "poster_path": "/u3bZgnGQ9T01sWNhyveQz0wH0Hl.jpg",
+            "vote_average": 8.4,
+            "vote_count": 19295
+        },
+        {
+            "backdrop_path": null,
+            "first_air_date": "2021-04-05",
+            "genre_ids": [],
+            "id": 206584,
+            "name": "Game of Thrones: The Iron Anniversary",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "Game of Thrones: The Iron Anniversary",
+            "overview": "A two-part reunion show with cast members from the final season including Kit Harington, Emilia Clarke, Sophie Turner and more, as well as previously departed fan-favorites like Sean Bean, Jason Momoa, Mark Addy and others.",
+            "popularity": 52.555,
+            "poster_path": "/ArXiKVTmyZYrxbWLsy2XU1Jkcr9.jpg",
+            "vote_average": 2,
+            "vote_count": 1
+        },
+        {
+            "backdrop_path": null,
+            "first_air_date": "2020-04-14",
+            "genre_ids": [],
+            "id": 138757,
+            "name": "Autópsia Game Of Thrones",
+            "origin_country": [],
+            "original_language": "pt",
+            "original_name": "Autópsia Game Of Thrones",
+            "overview": "",
+            "popularity": 2.156,
+            "poster_path": null,
+            "vote_average": 0,
+            "vote_count": 0
+        },
+        {
+            "backdrop_path": "/etj8E2o0Bud0HkONVQPjyCkIvpv.jpg",
+            "first_air_date": "2022-08-21",
+            "genre_ids": [
+                10765,
+                18,
+                10759
+            ],
+            "id": 94997,
+            "name": "House of the Dragon",
+            "origin_country": [
+                "US"
+            ],
+            "original_language": "en",
+            "original_name": "House of the Dragon",
+            "overview": "The Targaryen dynasty is at the absolute apex of its power, with more than 15 dragons under their yoke. Most empires crumble from such heights. In the case of the Targaryens, their slow fall begins when King Viserys breaks with a century of tradition by naming his daughter Rhaenyra heir to the Iron Throne. But when Viserys later fathers a son, the court is shocked when Rhaenyra retains her status as his heir, and seeds of division sow friction across the realm.",
+            "popularity": 4979.127,
+            "poster_path": "/z2yahl2uefxDCl0nogcRBstwruJ.jpg",
+            "vote_average": 8.6,
+            "vote_count": 1513
+        }
+    ],
+    "total_pages": 1,
+    "total_results": 4
+}
