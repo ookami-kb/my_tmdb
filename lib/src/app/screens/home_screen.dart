@@ -9,17 +9,19 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) => Column(
-        children: [
-          PopularMoviesWidget(
-            onItemPressed: (movie) => context.router.navigate(
-              DetailsRoute(
-                id: movie.id,
-                detailsType: DetailsType.movie,
-                initialTitle: movie.title,
+  Widget build(BuildContext context) => SafeArea(
+        child: Column(
+          children: [
+            PopularMoviesWidget(
+              onItemPressed: (movie) => context.router.navigate(
+                DetailsRoute(
+                  id: movie.id,
+                  detailsType: DetailsType.movie,
+                  initialTitle: movie.title,
+                ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       );
 }
