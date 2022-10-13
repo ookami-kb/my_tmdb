@@ -16,11 +16,17 @@ void main() {
       )
       ..addScenario(
         name: 'loading',
-        widget: const DetailsContent(details: null),
+        widget: const DetailsContent(
+          details: null,
+          initialTitle: 'Test movie',
+        ),
       )
       ..addScenario(
         name: 'error',
-        widget: DetailsContent(details: Either.left(Exception())),
+        widget: DetailsContent(
+          details: Either.left(Exception()),
+          initialTitle: 'Test movie',
+        ),
       )
       ..addScenario(
         name: 'success',
@@ -32,6 +38,7 @@ void main() {
               overview: 'Once upon a time...',
             ),
           ),
+          initialTitle: 'Stub title',
         ),
       );
 

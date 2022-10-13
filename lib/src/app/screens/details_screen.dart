@@ -9,16 +9,21 @@ class DetailsScreen extends StatelessWidget {
     super.key,
     required this.id,
     required this.detailsType,
+    this.initialTitle = '',
   });
 
   final int id;
   final DetailsType detailsType;
+  final String initialTitle;
 
   @override
   Widget build(BuildContext context) => PaletteTheme(
         child: Scaffold(
-          appBar: AppBar(),
-          body: DetailsWidget(id: id, detailsType: detailsType),
+          body: DetailsWidget(
+            id: id,
+            detailsType: detailsType,
+            initialTitle: initialTitle,
+          ),
         ),
       );
 }

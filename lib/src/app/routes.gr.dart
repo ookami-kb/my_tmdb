@@ -40,6 +40,7 @@ class AppRouter extends _i5.RootStackRouter {
           key: args.key,
           id: args.id,
           detailsType: args.detailsType,
+          initialTitle: args.initialTitle,
         ),
       );
     },
@@ -102,6 +103,7 @@ class DetailsRoute extends _i5.PageRouteInfo<DetailsRouteArgs> {
     _i6.Key? key,
     required int id,
     required _i7.DetailsType detailsType,
+    String initialTitle = '',
   }) : super(
           DetailsRoute.name,
           path: '/details-screen',
@@ -109,6 +111,7 @@ class DetailsRoute extends _i5.PageRouteInfo<DetailsRouteArgs> {
             key: key,
             id: id,
             detailsType: detailsType,
+            initialTitle: initialTitle,
           ),
         );
 
@@ -120,6 +123,7 @@ class DetailsRouteArgs {
     this.key,
     required this.id,
     required this.detailsType,
+    this.initialTitle = '',
   });
 
   final _i6.Key? key;
@@ -128,9 +132,11 @@ class DetailsRouteArgs {
 
   final _i7.DetailsType detailsType;
 
+  final String initialTitle;
+
   @override
   String toString() {
-    return 'DetailsRouteArgs{key: $key, id: $id, detailsType: $detailsType}';
+    return 'DetailsRouteArgs{key: $key, id: $id, detailsType: $detailsType, initialTitle: $initialTitle}';
   }
 }
 

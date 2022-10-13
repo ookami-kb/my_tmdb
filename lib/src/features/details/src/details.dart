@@ -9,6 +9,7 @@ class Details with _$Details {
     required String title,
     required String overview,
     Uri? poster,
+    Uri? backdrop,
   }) = MovieDetails;
 
   const factory Details.tvShow({
@@ -16,5 +17,6 @@ class Details with _$Details {
     required String title,
     required String overview,
     Uri? poster,
+    Uri? backdrop,
   }) = TvShowDetails;
 }

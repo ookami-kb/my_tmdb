@@ -20,27 +20,34 @@ mixin _$Details {
   String get title => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   Uri? get poster => throw _privateConstructorUsedError;
+  Uri? get backdrop => throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int id, String title, String overview, Uri? poster)
+            int id, String title, String overview, Uri? poster, Uri? backdrop)
         movie,
     required TResult Function(
-            int id, String title, String overview, Uri? poster)
+            int id, String title, String overview, Uri? poster, Uri? backdrop)
         tvShow,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int id, String title, String overview, Uri? poster)? movie,
-    TResult Function(int id, String title, String overview, Uri? poster)?
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
+        movie,
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
         tvShow,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String title, String overview, Uri? poster)? movie,
-    TResult Function(int id, String title, String overview, Uri? poster)?
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
+        movie,
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
         tvShow,
     required TResult orElse(),
   }) =>
@@ -73,7 +80,8 @@ mixin _$Details {
 abstract class $DetailsCopyWith<$Res> {
   factory $DetailsCopyWith(Details value, $Res Function(Details) then) =
       _$DetailsCopyWithImpl<$Res>;
-  $Res call({int id, String title, String overview, Uri? poster});
+  $Res call(
+      {int id, String title, String overview, Uri? poster, Uri? backdrop});
 }
 
 /// @nodoc
@@ -90,6 +98,7 @@ class _$DetailsCopyWithImpl<$Res> implements $DetailsCopyWith<$Res> {
     Object? title = freezed,
     Object? overview = freezed,
     Object? poster = freezed,
+    Object? backdrop = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -108,6 +117,10 @@ class _$DetailsCopyWithImpl<$Res> implements $DetailsCopyWith<$Res> {
           ? _value.poster
           : poster // ignore: cast_nullable_to_non_nullable
               as Uri?,
+      backdrop: backdrop == freezed
+          ? _value.backdrop
+          : backdrop // ignore: cast_nullable_to_non_nullable
+              as Uri?,
     ));
   }
 }
@@ -118,7 +131,8 @@ abstract class _$$MovieDetailsCopyWith<$Res> implements $DetailsCopyWith<$Res> {
           _$MovieDetails value, $Res Function(_$MovieDetails) then) =
       __$$MovieDetailsCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, String overview, Uri? poster});
+  $Res call(
+      {int id, String title, String overview, Uri? poster, Uri? backdrop});
 }
 
 /// @nodoc
@@ -137,6 +151,7 @@ class __$$MovieDetailsCopyWithImpl<$Res> extends _$DetailsCopyWithImpl<$Res>
     Object? title = freezed,
     Object? overview = freezed,
     Object? poster = freezed,
+    Object? backdrop = freezed,
   }) {
     return _then(_$MovieDetails(
       id: id == freezed
@@ -155,6 +170,10 @@ class __$$MovieDetailsCopyWithImpl<$Res> extends _$DetailsCopyWithImpl<$Res>
           ? _value.poster
           : poster // ignore: cast_nullable_to_non_nullable
               as Uri?,
+      backdrop: backdrop == freezed
+          ? _value.backdrop
+          : backdrop // ignore: cast_nullable_to_non_nullable
+              as Uri?,
     ));
   }
 }
@@ -166,7 +185,8 @@ class _$MovieDetails implements MovieDetails {
       {required this.id,
       required this.title,
       required this.overview,
-      this.poster});
+      this.poster,
+      this.backdrop});
 
   @override
   final int id;
@@ -176,10 +196,12 @@ class _$MovieDetails implements MovieDetails {
   final String overview;
   @override
   final Uri? poster;
+  @override
+  final Uri? backdrop;
 
   @override
   String toString() {
-    return 'Details.movie(id: $id, title: $title, overview: $overview, poster: $poster)';
+    return 'Details.movie(id: $id, title: $title, overview: $overview, poster: $poster, backdrop: $backdrop)';
   }
 
   @override
@@ -190,7 +212,8 @@ class _$MovieDetails implements MovieDetails {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.overview, overview) &&
-            const DeepCollectionEquality().equals(other.poster, poster));
+            const DeepCollectionEquality().equals(other.poster, poster) &&
+            const DeepCollectionEquality().equals(other.backdrop, backdrop));
   }
 
   @override
@@ -199,7 +222,8 @@ class _$MovieDetails implements MovieDetails {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(overview),
-      const DeepCollectionEquality().hash(poster));
+      const DeepCollectionEquality().hash(poster),
+      const DeepCollectionEquality().hash(backdrop));
 
   @JsonKey(ignore: true)
   @override
@@ -210,35 +234,41 @@ class _$MovieDetails implements MovieDetails {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int id, String title, String overview, Uri? poster)
+            int id, String title, String overview, Uri? poster, Uri? backdrop)
         movie,
     required TResult Function(
-            int id, String title, String overview, Uri? poster)
+            int id, String title, String overview, Uri? poster, Uri? backdrop)
         tvShow,
   }) {
-    return movie(id, title, overview, poster);
+    return movie(id, title, overview, poster, backdrop);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int id, String title, String overview, Uri? poster)? movie,
-    TResult Function(int id, String title, String overview, Uri? poster)?
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
+        movie,
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
         tvShow,
   }) {
-    return movie?.call(id, title, overview, poster);
+    return movie?.call(id, title, overview, poster, backdrop);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String title, String overview, Uri? poster)? movie,
-    TResult Function(int id, String title, String overview, Uri? poster)?
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
+        movie,
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
         tvShow,
     required TResult orElse(),
   }) {
     if (movie != null) {
-      return movie(id, title, overview, poster);
+      return movie(id, title, overview, poster, backdrop);
     }
     return orElse();
   }
@@ -280,7 +310,8 @@ abstract class MovieDetails implements Details {
       {required final int id,
       required final String title,
       required final String overview,
-      final Uri? poster}) = _$MovieDetails;
+      final Uri? poster,
+      final Uri? backdrop}) = _$MovieDetails;
 
   @override
   int get id;
@@ -290,6 +321,8 @@ abstract class MovieDetails implements Details {
   String get overview;
   @override
   Uri? get poster;
+  @override
+  Uri? get backdrop;
   @override
   @JsonKey(ignore: true)
   _$$MovieDetailsCopyWith<_$MovieDetails> get copyWith =>
@@ -303,7 +336,8 @@ abstract class _$$TvShowDetailsCopyWith<$Res>
           _$TvShowDetails value, $Res Function(_$TvShowDetails) then) =
       __$$TvShowDetailsCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, String overview, Uri? poster});
+  $Res call(
+      {int id, String title, String overview, Uri? poster, Uri? backdrop});
 }
 
 /// @nodoc
@@ -322,6 +356,7 @@ class __$$TvShowDetailsCopyWithImpl<$Res> extends _$DetailsCopyWithImpl<$Res>
     Object? title = freezed,
     Object? overview = freezed,
     Object? poster = freezed,
+    Object? backdrop = freezed,
   }) {
     return _then(_$TvShowDetails(
       id: id == freezed
@@ -340,6 +375,10 @@ class __$$TvShowDetailsCopyWithImpl<$Res> extends _$DetailsCopyWithImpl<$Res>
           ? _value.poster
           : poster // ignore: cast_nullable_to_non_nullable
               as Uri?,
+      backdrop: backdrop == freezed
+          ? _value.backdrop
+          : backdrop // ignore: cast_nullable_to_non_nullable
+              as Uri?,
     ));
   }
 }
@@ -351,7 +390,8 @@ class _$TvShowDetails implements TvShowDetails {
       {required this.id,
       required this.title,
       required this.overview,
-      this.poster});
+      this.poster,
+      this.backdrop});
 
   @override
   final int id;
@@ -361,10 +401,12 @@ class _$TvShowDetails implements TvShowDetails {
   final String overview;
   @override
   final Uri? poster;
+  @override
+  final Uri? backdrop;
 
   @override
   String toString() {
-    return 'Details.tvShow(id: $id, title: $title, overview: $overview, poster: $poster)';
+    return 'Details.tvShow(id: $id, title: $title, overview: $overview, poster: $poster, backdrop: $backdrop)';
   }
 
   @override
@@ -375,7 +417,8 @@ class _$TvShowDetails implements TvShowDetails {
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.overview, overview) &&
-            const DeepCollectionEquality().equals(other.poster, poster));
+            const DeepCollectionEquality().equals(other.poster, poster) &&
+            const DeepCollectionEquality().equals(other.backdrop, backdrop));
   }
 
   @override
@@ -384,7 +427,8 @@ class _$TvShowDetails implements TvShowDetails {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(overview),
-      const DeepCollectionEquality().hash(poster));
+      const DeepCollectionEquality().hash(poster),
+      const DeepCollectionEquality().hash(backdrop));
 
   @JsonKey(ignore: true)
   @override
@@ -395,35 +439,41 @@ class _$TvShowDetails implements TvShowDetails {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(
-            int id, String title, String overview, Uri? poster)
+            int id, String title, String overview, Uri? poster, Uri? backdrop)
         movie,
     required TResult Function(
-            int id, String title, String overview, Uri? poster)
+            int id, String title, String overview, Uri? poster, Uri? backdrop)
         tvShow,
   }) {
-    return tvShow(id, title, overview, poster);
+    return tvShow(id, title, overview, poster, backdrop);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(int id, String title, String overview, Uri? poster)? movie,
-    TResult Function(int id, String title, String overview, Uri? poster)?
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
+        movie,
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
         tvShow,
   }) {
-    return tvShow?.call(id, title, overview, poster);
+    return tvShow?.call(id, title, overview, poster, backdrop);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String title, String overview, Uri? poster)? movie,
-    TResult Function(int id, String title, String overview, Uri? poster)?
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
+        movie,
+    TResult Function(
+            int id, String title, String overview, Uri? poster, Uri? backdrop)?
         tvShow,
     required TResult orElse(),
   }) {
     if (tvShow != null) {
-      return tvShow(id, title, overview, poster);
+      return tvShow(id, title, overview, poster, backdrop);
     }
     return orElse();
   }
@@ -465,7 +515,8 @@ abstract class TvShowDetails implements Details {
       {required final int id,
       required final String title,
       required final String overview,
-      final Uri? poster}) = _$TvShowDetails;
+      final Uri? poster,
+      final Uri? backdrop}) = _$TvShowDetails;
 
   @override
   int get id;
@@ -475,6 +526,8 @@ abstract class TvShowDetails implements Details {
   String get overview;
   @override
   Uri? get poster;
+  @override
+  Uri? get backdrop;
   @override
   @JsonKey(ignore: true)
   _$$TvShowDetailsCopyWith<_$TvShowDetails> get copyWith =>

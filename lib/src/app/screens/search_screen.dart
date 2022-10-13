@@ -20,6 +20,7 @@ class SearchScreen extends StatelessWidget {
                 movie: always(DetailsType.movie),
                 tvShow: always(DetailsType.tv),
               ),
+              initialTitle: item.title,
             ),
           ),
         ),

@@ -37,6 +37,7 @@ class MoviesGetDetailsResponseDto with _$MoviesGetDetailsResponseDto {
     required String title,
     String? overview,
     String? posterPath,
+    String? backdropPath,
   }) = _MoviesGetDetailsResponseDto;
 
   factory MoviesGetDetailsResponseDto.fromJson(Map<String, dynamic> json) =>
@@ -50,6 +51,7 @@ class TvGetDetailsResponseDto with _$TvGetDetailsResponseDto {
     required String name,
     required String overview,
     String? posterPath,
+    String? backdropPath,
   }) = _TvGetDetailsResponseDto;
 
   factory TvGetDetailsResponseDto.fromJson(Map<String, dynamic> json) =>

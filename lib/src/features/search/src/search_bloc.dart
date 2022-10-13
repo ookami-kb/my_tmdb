@@ -4,8 +4,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:stream_transform/stream_transform.dart';
 
+import '../search_result.dart';
 import 'search_repository.dart';
-import 'search_result.dart';
 
 part 'search_bloc.freezed.dart';
 

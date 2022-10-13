@@ -6,8 +6,8 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:my_tmdb/src/features/popular_movies/popular_movie.dart';
 import 'package:my_tmdb/src/features/popular_movies/popular_movies_widget.dart';
-import 'package:my_tmdb/src/features/popular_movies/src/popular_movie.dart';
 import 'package:my_tmdb/src/features/popular_movies/src/popular_movies_repository.dart';
 
 import '../../di.dart';

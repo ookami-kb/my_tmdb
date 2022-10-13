@@ -13,6 +13,7 @@ _$_MoviesGetDetailsResponseDto _$$_MoviesGetDetailsResponseDtoFromJson(
       title: json['title'] as String,
       overview: json['overview'] as String?,
       posterPath: json['poster_path'] as String?,
+      backdropPath: json['backdrop_path'] as String?,
     );
 
 Map<String, dynamic> _$$_MoviesGetDetailsResponseDtoToJson(
@@ -22,6 +23,7 @@ Map<String, dynamic> _$$_MoviesGetDetailsResponseDtoToJson(
       'title': instance.title,
       'overview': instance.overview,
       'poster_path': instance.posterPath,
+      'backdrop_path': instance.backdropPath,
     };
 
 _$_TvGetDetailsResponseDto _$$_TvGetDetailsResponseDtoFromJson(
@@ -31,6 +33,7 @@ _$_TvGetDetailsResponseDto _$$_TvGetDetailsResponseDtoFromJson(
       name: json['name'] as String,
       overview: json['overview'] as String,
       posterPath: json['poster_path'] as String?,
+      backdropPath: json['backdrop_path'] as String?,
     );
 
 Map<String, dynamic> _$$_TvGetDetailsResponseDtoToJson(
@@ -40,6 +43,7 @@ Map<String, dynamic> _$$_TvGetDetailsResponseDtoToJson(
       'name': instance.name,
       'overview': instance.overview,
       'poster_path': instance.posterPath,
+      'backdrop_path': instance.backdropPath,
     };
 
 // **************************************************************************

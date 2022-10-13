@@ -25,6 +25,7 @@ mixin _$MoviesGetDetailsResponseDto {
   String get title => throw _privateConstructorUsedError;
   String? get overview => throw _privateConstructorUsedError;
   String? get posterPath => throw _privateConstructorUsedError;
+  String? get backdropPath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -38,7 +39,12 @@ abstract class $MoviesGetDetailsResponseDtoCopyWith<$Res> {
           MoviesGetDetailsResponseDto value,
           $Res Function(MoviesGetDetailsResponseDto) then) =
       _$MoviesGetDetailsResponseDtoCopyWithImpl<$Res>;
-  $Res call({int id, String title, String? overview, String? posterPath});
+  $Res call(
+      {int id,
+      String title,
+      String? overview,
+      String? posterPath,
+      String? backdropPath});
 }
 
 /// @nodoc
@@ -56,6 +62,7 @@ class _$MoviesGetDetailsResponseDtoCopyWithImpl<$Res>
     Object? title = freezed,
     Object? overview = freezed,
     Object? posterPath = freezed,
+    Object? backdropPath = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -74,6 +81,10 @@ class _$MoviesGetDetailsResponseDtoCopyWithImpl<$Res>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      backdropPath: backdropPath == freezed
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -86,7 +97,12 @@ abstract class _$$_MoviesGetDetailsResponseDtoCopyWith<$Res>
           $Res Function(_$_MoviesGetDetailsResponseDto) then) =
       __$$_MoviesGetDetailsResponseDtoCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String title, String? overview, String? posterPath});
+  $Res call(
+      {int id,
+      String title,
+      String? overview,
+      String? posterPath,
+      String? backdropPath});
 }
 
 /// @nodoc
@@ -108,6 +124,7 @@ class __$$_MoviesGetDetailsResponseDtoCopyWithImpl<$Res>
     Object? title = freezed,
     Object? overview = freezed,
     Object? posterPath = freezed,
+    Object? backdropPath = freezed,
   }) {
     return _then(_$_MoviesGetDetailsResponseDto(
       id: id == freezed
@@ -126,6 +143,10 @@ class __$$_MoviesGetDetailsResponseDtoCopyWithImpl<$Res>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      backdropPath: backdropPath == freezed
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -134,7 +155,11 @@ class __$$_MoviesGetDetailsResponseDtoCopyWithImpl<$Res>
 @JsonSerializable()
 class _$_MoviesGetDetailsResponseDto implements _MoviesGetDetailsResponseDto {
   const _$_MoviesGetDetailsResponseDto(
-      {required this.id, required this.title, this.overview, this.posterPath});
+      {required this.id,
+      required this.title,
+      this.overview,
+      this.posterPath,
+      this.backdropPath});
 
   factory _$_MoviesGetDetailsResponseDto.fromJson(Map<String, dynamic> json) =>
       _$$_MoviesGetDetailsResponseDtoFromJson(json);
@@ -147,10 +172,12 @@ class _$_MoviesGetDetailsResponseDto implements _MoviesGetDetailsResponseDto {
   final String? overview;
   @override
   final String? posterPath;
+  @override
+  final String? backdropPath;
 
   @override
   String toString() {
-    return 'MoviesGetDetailsResponseDto(id: $id, title: $title, overview: $overview, posterPath: $posterPath)';
+    return 'MoviesGetDetailsResponseDto(id: $id, title: $title, overview: $overview, posterPath: $posterPath, backdropPath: $backdropPath)';
   }
 
   @override
@@ -162,7 +189,9 @@ class _$_MoviesGetDetailsResponseDto implements _MoviesGetDetailsResponseDto {
             const DeepCollectionEquality().equals(other.title, title) &&
             const DeepCollectionEquality().equals(other.overview, overview) &&
             const DeepCollectionEquality()
-                .equals(other.posterPath, posterPath));
+                .equals(other.posterPath, posterPath) &&
+            const DeepCollectionEquality()
+                .equals(other.backdropPath, backdropPath));
   }
 
   @JsonKey(ignore: true)
@@ -172,7 +201,8 @@ class _$_MoviesGetDetailsResponseDto implements _MoviesGetDetailsResponseDto {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(title),
       const DeepCollectionEquality().hash(overview),
-      const DeepCollectionEquality().hash(posterPath));
+      const DeepCollectionEquality().hash(posterPath),
+      const DeepCollectionEquality().hash(backdropPath));
 
   @JsonKey(ignore: true)
   @override
@@ -194,7 +224,8 @@ abstract class _MoviesGetDetailsResponseDto
       {required final int id,
       required final String title,
       final String? overview,
-      final String? posterPath}) = _$_MoviesGetDetailsResponseDto;
+      final String? posterPath,
+      final String? backdropPath}) = _$_MoviesGetDetailsResponseDto;
 
   factory _MoviesGetDetailsResponseDto.fromJson(Map<String, dynamic> json) =
       _$_MoviesGetDetailsResponseDto.fromJson;
@@ -207,6 +238,8 @@ abstract class _MoviesGetDetailsResponseDto
   String? get overview;
   @override
   String? get posterPath;
+  @override
+  String? get backdropPath;
   @override
   @JsonKey(ignore: true)
   _$$_MoviesGetDetailsResponseDtoCopyWith<_$_MoviesGetDetailsResponseDto>
@@ -224,6 +257,7 @@ mixin _$TvGetDetailsResponseDto {
   String get name => throw _privateConstructorUsedError;
   String get overview => throw _privateConstructorUsedError;
   String? get posterPath => throw _privateConstructorUsedError;
+  String? get backdropPath => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -236,7 +270,12 @@ abstract class $TvGetDetailsResponseDtoCopyWith<$Res> {
   factory $TvGetDetailsResponseDtoCopyWith(TvGetDetailsResponseDto value,
           $Res Function(TvGetDetailsResponseDto) then) =
       _$TvGetDetailsResponseDtoCopyWithImpl<$Res>;
-  $Res call({int id, String name, String overview, String? posterPath});
+  $Res call(
+      {int id,
+      String name,
+      String overview,
+      String? posterPath,
+      String? backdropPath});
 }
 
 /// @nodoc
@@ -254,6 +293,7 @@ class _$TvGetDetailsResponseDtoCopyWithImpl<$Res>
     Object? name = freezed,
     Object? overview = freezed,
     Object? posterPath = freezed,
+    Object? backdropPath = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -272,6 +312,10 @@ class _$TvGetDetailsResponseDtoCopyWithImpl<$Res>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      backdropPath: backdropPath == freezed
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -283,7 +327,12 @@ abstract class _$$_TvGetDetailsResponseDtoCopyWith<$Res>
           $Res Function(_$_TvGetDetailsResponseDto) then) =
       __$$_TvGetDetailsResponseDtoCopyWithImpl<$Res>;
   @override
-  $Res call({int id, String name, String overview, String? posterPath});
+  $Res call(
+      {int id,
+      String name,
+      String overview,
+      String? posterPath,
+      String? backdropPath});
 }
 
 /// @nodoc
@@ -304,6 +353,7 @@ class __$$_TvGetDetailsResponseDtoCopyWithImpl<$Res>
     Object? name = freezed,
     Object? overview = freezed,
     Object? posterPath = freezed,
+    Object? backdropPath = freezed,
   }) {
     return _then(_$_TvGetDetailsResponseDto(
       id: id == freezed
@@ -322,6 +372,10 @@ class __$$_TvGetDetailsResponseDtoCopyWithImpl<$Res>
           ? _value.posterPath
           : posterPath // ignore: cast_nullable_to_non_nullable
               as String?,
+      backdropPath: backdropPath == freezed
+          ? _value.backdropPath
+          : backdropPath // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -333,7 +387,8 @@ class _$_TvGetDetailsResponseDto implements _TvGetDetailsResponseDto {
       {required this.id,
       required this.name,
       required this.overview,
-      this.posterPath});
+      this.posterPath,
+      this.backdropPath});
 
   factory _$_TvGetDetailsResponseDto.fromJson(Map<String, dynamic> json) =>
       _$$_TvGetDetailsResponseDtoFromJson(json);
@@ -346,10 +401,12 @@ class _$_TvGetDetailsResponseDto implements _TvGetDetailsResponseDto {
   final String overview;
   @override
   final String? posterPath;
+  @override
+  final String? backdropPath;
 
   @override
   String toString() {
-    return 'TvGetDetailsResponseDto(id: $id, name: $name, overview: $overview, posterPath: $posterPath)';
+    return 'TvGetDetailsResponseDto(id: $id, name: $name, overview: $overview, posterPath: $posterPath, backdropPath: $backdropPath)';
   }
 
   @override
@@ -361,7 +418,9 @@ class _$_TvGetDetailsResponseDto implements _TvGetDetailsResponseDto {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.overview, overview) &&
             const DeepCollectionEquality()
-                .equals(other.posterPath, posterPath));
+                .equals(other.posterPath, posterPath) &&
+            const DeepCollectionEquality()
+                .equals(other.backdropPath, backdropPath));
   }
 
   @JsonKey(ignore: true)
@@ -371,7 +430,8 @@ class _$_TvGetDetailsResponseDto implements _TvGetDetailsResponseDto {
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(overview),
-      const DeepCollectionEquality().hash(posterPath));
+      const DeepCollectionEquality().hash(posterPath),
+      const DeepCollectionEquality().hash(backdropPath));
 
   @JsonKey(ignore: true)
   @override
@@ -393,7 +453,8 @@ abstract class _TvGetDetailsResponseDto implements TvGetDetailsResponseDto {
       {required final int id,
       required final String name,
       required final String overview,
-      final String? posterPath}) = _$_TvGetDetailsResponseDto;
+      final String? posterPath,
+      final String? backdropPath}) = _$_TvGetDetailsResponseDto;
 
   factory _TvGetDetailsResponseDto.fromJson(Map<String, dynamic> json) =
       _$_TvGetDetailsResponseDto.fromJson;
@@ -406,6 +467,8 @@ abstract class _TvGetDetailsResponseDto implements TvGetDetailsResponseDto {
   String get overview;
   @override
   String? get posterPath;
+  @override
+  String? get backdropPath;
   @override
   @JsonKey(ignore: true)
   _$$_TvGetDetailsResponseDtoCopyWith<_$_TvGetDetailsResponseDto>

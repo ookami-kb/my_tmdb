@@ -47,6 +47,7 @@ extension on MoviesGetDetailsResponseDto {
         title: title,
         poster: posterPath?.let((it) => Uri.parse('$baseImageUrl$it')),
         overview: overview ?? '',
+        backdrop: backdropPath?.let((it) => Uri.parse('$baseImageUrl$it')),
       );
 }
 
@@ -56,6 +57,7 @@ extension on TvGetDetailsResponseDto {
         title: name,
         poster: posterPath?.let((it) => Uri.parse('$baseImageUrl$it')),
         overview: overview,
+        backdrop: backdropPath?.let((it) => Uri.parse('$baseImageUrl$it')),
       );
 }
 

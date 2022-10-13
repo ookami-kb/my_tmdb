@@ -12,8 +12,13 @@ class HomeScreen extends StatelessWidget {
   Widget build(BuildContext context) => Column(
         children: [
           PopularMoviesWidget(
-            onItemPressed: (id) => context.router
-                .navigate(DetailsRoute(id: id, detailsType: DetailsType.movie)),
+            onItemPressed: (movie) => context.router.navigate(
+              DetailsRoute(
+                id: movie.id,
+                detailsType: DetailsType.movie,
+                initialTitle: movie.title,
+              ),
+            ),
           ),
         ],
       );

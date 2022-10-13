@@ -4,7 +4,7 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
 import '../../di.dart';
-import 'src/popular_movie.dart';
+import 'popular_movie.dart';
 import 'src/popular_movies_repository.dart';
 
 class PopularMoviesWidget extends StatefulWidget {
@@ -13,7 +13,7 @@ class PopularMoviesWidget extends StatefulWidget {
     required this.onItemPressed,
   });
 
-  final ValueSetter<int> onItemPressed;
+  final ValueSetter<PopularMovie> onItemPressed;
 
   @override
   State<PopularMoviesWidget> createState() => _PopularMoviesWidgetState();
@@ -67,7 +67,7 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                             width: 160,
                             child: Card(
                               child: InkWell(
-                                onTap: () => widget.onItemPressed(movie.id),
+                                onTap: () => widget.onItemPressed(movie),
                                 child: Column(
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   crossAxisAlignment: CrossAxisAlignment.start,

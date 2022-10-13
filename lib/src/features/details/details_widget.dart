@@ -14,10 +14,12 @@ class DetailsWidget extends StatefulWidget {
     super.key,
     required this.id,
     required this.detailsType,
+    this.initialTitle = '',
   });
 
   final int id;
   final DetailsType detailsType;
+  final String initialTitle;
 
   @override
   State<DetailsWidget> createState() => _DetailsWidgetState();
@@ -47,6 +49,9 @@ class _DetailsWidgetState extends State<DetailsWidget> {
   @override
   Widget build(BuildContext context) => FutureBuilder<Result<Details>>(
         future: _result,
-        builder: (context, snapshot) => DetailsContent(details: snapshot.data),
+        builder: (context, snapshot) => DetailsContent(
+          details: snapshot.data,
+          initialTitle: widget.initialTitle,
+        ),
       );
 }
