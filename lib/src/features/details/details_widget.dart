@@ -50,7 +50,11 @@ class _DetailsWidgetState extends State<DetailsWidget> {
   Widget build(BuildContext context) => FutureBuilder<Result<Details>>(
         future: _result,
         builder: (context, snapshot) => DetailsContent(
-          details: snapshot.data,
+          status: snapshot.data?.fold(
+                (_) => const DetailsLoadingStatus.failure(),
+                DetailsLoadingStatus.success,
+              ) ??
+              const DetailsLoadingStatus.loading(),
           initialTitle: widget.initialTitle,
         ),
       );

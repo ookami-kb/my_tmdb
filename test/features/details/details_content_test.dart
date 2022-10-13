@@ -1,4 +1,3 @@
-import 'package:dfunc/dfunc.dart';
 import 'package:golden_toolkit/golden_toolkit.dart';
 import 'package:my_tmdb/src/features/details/src/details.dart';
 import 'package:my_tmdb/src/features/details/src/widgets/details_content.dart';
@@ -17,21 +16,21 @@ void main() {
       ..addScenario(
         name: 'loading',
         widget: const DetailsContent(
-          details: null,
+          status: DetailsLoadingStatus.loading(),
           initialTitle: 'Test movie',
         ),
       )
       ..addScenario(
         name: 'error',
-        widget: DetailsContent(
-          details: Either.left(Exception()),
+        widget: const DetailsContent(
+          status: DetailsLoadingStatus.failure(),
           initialTitle: 'Test movie',
         ),
       )
       ..addScenario(
         name: 'success',
         widget: const DetailsContent(
-          details: Either.right(
+          status: DetailsLoadingStatus.success(
             Details.movie(
               id: 1,
               title: 'Test movie',

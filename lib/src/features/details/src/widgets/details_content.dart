@@ -1,30 +1,34 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
 import '../details.dart';
+
+part 'details_content.freezed.dart';
+
+@freezed
+class DetailsLoadingStatus with _$DetailsLoadingStatus {
+  const factory DetailsLoadingStatus.loading() = _Loading;
+  const factory DetailsLoadingStatus.failure() = _Failure;
+  const factory DetailsLoadingStatus.success(Details value) = _Success;
+}
 
 class DetailsContent extends StatelessWidget {
   const DetailsContent({
     super.key,
-    required this.details,
+    required this.status,
     required this.initialTitle,
   });
 
   final String initialTitle;
 
-  final Either<Exception, Details>? details;
+  final DetailsLoadingStatus status;
 
   @override
   Widget build(BuildContext context) {
-    final details = this.details;
-
-    final isLoading = details == null;
-
-    final d = details?.fold((_) => null, identity);
-
-    final posterUrl = d?.poster;
-    final backdropUrl = d?.backdrop;
+    final title = status.whenOrNull(success: (it) => it.title) ?? initialTitle;
+    final posterUrl = status.whenOrNull(success: (it) => it.poster);
+    final backdropUrl = status.whenOrNull(success: (it) => it.backdrop);
 
     return CustomScrollView(
       slivers: [
@@ -53,16 +57,18 @@ class DetailsContent extends StatelessWidget {
                   ),
           ),
         ),
-        SliverToBoxAdapter(child: _MovieTitle(title: d?.title ?? initialTitle)),
-        if (isLoading)
-          const SliverFillRemaining(
+        SliverToBoxAdapter(child: _MovieTitle(title: title)),
+        status.when(
+          loading: () => const SliverFillRemaining(
             child: Center(child: CircularProgressIndicator()),
           ),
-        if (details?.isLeft() == true)
-          const SliverFillRemaining(
+          failure: () => const SliverFillRemaining(
             child: Center(child: Text('Something went wrong.')),
           ),
-        SliverToBoxAdapter(child: _MovieOverview(overview: d?.overview ?? '')),
+          success: (v) => SliverToBoxAdapter(
+            child: _MovieOverview(overview: v.overview),
+          ),
+        ),
       ],
     );
   }
