@@ -9,8 +9,9 @@ class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 
   @override
-  Widget build(BuildContext context) => SafeArea(
-        child: Column(
+  Widget build(BuildContext context) => Scaffold(
+        appBar: AppBar(title: const Text('MyTMDB')),
+        body: Column(
           children: [
             PopularMoviesWidget(
               onItemPressed: (movie) => context.router.navigate(

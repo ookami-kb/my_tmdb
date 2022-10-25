@@ -11,15 +11,13 @@ class DashboardScreen extends StatelessWidget {
         routes: const [
           HomeRoute(),
           SearchRoute(),
+          ProfileRoute(),
         ],
         builder: (context, child, animation) {
           final tabsRouter = AutoTabsRouter.of(context);
 
           return Scaffold(
-            body: FadeTransition(
-              opacity: animation,
-              child: child,
-            ),
+            body: child,
             bottomNavigationBar: BottomNavigationBar(
               currentIndex: tabsRouter.activeIndex,
               onTap: tabsRouter.setActiveIndex,
@@ -31,6 +29,10 @@ class DashboardScreen extends StatelessWidget {
                 BottomNavigationBarItem(
                   label: 'Search',
                   icon: Icon(Icons.search),
+                ),
+                BottomNavigationBarItem(
+                  label: 'Profile',
+                  icon: Icon(Icons.person),
                 ),
               ],
             ),
