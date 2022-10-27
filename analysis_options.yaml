@@ -12,3 +12,12 @@ analyzer:
   exclude:
     - "**/di.config.dart"
     - "**/*.gr.dart"
+
+dart_code_metrics:
+  rules:
+    avoid-banned-imports:
+      severity: error
+      entries:
+        - paths: ["lib/.*\\.dart"]
+          deny: ["[^./]+/src/.*"]
+          message: "Do not import from src directory outside of the module."
