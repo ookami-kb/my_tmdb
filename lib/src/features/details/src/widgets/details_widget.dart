@@ -2,12 +2,12 @@ import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../app/widgets/palette_theme.dart';
-import '../../di.dart';
-import 'details_type.dart';
-import 'src/details.dart';
-import 'src/details_repository.dart';
-import 'src/widgets/details_content.dart';
+import '../../../../core/widgets/palette_theme.dart';
+import '../../../../di.dart';
+import '../details.dart';
+import '../details_repository.dart';
+import '../details_type.dart';
+import 'details_content.dart';
 
 class DetailsWidget extends StatefulWidget {
   const DetailsWidget({

@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:provider/single_child_widget.dart';
 
-import '../../auth_status.dart';
 import '../auth_bloc.dart';
+import '../auth_status.dart';
 
 class AuthFailureNotifier extends SingleChildStatelessWidget {
   const AuthFailureNotifier({super.key});

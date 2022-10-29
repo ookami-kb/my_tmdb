@@ -3,8 +3,8 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../config/config_repository.dart';
-import '../search_result.dart';
 import 'api/search_api_client.dart';
+import 'search_result.dart';
 
 @lazySingleton
 class SearchRepository {

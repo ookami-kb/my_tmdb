@@ -2,9 +2,9 @@ import 'package:dfunc/dfunc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../config/config_repository.dart';
-import '../details_type.dart';
 import 'api/details_api_client.dart';
 import 'details.dart';
+import 'details_type.dart';
 
 @lazySingleton
 class DetailsRepository {

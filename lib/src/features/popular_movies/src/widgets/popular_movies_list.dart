@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
-import '../../popular_movie.dart';
+import '../popular_movie.dart';
 
 class PopularMoviesList extends StatelessWidget {
   const PopularMoviesList({

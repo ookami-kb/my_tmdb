@@ -3,8 +3,8 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../config/config_repository.dart';
-import '../popular_movie.dart';
 import 'api/popular_movies_api_client.dart';
+import 'popular_movie.dart';
 
 @lazySingleton
 class PopularMoviesRepository {

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../features/auth/auth_module.dart';
-import '../../features/auth/widgets/login_form.dart';
-import '../../features/auth/widgets/logout_button.dart';
+import '../../features/auth/module.dart';
 
 class ProfileScreen extends StatelessWidget {
   const ProfileScreen({super.key});

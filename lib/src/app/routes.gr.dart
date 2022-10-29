@@ -14,7 +14,7 @@
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
 
-import '../features/details/details_type.dart' as _i8;
+import '../features/details/module.dart' as _i8;
 import 'screens/dashboard_screen.dart' as _i1;
 import 'screens/details_screen.dart' as _i2;
 import 'screens/home_screen.dart' as _i3;

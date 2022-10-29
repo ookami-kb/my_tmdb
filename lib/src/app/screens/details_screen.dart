@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../features/details/details_type.dart';
-import '../../features/details/details_widget.dart';
-import '../widgets/palette_theme.dart';
+import '../../core/widgets/palette_theme.dart';
+import '../../features/details/module.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({

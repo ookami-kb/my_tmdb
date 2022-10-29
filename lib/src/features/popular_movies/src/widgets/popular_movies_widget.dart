@@ -2,10 +2,10 @@ import 'package:dfunc/dfunc.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
-import '../../di.dart';
-import 'popular_movie.dart';
-import 'src/popular_movies_repository.dart';
-import 'src/widgets/popular_movies_list.dart';
+import '../../../../di.dart';
+import '../popular_movie.dart';
+import '../popular_movies_repository.dart';
+import 'popular_movies_list.dart';
 
 class PopularMoviesWidget extends StatefulWidget {
   const PopularMoviesWidget({

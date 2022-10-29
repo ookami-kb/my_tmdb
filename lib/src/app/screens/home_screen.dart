@@ -1,8 +1,8 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/details/details_type.dart';
-import '../../features/popular_movies/popular_movies_widget.dart';
+import '../../features/details/module.dart';
+import '../../features/popular_movies/module.dart';
 import '../routes.dart';
 
 class HomeScreen extends StatelessWidget {
