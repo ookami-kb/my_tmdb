@@ -21,3 +21,11 @@ dart_code_metrics:
         - paths: ["lib/.*\\.dart"]
           deny: ["[^./]+/src/.*"]
           message: "Do not import from src directory outside of the module."
+
+        - paths: ["lib/src/core/.*\\.dart"]
+          deny: [".+/app/.*"]
+          message: "Core modules should not depend on app."
+
+        - paths: ["lib/src/features/.*\\.dart"]
+          deny: [".+/app/.*"]
+          message: "Feature modules should not depend on app."

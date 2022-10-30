@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/details/module.dart';
 import '../../features/search/module.dart';
-import '../routes.dart';
+import '../routes.gr.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});

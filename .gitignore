@@ -46,3 +46,5 @@ app.*.map.json
 .vscode/
 
 test/**/failures/*.png
+
+*.dot

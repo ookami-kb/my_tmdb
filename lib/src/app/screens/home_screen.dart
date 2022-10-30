@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../features/details/module.dart';
 import '../../features/popular_movies/module.dart';
-import '../routes.dart';
+import '../routes.gr.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});

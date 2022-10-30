@@ -1,12 +1,11 @@
 import 'package:auto_route/auto_route.dart';
 
+import 'routes.gr.dart';
 import 'screens/dashboard_screen.dart';
 import 'screens/details_screen.dart';
 import 'screens/home_screen.dart';
 import 'screens/profile_screen.dart';
 import 'screens/search_screen.dart';
-
-export 'routes.gr.dart';
 
 @MaterialAutoRouter(
   replaceInRouteName: 'Screen,Route',
@@ -24,3 +23,5 @@ export 'routes.gr.dart';
   ],
 )
 class $AppRouter {}
+
+class MyTmdbRouter extends AppRouter {}

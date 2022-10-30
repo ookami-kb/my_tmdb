@@ -24,4 +24,4 @@ class MyTmdbApp extends StatelessWidget {
       );
 }
 
-final _appRouter = AppRouter();
+final _appRouter = MyTmdbRouter();
