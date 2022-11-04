@@ -10,6 +10,10 @@ The app itself is the client to [TMDB API][1]: some abstract "movie" app. There 
 
 Why "crowdsourced"? You're free to participate in this project in any form: ask questions if something is unclear; argue if the architecture is too simple and too complex (but get ready to prove your point of view); request some features to implement to see how (or if) it can be implemented using this KISS approach. And, of course, create PRs and participate in discussions.
 
+## Modular architecture
+
+![Dependencies graph](deps.png)
+
 ## Attribution
 
 This product uses the TMDB API but is not endorsed or certified by TMDB.
