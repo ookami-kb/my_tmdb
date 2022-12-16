@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
 
-import '../../features/details/module.dart';
+import '../../core/content.dart';
 import '../../features/search/module.dart';
 import '../routes.gr.dart';
 
@@ -15,10 +15,12 @@ class SearchScreen extends StatelessWidget {
         body: SearchWidget(
           onItemPressed: (item) => context.router.navigate(
             DetailsRoute(
-              id: item.id,
-              detailsType: item.map(
-                movie: always(DetailsType.movie),
-                tvShow: always(DetailsType.tv),
+              id: ContentId(
+                value: item.id,
+                type: item.map(
+                  movie: always(ContentType.movie),
+                  tvShow: always(ContentType.tv),
+                ),
               ),
               initialTitle: item.title,
             ),

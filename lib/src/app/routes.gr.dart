@@ -14,7 +14,7 @@
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
 
-import '../features/details/module.dart' as _i8;
+import '../core/content.dart' as _i8;
 import 'screens/dashboard_screen.dart' as _i1;
 import 'screens/details_screen.dart' as _i2;
 import 'screens/home_screen.dart' as _i3;
@@ -40,7 +40,6 @@ class AppRouter extends _i6.RootStackRouter {
         child: _i2.DetailsScreen(
           key: args.key,
           id: args.id,
-          detailsType: args.detailsType,
           initialTitle: args.initialTitle,
         ),
       );
@@ -113,8 +112,7 @@ class DashboardRoute extends _i6.PageRouteInfo<void> {
 class DetailsRoute extends _i6.PageRouteInfo<DetailsRouteArgs> {
   DetailsRoute({
     _i7.Key? key,
-    required int id,
-    required _i8.DetailsType detailsType,
+    required _i8.ContentId id,
     String initialTitle = '',
   }) : super(
           DetailsRoute.name,
@@ -122,7 +120,6 @@ class DetailsRoute extends _i6.PageRouteInfo<DetailsRouteArgs> {
           args: DetailsRouteArgs(
             key: key,
             id: id,
-            detailsType: detailsType,
             initialTitle: initialTitle,
           ),
         );
@@ -134,21 +131,18 @@ class DetailsRouteArgs {
   const DetailsRouteArgs({
     this.key,
     required this.id,
-    required this.detailsType,
     this.initialTitle = '',
   });
 
   final _i7.Key? key;
 
-  final int id;
-
-  final _i8.DetailsType detailsType;
+  final _i8.ContentId id;
 
   final String initialTitle;
 
   @override
   String toString() {
-    return 'DetailsRouteArgs{key: $key, id: $id, detailsType: $detailsType, initialTitle: $initialTitle}';
+    return 'DetailsRouteArgs{key: $key, id: $id, initialTitle: $initialTitle}';
   }
 }
 

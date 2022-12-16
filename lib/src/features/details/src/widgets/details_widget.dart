@@ -2,23 +2,21 @@ import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../../../../core/content.dart';
 import '../../../../core/widgets/palette_theme.dart';
 import '../../../../di.dart';
 import '../details.dart';
 import '../details_repository.dart';
-import '../details_type.dart';
 import 'details_content.dart';
 
 class DetailsWidget extends StatefulWidget {
   const DetailsWidget({
     super.key,
     required this.id,
-    required this.detailsType,
     this.initialTitle = '',
   });
 
-  final int id;
-  final DetailsType detailsType;
+  final ContentId id;
   final String initialTitle;
 
   @override
@@ -26,10 +24,7 @@ class DetailsWidget extends StatefulWidget {
 }
 
 class _DetailsWidgetState extends State<DetailsWidget> {
-  late final _result = sl<DetailsRepository>().fetchDetails(
-    widget.id,
-    type: widget.detailsType,
-  );
+  late final _result = sl<DetailsRepository>().fetchDetails(widget.id);
 
   @override
   void initState() {

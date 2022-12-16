@@ -1,10 +1,10 @@
 import 'package:dfunc/dfunc.dart';
 import 'package:injectable/injectable.dart';
 
+import '../../../core/content.dart';
 import '../../config/config_repository.dart';
 import 'api/details_api_client.dart';
 import 'details.dart';
-import 'details_type.dart';
 
 @lazySingleton
 class DetailsRepository {
@@ -20,21 +20,18 @@ class DetailsRepository {
   final String _apiKey;
   final ConfigRepository _configRepository;
 
-  AsyncResult<Details> fetchDetails(
-    int id, {
-    required DetailsType type,
-  }) async {
+  AsyncResult<Details> fetchDetails(ContentId id) async {
     final baseImageUrl = await _configRepository.getBaseImageUrl();
 
-    switch (type) {
-      case DetailsType.movie:
+    switch (id.type) {
+      case ContentType.movie:
         return _apiClient
-            .getMovieDetails(apiKey: _apiKey, id: id)
+            .getMovieDetails(apiKey: _apiKey, id: id.value)
             .then((dto) => dto.toModel(baseImageUrl: baseImageUrl))
             .toResult();
-      case DetailsType.tv:
+      case ContentType.tv:
         return _apiClient
-            .getTvDetails(apiKey: _apiKey, id: id)
+            .getTvDetails(apiKey: _apiKey, id: id.value)
             .then((dto) => dto.toModel(baseImageUrl: baseImageUrl))
             .toResult();
     }

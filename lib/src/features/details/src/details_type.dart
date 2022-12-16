@@ -1,1 +1,0 @@
-enum DetailsType { movie, tv }

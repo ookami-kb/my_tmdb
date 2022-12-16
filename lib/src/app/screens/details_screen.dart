@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../../core/content.dart';
 import '../../core/widgets/palette_theme.dart';
 import '../../features/details/module.dart';
 
@@ -7,12 +8,10 @@ class DetailsScreen extends StatelessWidget {
   const DetailsScreen({
     super.key,
     required this.id,
-    required this.detailsType,
     this.initialTitle = '',
   });
 
-  final int id;
-  final DetailsType detailsType;
+  final ContentId id;
   final String initialTitle;
 
   @override
@@ -20,7 +19,6 @@ class DetailsScreen extends StatelessWidget {
         child: Scaffold(
           body: DetailsWidget(
             id: id,
-            detailsType: detailsType,
             initialTitle: initialTitle,
           ),
         ),
