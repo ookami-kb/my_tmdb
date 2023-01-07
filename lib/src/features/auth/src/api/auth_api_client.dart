@@ -20,10 +20,22 @@ abstract class AuthApiClient {
     @Query('api_key') required String apiKey,
   });
 
-  @POST('/authentication/token/validate_with_login')
-  Future<CreateSessionResponseDto> createSession({
+  @GET('/account')
+  Future<AccountResponseDto> getAccountDetails({
     @Query('api_key') required String apiKey,
-    @Body() required CreateSessionRequestDto body,
+    @Query('session_id') required String sessionId,
+  });
+
+  @POST('/authentication/session/new')
+  Future<NewSessionResponseDto> newSession({
+    @Query('api_key') required String apiKey,
+    @Body() required NewSessionRequestDto body,
+  });
+
+  @POST('/authentication/token/validate_with_login')
+  Future<ValidateWithLoginResponseDto> validateWithLogin({
+    @Query('api_key') required String apiKey,
+    @Body() required ValidateWithLoginRequestDto body,
   });
 }
 
@@ -39,24 +51,55 @@ class NewAuthTokenResponseDto with _$NewAuthTokenResponseDto {
 }
 
 @freezed
-class CreateSessionRequestDto with _$CreateSessionRequestDto {
-  const factory CreateSessionRequestDto({
+class ValidateWithLoginRequestDto with _$ValidateWithLoginRequestDto {
+  const factory ValidateWithLoginRequestDto({
     required String username,
     required String password,
     required String requestToken,
-  }) = _CreateSessionRequestDto;
+  }) = _ValidateWithLoginRequestDto;
 
-  factory CreateSessionRequestDto.fromJson(Map<String, dynamic> json) =>
-      _$CreateSessionRequestDtoFromJson(json);
+  factory ValidateWithLoginRequestDto.fromJson(Map<String, dynamic> json) =>
+      _$ValidateWithLoginRequestDtoFromJson(json);
 }
 
 @freezed
-class CreateSessionResponseDto with _$CreateSessionResponseDto {
-  const factory CreateSessionResponseDto({
+class ValidateWithLoginResponseDto with _$ValidateWithLoginResponseDto {
+  const factory ValidateWithLoginResponseDto({
     required bool success,
     required String requestToken,
-  }) = _CreateSessionResponseDto;
+  }) = _ValidateWithLoginResponseDto;
 
-  factory CreateSessionResponseDto.fromJson(Map<String, dynamic> json) =>
-      _$CreateSessionResponseDtoFromJson(json);
+  factory ValidateWithLoginResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$ValidateWithLoginResponseDtoFromJson(json);
+}
+
+@freezed
+class AccountResponseDto with _$AccountResponseDto {
+  const factory AccountResponseDto({
+    required int id,
+  }) = _AccountResponseDto;
+
+  factory AccountResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$AccountResponseDtoFromJson(json);
+}
+
+@freezed
+class NewSessionRequestDto with _$NewSessionRequestDto {
+  const factory NewSessionRequestDto({
+    required String requestToken,
+  }) = _NewSessionRequestDto;
+
+  factory NewSessionRequestDto.fromJson(Map<String, dynamic> json) =>
+      _$NewSessionRequestDtoFromJson(json);
+}
+
+@freezed
+class NewSessionResponseDto with _$NewSessionResponseDto {
+  const factory NewSessionResponseDto({
+    required bool success,
+    required String sessionId,
+  }) = _NewSessionResponseDto;
+
+  factory NewSessionResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$NewSessionResponseDtoFromJson(json);
 }

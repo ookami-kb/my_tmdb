@@ -3,6 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
 import 'api/auth_api_client.dart';
+import 'auth_info.dart';
 
 @injectable
 class AuthRepository {
@@ -18,22 +19,38 @@ class AuthRepository {
   final String _apiKey;
   final FlutterSecureStorage _storage;
 
-  AsyncResult<String> authenticate({
+  AsyncResult<Authenticated> authenticate({
     required String username,
     required String password,
   }) =>
       tryEitherAsync((_) async {
         final tokenResponse = await _apiClient.newAuthToken(apiKey: _apiKey);
-        final session = await _apiClient.createSession(
+        final validation = await _apiClient.validateWithLogin(
           apiKey: _apiKey,
-          body: CreateSessionRequestDto(
+          body: ValidateWithLoginRequestDto(
             username: username,
             password: password,
             requestToken: tokenResponse.requestToken,
           ),
         );
 
-        return session.requestToken;
+        if (!validation.success) throw Exception('Invalid request token.');
+
+        final session = await _apiClient.newSession(
+          apiKey: _apiKey,
+          body: NewSessionRequestDto(requestToken: validation.requestToken),
+        );
+
+        final account = await _apiClient.getAccountDetails(
+          apiKey: _apiKey,
+          sessionId: session.sessionId,
+        );
+
+        return Authenticated(
+          accountId: account.id,
+          sessionId: session.sessionId,
+          name: username,
+        );
       });
 
   Future<String?> loadUsername() => _storage.read(key: _keyUsername);

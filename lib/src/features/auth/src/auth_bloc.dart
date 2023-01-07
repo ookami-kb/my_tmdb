@@ -64,11 +64,7 @@ class AuthBloc extends Bloc<_Event, _State> {
     if (username != null && password != null) {
       await _authRepository
           .authenticate(username: username, password: password)
-          .doOnRightAsync((sessionId) {
-        final authInfo = AuthInfo.authenticated(
-          sessionId: sessionId,
-          name: username,
-        );
+          .doOnRightAsync((authInfo) {
         emit(AuthState(info: authInfo, status: const AuthStatus.none()));
       });
     }
@@ -87,11 +83,7 @@ class AuthBloc extends Bloc<_Event, _State> {
         emit(state.copyWith(status: const AuthStatus.failure()));
         emit(state.copyWith(status: const AuthStatus.none()));
       },
-      (sessionId) async {
-        final authInfo = AuthInfo.authenticated(
-          sessionId: sessionId,
-          name: event.username,
-        );
+      (authInfo) async {
         await _authRepository.saveUsername(event.username);
         await _authRepository.savePassword(event.password);
         emit(AuthState(info: authInfo, status: const AuthStatus.none()));

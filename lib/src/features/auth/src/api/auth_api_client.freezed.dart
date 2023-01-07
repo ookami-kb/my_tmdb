@@ -174,39 +174,40 @@ abstract class _NewAuthTokenResponseDto implements NewAuthTokenResponseDto {
       get copyWith => throw _privateConstructorUsedError;
 }
 
-CreateSessionRequestDto _$CreateSessionRequestDtoFromJson(
+ValidateWithLoginRequestDto _$ValidateWithLoginRequestDtoFromJson(
     Map<String, dynamic> json) {
-  return _CreateSessionRequestDto.fromJson(json);
+  return _ValidateWithLoginRequestDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CreateSessionRequestDto {
+mixin _$ValidateWithLoginRequestDto {
   String get username => throw _privateConstructorUsedError;
   String get password => throw _privateConstructorUsedError;
   String get requestToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreateSessionRequestDtoCopyWith<CreateSessionRequestDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ValidateWithLoginRequestDtoCopyWith<ValidateWithLoginRequestDto>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CreateSessionRequestDtoCopyWith<$Res> {
-  factory $CreateSessionRequestDtoCopyWith(CreateSessionRequestDto value,
-          $Res Function(CreateSessionRequestDto) then) =
-      _$CreateSessionRequestDtoCopyWithImpl<$Res>;
+abstract class $ValidateWithLoginRequestDtoCopyWith<$Res> {
+  factory $ValidateWithLoginRequestDtoCopyWith(
+          ValidateWithLoginRequestDto value,
+          $Res Function(ValidateWithLoginRequestDto) then) =
+      _$ValidateWithLoginRequestDtoCopyWithImpl<$Res>;
   $Res call({String username, String password, String requestToken});
 }
 
 /// @nodoc
-class _$CreateSessionRequestDtoCopyWithImpl<$Res>
-    implements $CreateSessionRequestDtoCopyWith<$Res> {
-  _$CreateSessionRequestDtoCopyWithImpl(this._value, this._then);
+class _$ValidateWithLoginRequestDtoCopyWithImpl<$Res>
+    implements $ValidateWithLoginRequestDtoCopyWith<$Res> {
+  _$ValidateWithLoginRequestDtoCopyWithImpl(this._value, this._then);
 
-  final CreateSessionRequestDto _value;
+  final ValidateWithLoginRequestDto _value;
   // ignore: unused_field
-  final $Res Function(CreateSessionRequestDto) _then;
+  final $Res Function(ValidateWithLoginRequestDto) _then;
 
   @override
   $Res call({
@@ -232,26 +233,28 @@ class _$CreateSessionRequestDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_CreateSessionRequestDtoCopyWith<$Res>
-    implements $CreateSessionRequestDtoCopyWith<$Res> {
-  factory _$$_CreateSessionRequestDtoCopyWith(_$_CreateSessionRequestDto value,
-          $Res Function(_$_CreateSessionRequestDto) then) =
-      __$$_CreateSessionRequestDtoCopyWithImpl<$Res>;
+abstract class _$$_ValidateWithLoginRequestDtoCopyWith<$Res>
+    implements $ValidateWithLoginRequestDtoCopyWith<$Res> {
+  factory _$$_ValidateWithLoginRequestDtoCopyWith(
+          _$_ValidateWithLoginRequestDto value,
+          $Res Function(_$_ValidateWithLoginRequestDto) then) =
+      __$$_ValidateWithLoginRequestDtoCopyWithImpl<$Res>;
   @override
   $Res call({String username, String password, String requestToken});
 }
 
 /// @nodoc
-class __$$_CreateSessionRequestDtoCopyWithImpl<$Res>
-    extends _$CreateSessionRequestDtoCopyWithImpl<$Res>
-    implements _$$_CreateSessionRequestDtoCopyWith<$Res> {
-  __$$_CreateSessionRequestDtoCopyWithImpl(_$_CreateSessionRequestDto _value,
-      $Res Function(_$_CreateSessionRequestDto) _then)
-      : super(_value, (v) => _then(v as _$_CreateSessionRequestDto));
+class __$$_ValidateWithLoginRequestDtoCopyWithImpl<$Res>
+    extends _$ValidateWithLoginRequestDtoCopyWithImpl<$Res>
+    implements _$$_ValidateWithLoginRequestDtoCopyWith<$Res> {
+  __$$_ValidateWithLoginRequestDtoCopyWithImpl(
+      _$_ValidateWithLoginRequestDto _value,
+      $Res Function(_$_ValidateWithLoginRequestDto) _then)
+      : super(_value, (v) => _then(v as _$_ValidateWithLoginRequestDto));
 
   @override
-  _$_CreateSessionRequestDto get _value =>
-      super._value as _$_CreateSessionRequestDto;
+  _$_ValidateWithLoginRequestDto get _value =>
+      super._value as _$_ValidateWithLoginRequestDto;
 
   @override
   $Res call({
@@ -259,7 +262,7 @@ class __$$_CreateSessionRequestDtoCopyWithImpl<$Res>
     Object? password = freezed,
     Object? requestToken = freezed,
   }) {
-    return _then(_$_CreateSessionRequestDto(
+    return _then(_$_ValidateWithLoginRequestDto(
       username: username == freezed
           ? _value.username
           : username // ignore: cast_nullable_to_non_nullable
@@ -278,14 +281,14 @@ class __$$_CreateSessionRequestDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateSessionRequestDto implements _CreateSessionRequestDto {
-  const _$_CreateSessionRequestDto(
+class _$_ValidateWithLoginRequestDto implements _ValidateWithLoginRequestDto {
+  const _$_ValidateWithLoginRequestDto(
       {required this.username,
       required this.password,
       required this.requestToken});
 
-  factory _$_CreateSessionRequestDto.fromJson(Map<String, dynamic> json) =>
-      _$$_CreateSessionRequestDtoFromJson(json);
+  factory _$_ValidateWithLoginRequestDto.fromJson(Map<String, dynamic> json) =>
+      _$$_ValidateWithLoginRequestDtoFromJson(json);
 
   @override
   final String username;
@@ -296,14 +299,14 @@ class _$_CreateSessionRequestDto implements _CreateSessionRequestDto {
 
   @override
   String toString() {
-    return 'CreateSessionRequestDto(username: $username, password: $password, requestToken: $requestToken)';
+    return 'ValidateWithLoginRequestDto(username: $username, password: $password, requestToken: $requestToken)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateSessionRequestDto &&
+            other is _$_ValidateWithLoginRequestDto &&
             const DeepCollectionEquality().equals(other.username, username) &&
             const DeepCollectionEquality().equals(other.password, password) &&
             const DeepCollectionEquality()
@@ -320,27 +323,27 @@ class _$_CreateSessionRequestDto implements _CreateSessionRequestDto {
 
   @JsonKey(ignore: true)
   @override
-  _$$_CreateSessionRequestDtoCopyWith<_$_CreateSessionRequestDto>
-      get copyWith =>
-          __$$_CreateSessionRequestDtoCopyWithImpl<_$_CreateSessionRequestDto>(
-              this, _$identity);
+  _$$_ValidateWithLoginRequestDtoCopyWith<_$_ValidateWithLoginRequestDto>
+      get copyWith => __$$_ValidateWithLoginRequestDtoCopyWithImpl<
+          _$_ValidateWithLoginRequestDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateSessionRequestDtoToJson(
+    return _$$_ValidateWithLoginRequestDtoToJson(
       this,
     );
   }
 }
 
-abstract class _CreateSessionRequestDto implements CreateSessionRequestDto {
-  const factory _CreateSessionRequestDto(
+abstract class _ValidateWithLoginRequestDto
+    implements ValidateWithLoginRequestDto {
+  const factory _ValidateWithLoginRequestDto(
       {required final String username,
       required final String password,
-      required final String requestToken}) = _$_CreateSessionRequestDto;
+      required final String requestToken}) = _$_ValidateWithLoginRequestDto;
 
-  factory _CreateSessionRequestDto.fromJson(Map<String, dynamic> json) =
-      _$_CreateSessionRequestDto.fromJson;
+  factory _ValidateWithLoginRequestDto.fromJson(Map<String, dynamic> json) =
+      _$_ValidateWithLoginRequestDto.fromJson;
 
   @override
   String get username;
@@ -350,42 +353,43 @@ abstract class _CreateSessionRequestDto implements CreateSessionRequestDto {
   String get requestToken;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateSessionRequestDtoCopyWith<_$_CreateSessionRequestDto>
+  _$$_ValidateWithLoginRequestDtoCopyWith<_$_ValidateWithLoginRequestDto>
       get copyWith => throw _privateConstructorUsedError;
 }
 
-CreateSessionResponseDto _$CreateSessionResponseDtoFromJson(
+ValidateWithLoginResponseDto _$ValidateWithLoginResponseDtoFromJson(
     Map<String, dynamic> json) {
-  return _CreateSessionResponseDto.fromJson(json);
+  return _ValidateWithLoginResponseDto.fromJson(json);
 }
 
 /// @nodoc
-mixin _$CreateSessionResponseDto {
+mixin _$ValidateWithLoginResponseDto {
   bool get success => throw _privateConstructorUsedError;
   String get requestToken => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
-  $CreateSessionResponseDtoCopyWith<CreateSessionResponseDto> get copyWith =>
-      throw _privateConstructorUsedError;
+  $ValidateWithLoginResponseDtoCopyWith<ValidateWithLoginResponseDto>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $CreateSessionResponseDtoCopyWith<$Res> {
-  factory $CreateSessionResponseDtoCopyWith(CreateSessionResponseDto value,
-          $Res Function(CreateSessionResponseDto) then) =
-      _$CreateSessionResponseDtoCopyWithImpl<$Res>;
+abstract class $ValidateWithLoginResponseDtoCopyWith<$Res> {
+  factory $ValidateWithLoginResponseDtoCopyWith(
+          ValidateWithLoginResponseDto value,
+          $Res Function(ValidateWithLoginResponseDto) then) =
+      _$ValidateWithLoginResponseDtoCopyWithImpl<$Res>;
   $Res call({bool success, String requestToken});
 }
 
 /// @nodoc
-class _$CreateSessionResponseDtoCopyWithImpl<$Res>
-    implements $CreateSessionResponseDtoCopyWith<$Res> {
-  _$CreateSessionResponseDtoCopyWithImpl(this._value, this._then);
+class _$ValidateWithLoginResponseDtoCopyWithImpl<$Res>
+    implements $ValidateWithLoginResponseDtoCopyWith<$Res> {
+  _$ValidateWithLoginResponseDtoCopyWithImpl(this._value, this._then);
 
-  final CreateSessionResponseDto _value;
+  final ValidateWithLoginResponseDto _value;
   // ignore: unused_field
-  final $Res Function(CreateSessionResponseDto) _then;
+  final $Res Function(ValidateWithLoginResponseDto) _then;
 
   @override
   $Res call({
@@ -406,34 +410,35 @@ class _$CreateSessionResponseDtoCopyWithImpl<$Res>
 }
 
 /// @nodoc
-abstract class _$$_CreateSessionResponseDtoCopyWith<$Res>
-    implements $CreateSessionResponseDtoCopyWith<$Res> {
-  factory _$$_CreateSessionResponseDtoCopyWith(
-          _$_CreateSessionResponseDto value,
-          $Res Function(_$_CreateSessionResponseDto) then) =
-      __$$_CreateSessionResponseDtoCopyWithImpl<$Res>;
+abstract class _$$_ValidateWithLoginResponseDtoCopyWith<$Res>
+    implements $ValidateWithLoginResponseDtoCopyWith<$Res> {
+  factory _$$_ValidateWithLoginResponseDtoCopyWith(
+          _$_ValidateWithLoginResponseDto value,
+          $Res Function(_$_ValidateWithLoginResponseDto) then) =
+      __$$_ValidateWithLoginResponseDtoCopyWithImpl<$Res>;
   @override
   $Res call({bool success, String requestToken});
 }
 
 /// @nodoc
-class __$$_CreateSessionResponseDtoCopyWithImpl<$Res>
-    extends _$CreateSessionResponseDtoCopyWithImpl<$Res>
-    implements _$$_CreateSessionResponseDtoCopyWith<$Res> {
-  __$$_CreateSessionResponseDtoCopyWithImpl(_$_CreateSessionResponseDto _value,
-      $Res Function(_$_CreateSessionResponseDto) _then)
-      : super(_value, (v) => _then(v as _$_CreateSessionResponseDto));
+class __$$_ValidateWithLoginResponseDtoCopyWithImpl<$Res>
+    extends _$ValidateWithLoginResponseDtoCopyWithImpl<$Res>
+    implements _$$_ValidateWithLoginResponseDtoCopyWith<$Res> {
+  __$$_ValidateWithLoginResponseDtoCopyWithImpl(
+      _$_ValidateWithLoginResponseDto _value,
+      $Res Function(_$_ValidateWithLoginResponseDto) _then)
+      : super(_value, (v) => _then(v as _$_ValidateWithLoginResponseDto));
 
   @override
-  _$_CreateSessionResponseDto get _value =>
-      super._value as _$_CreateSessionResponseDto;
+  _$_ValidateWithLoginResponseDto get _value =>
+      super._value as _$_ValidateWithLoginResponseDto;
 
   @override
   $Res call({
     Object? success = freezed,
     Object? requestToken = freezed,
   }) {
-    return _then(_$_CreateSessionResponseDto(
+    return _then(_$_ValidateWithLoginResponseDto(
       success: success == freezed
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
@@ -448,12 +453,12 @@ class __$$_CreateSessionResponseDtoCopyWithImpl<$Res>
 
 /// @nodoc
 @JsonSerializable()
-class _$_CreateSessionResponseDto implements _CreateSessionResponseDto {
-  const _$_CreateSessionResponseDto(
+class _$_ValidateWithLoginResponseDto implements _ValidateWithLoginResponseDto {
+  const _$_ValidateWithLoginResponseDto(
       {required this.success, required this.requestToken});
 
-  factory _$_CreateSessionResponseDto.fromJson(Map<String, dynamic> json) =>
-      _$$_CreateSessionResponseDtoFromJson(json);
+  factory _$_ValidateWithLoginResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$$_ValidateWithLoginResponseDtoFromJson(json);
 
   @override
   final bool success;
@@ -462,14 +467,14 @@ class _$_CreateSessionResponseDto implements _CreateSessionResponseDto {
 
   @override
   String toString() {
-    return 'CreateSessionResponseDto(success: $success, requestToken: $requestToken)';
+    return 'ValidateWithLoginResponseDto(success: $success, requestToken: $requestToken)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$_CreateSessionResponseDto &&
+            other is _$_ValidateWithLoginResponseDto &&
             const DeepCollectionEquality().equals(other.success, success) &&
             const DeepCollectionEquality()
                 .equals(other.requestToken, requestToken));
@@ -484,25 +489,26 @@ class _$_CreateSessionResponseDto implements _CreateSessionResponseDto {
 
   @JsonKey(ignore: true)
   @override
-  _$$_CreateSessionResponseDtoCopyWith<_$_CreateSessionResponseDto>
-      get copyWith => __$$_CreateSessionResponseDtoCopyWithImpl<
-          _$_CreateSessionResponseDto>(this, _$identity);
+  _$$_ValidateWithLoginResponseDtoCopyWith<_$_ValidateWithLoginResponseDto>
+      get copyWith => __$$_ValidateWithLoginResponseDtoCopyWithImpl<
+          _$_ValidateWithLoginResponseDto>(this, _$identity);
 
   @override
   Map<String, dynamic> toJson() {
-    return _$$_CreateSessionResponseDtoToJson(
+    return _$$_ValidateWithLoginResponseDtoToJson(
       this,
     );
   }
 }
 
-abstract class _CreateSessionResponseDto implements CreateSessionResponseDto {
-  const factory _CreateSessionResponseDto(
+abstract class _ValidateWithLoginResponseDto
+    implements ValidateWithLoginResponseDto {
+  const factory _ValidateWithLoginResponseDto(
       {required final bool success,
-      required final String requestToken}) = _$_CreateSessionResponseDto;
+      required final String requestToken}) = _$_ValidateWithLoginResponseDto;
 
-  factory _CreateSessionResponseDto.fromJson(Map<String, dynamic> json) =
-      _$_CreateSessionResponseDto.fromJson;
+  factory _ValidateWithLoginResponseDto.fromJson(Map<String, dynamic> json) =
+      _$_ValidateWithLoginResponseDto.fromJson;
 
   @override
   bool get success;
@@ -510,6 +516,437 @@ abstract class _CreateSessionResponseDto implements CreateSessionResponseDto {
   String get requestToken;
   @override
   @JsonKey(ignore: true)
-  _$$_CreateSessionResponseDtoCopyWith<_$_CreateSessionResponseDto>
+  _$$_ValidateWithLoginResponseDtoCopyWith<_$_ValidateWithLoginResponseDto>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+AccountResponseDto _$AccountResponseDtoFromJson(Map<String, dynamic> json) {
+  return _AccountResponseDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$AccountResponseDto {
+  int get id => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $AccountResponseDtoCopyWith<AccountResponseDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $AccountResponseDtoCopyWith<$Res> {
+  factory $AccountResponseDtoCopyWith(
+          AccountResponseDto value, $Res Function(AccountResponseDto) then) =
+      _$AccountResponseDtoCopyWithImpl<$Res>;
+  $Res call({int id});
+}
+
+/// @nodoc
+class _$AccountResponseDtoCopyWithImpl<$Res>
+    implements $AccountResponseDtoCopyWith<$Res> {
+  _$AccountResponseDtoCopyWithImpl(this._value, this._then);
+
+  final AccountResponseDto _value;
+  // ignore: unused_field
+  final $Res Function(AccountResponseDto) _then;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_AccountResponseDtoCopyWith<$Res>
+    implements $AccountResponseDtoCopyWith<$Res> {
+  factory _$$_AccountResponseDtoCopyWith(_$_AccountResponseDto value,
+          $Res Function(_$_AccountResponseDto) then) =
+      __$$_AccountResponseDtoCopyWithImpl<$Res>;
+  @override
+  $Res call({int id});
+}
+
+/// @nodoc
+class __$$_AccountResponseDtoCopyWithImpl<$Res>
+    extends _$AccountResponseDtoCopyWithImpl<$Res>
+    implements _$$_AccountResponseDtoCopyWith<$Res> {
+  __$$_AccountResponseDtoCopyWithImpl(
+      _$_AccountResponseDto _value, $Res Function(_$_AccountResponseDto) _then)
+      : super(_value, (v) => _then(v as _$_AccountResponseDto));
+
+  @override
+  _$_AccountResponseDto get _value => super._value as _$_AccountResponseDto;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+  }) {
+    return _then(_$_AccountResponseDto(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_AccountResponseDto implements _AccountResponseDto {
+  const _$_AccountResponseDto({required this.id});
+
+  factory _$_AccountResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$$_AccountResponseDtoFromJson(json);
+
+  @override
+  final int id;
+
+  @override
+  String toString() {
+    return 'AccountResponseDto(id: $id)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_AccountResponseDto &&
+            const DeepCollectionEquality().equals(other.id, id));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(id));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_AccountResponseDtoCopyWith<_$_AccountResponseDto> get copyWith =>
+      __$$_AccountResponseDtoCopyWithImpl<_$_AccountResponseDto>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_AccountResponseDtoToJson(
+      this,
+    );
+  }
+}
+
+abstract class _AccountResponseDto implements AccountResponseDto {
+  const factory _AccountResponseDto({required final int id}) =
+      _$_AccountResponseDto;
+
+  factory _AccountResponseDto.fromJson(Map<String, dynamic> json) =
+      _$_AccountResponseDto.fromJson;
+
+  @override
+  int get id;
+  @override
+  @JsonKey(ignore: true)
+  _$$_AccountResponseDtoCopyWith<_$_AccountResponseDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+NewSessionRequestDto _$NewSessionRequestDtoFromJson(Map<String, dynamic> json) {
+  return _NewSessionRequestDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$NewSessionRequestDto {
+  String get requestToken => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NewSessionRequestDtoCopyWith<NewSessionRequestDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NewSessionRequestDtoCopyWith<$Res> {
+  factory $NewSessionRequestDtoCopyWith(NewSessionRequestDto value,
+          $Res Function(NewSessionRequestDto) then) =
+      _$NewSessionRequestDtoCopyWithImpl<$Res>;
+  $Res call({String requestToken});
+}
+
+/// @nodoc
+class _$NewSessionRequestDtoCopyWithImpl<$Res>
+    implements $NewSessionRequestDtoCopyWith<$Res> {
+  _$NewSessionRequestDtoCopyWithImpl(this._value, this._then);
+
+  final NewSessionRequestDto _value;
+  // ignore: unused_field
+  final $Res Function(NewSessionRequestDto) _then;
+
+  @override
+  $Res call({
+    Object? requestToken = freezed,
+  }) {
+    return _then(_value.copyWith(
+      requestToken: requestToken == freezed
+          ? _value.requestToken
+          : requestToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_NewSessionRequestDtoCopyWith<$Res>
+    implements $NewSessionRequestDtoCopyWith<$Res> {
+  factory _$$_NewSessionRequestDtoCopyWith(_$_NewSessionRequestDto value,
+          $Res Function(_$_NewSessionRequestDto) then) =
+      __$$_NewSessionRequestDtoCopyWithImpl<$Res>;
+  @override
+  $Res call({String requestToken});
+}
+
+/// @nodoc
+class __$$_NewSessionRequestDtoCopyWithImpl<$Res>
+    extends _$NewSessionRequestDtoCopyWithImpl<$Res>
+    implements _$$_NewSessionRequestDtoCopyWith<$Res> {
+  __$$_NewSessionRequestDtoCopyWithImpl(_$_NewSessionRequestDto _value,
+      $Res Function(_$_NewSessionRequestDto) _then)
+      : super(_value, (v) => _then(v as _$_NewSessionRequestDto));
+
+  @override
+  _$_NewSessionRequestDto get _value => super._value as _$_NewSessionRequestDto;
+
+  @override
+  $Res call({
+    Object? requestToken = freezed,
+  }) {
+    return _then(_$_NewSessionRequestDto(
+      requestToken: requestToken == freezed
+          ? _value.requestToken
+          : requestToken // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_NewSessionRequestDto implements _NewSessionRequestDto {
+  const _$_NewSessionRequestDto({required this.requestToken});
+
+  factory _$_NewSessionRequestDto.fromJson(Map<String, dynamic> json) =>
+      _$$_NewSessionRequestDtoFromJson(json);
+
+  @override
+  final String requestToken;
+
+  @override
+  String toString() {
+    return 'NewSessionRequestDto(requestToken: $requestToken)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NewSessionRequestDto &&
+            const DeepCollectionEquality()
+                .equals(other.requestToken, requestToken));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType, const DeepCollectionEquality().hash(requestToken));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_NewSessionRequestDtoCopyWith<_$_NewSessionRequestDto> get copyWith =>
+      __$$_NewSessionRequestDtoCopyWithImpl<_$_NewSessionRequestDto>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_NewSessionRequestDtoToJson(
+      this,
+    );
+  }
+}
+
+abstract class _NewSessionRequestDto implements NewSessionRequestDto {
+  const factory _NewSessionRequestDto({required final String requestToken}) =
+      _$_NewSessionRequestDto;
+
+  factory _NewSessionRequestDto.fromJson(Map<String, dynamic> json) =
+      _$_NewSessionRequestDto.fromJson;
+
+  @override
+  String get requestToken;
+  @override
+  @JsonKey(ignore: true)
+  _$$_NewSessionRequestDtoCopyWith<_$_NewSessionRequestDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+NewSessionResponseDto _$NewSessionResponseDtoFromJson(
+    Map<String, dynamic> json) {
+  return _NewSessionResponseDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$NewSessionResponseDto {
+  bool get success => throw _privateConstructorUsedError;
+  String get sessionId => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $NewSessionResponseDtoCopyWith<NewSessionResponseDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $NewSessionResponseDtoCopyWith<$Res> {
+  factory $NewSessionResponseDtoCopyWith(NewSessionResponseDto value,
+          $Res Function(NewSessionResponseDto) then) =
+      _$NewSessionResponseDtoCopyWithImpl<$Res>;
+  $Res call({bool success, String sessionId});
+}
+
+/// @nodoc
+class _$NewSessionResponseDtoCopyWithImpl<$Res>
+    implements $NewSessionResponseDtoCopyWith<$Res> {
+  _$NewSessionResponseDtoCopyWithImpl(this._value, this._then);
+
+  final NewSessionResponseDto _value;
+  // ignore: unused_field
+  final $Res Function(NewSessionResponseDto) _then;
+
+  @override
+  $Res call({
+    Object? success = freezed,
+    Object? sessionId = freezed,
+  }) {
+    return _then(_value.copyWith(
+      success: success == freezed
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sessionId: sessionId == freezed
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+abstract class _$$_NewSessionResponseDtoCopyWith<$Res>
+    implements $NewSessionResponseDtoCopyWith<$Res> {
+  factory _$$_NewSessionResponseDtoCopyWith(_$_NewSessionResponseDto value,
+          $Res Function(_$_NewSessionResponseDto) then) =
+      __$$_NewSessionResponseDtoCopyWithImpl<$Res>;
+  @override
+  $Res call({bool success, String sessionId});
+}
+
+/// @nodoc
+class __$$_NewSessionResponseDtoCopyWithImpl<$Res>
+    extends _$NewSessionResponseDtoCopyWithImpl<$Res>
+    implements _$$_NewSessionResponseDtoCopyWith<$Res> {
+  __$$_NewSessionResponseDtoCopyWithImpl(_$_NewSessionResponseDto _value,
+      $Res Function(_$_NewSessionResponseDto) _then)
+      : super(_value, (v) => _then(v as _$_NewSessionResponseDto));
+
+  @override
+  _$_NewSessionResponseDto get _value =>
+      super._value as _$_NewSessionResponseDto;
+
+  @override
+  $Res call({
+    Object? success = freezed,
+    Object? sessionId = freezed,
+  }) {
+    return _then(_$_NewSessionResponseDto(
+      success: success == freezed
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as bool,
+      sessionId: sessionId == freezed
+          ? _value.sessionId
+          : sessionId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$_NewSessionResponseDto implements _NewSessionResponseDto {
+  const _$_NewSessionResponseDto(
+      {required this.success, required this.sessionId});
+
+  factory _$_NewSessionResponseDto.fromJson(Map<String, dynamic> json) =>
+      _$$_NewSessionResponseDtoFromJson(json);
+
+  @override
+  final bool success;
+  @override
+  final String sessionId;
+
+  @override
+  String toString() {
+    return 'NewSessionResponseDto(success: $success, sessionId: $sessionId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$_NewSessionResponseDto &&
+            const DeepCollectionEquality().equals(other.success, success) &&
+            const DeepCollectionEquality().equals(other.sessionId, sessionId));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(success),
+      const DeepCollectionEquality().hash(sessionId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$$_NewSessionResponseDtoCopyWith<_$_NewSessionResponseDto> get copyWith =>
+      __$$_NewSessionResponseDtoCopyWithImpl<_$_NewSessionResponseDto>(
+          this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$_NewSessionResponseDtoToJson(
+      this,
+    );
+  }
+}
+
+abstract class _NewSessionResponseDto implements NewSessionResponseDto {
+  const factory _NewSessionResponseDto(
+      {required final bool success,
+      required final String sessionId}) = _$_NewSessionResponseDto;
+
+  factory _NewSessionResponseDto.fromJson(Map<String, dynamic> json) =
+      _$_NewSessionResponseDto.fromJson;
+
+  @override
+  bool get success;
+  @override
+  String get sessionId;
+  @override
+  @JsonKey(ignore: true)
+  _$$_NewSessionResponseDtoCopyWith<_$_NewSessionResponseDto> get copyWith =>
+      throw _privateConstructorUsedError;
 }
