@@ -16,6 +16,7 @@ class ProfileScreen extends StatelessWidget {
                   mainAxisSize: MainAxisSize.min,
                   children: [
                     Text(info.name),
+                    Text(info.accountId.toString()),
                     const LogoutButton(),
                   ],
                 ),

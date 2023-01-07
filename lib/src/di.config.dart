@@ -10,19 +10,23 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i5;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'di.dart' as _i16;
+import 'core/content.dart' as _i18;
+import 'di.dart' as _i20;
 import 'features/auth/src/api/auth_api_client.dart' as _i6;
-import 'features/auth/src/auth_bloc.dart' as _i14;
+import 'features/auth/src/auth_bloc.dart' as _i16;
 import 'features/auth/src/auth_repository.dart' as _i7;
 import 'features/config/config_repository.dart' as _i3;
 import 'features/details/src/api/details_api_client.dart' as _i8;
 import 'features/details/src/details_repository.dart' as _i9;
-import 'features/popular_movies/src/api/popular_movies_api_client.dart' as _i10;
-import 'features/popular_movies/src/popular_movies_repository.dart' as _i11;
-import 'features/search/src/api/search_api_client.dart' as _i12;
-import 'features/search/src/search_bloc.dart' as _i15;
+import 'features/favorites/src/api/favorites_api_client.dart' as _i10;
+import 'features/favorites/src/favorites_bloc.dart' as _i17;
+import 'features/favorites/src/favorites_repository.dart' as _i11;
+import 'features/popular_movies/src/api/popular_movies_api_client.dart' as _i12;
+import 'features/popular_movies/src/popular_movies_repository.dart' as _i13;
+import 'features/search/src/api/search_api_client.dart' as _i14;
+import 'features/search/src/search_bloc.dart' as _i19;
 import 'features/search/src/search_repository.dart'
-    as _i13; // ignore_for_file: unnecessary_lambdas
+    as _i15; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -66,30 +70,46 @@ _i1.GetIt $initGetIt(
         apiKey: get<String>(instanceName: 'apiKey'),
         configRepository: get<_i3.ConfigRepository>(),
       ));
-  gh.factory<_i10.PopularMoviesApiClient>(() => _i10.PopularMoviesApiClient(
+  gh.factory<_i10.FavoritesApiClient>(() => _i10.FavoritesApiClient(
         get<_i4.Dio>(),
         baseUrl: get<String>(instanceName: 'baseUrl'),
       ));
-  gh.lazySingleton<_i11.PopularMoviesRepository>(
-      () => _i11.PopularMoviesRepository(
-            apiClient: get<_i10.PopularMoviesApiClient>(),
+  gh.factory<_i11.FavoritesRepository>(() => _i11.FavoritesRepository(
+        api: get<_i10.FavoritesApiClient>(),
+        apiKey: get<String>(instanceName: 'apiKey'),
+      ));
+  gh.factory<_i12.PopularMoviesApiClient>(() => _i12.PopularMoviesApiClient(
+        get<_i4.Dio>(),
+        baseUrl: get<String>(instanceName: 'baseUrl'),
+      ));
+  gh.lazySingleton<_i13.PopularMoviesRepository>(
+      () => _i13.PopularMoviesRepository(
+            apiClient: get<_i12.PopularMoviesApiClient>(),
             configRepository: get<_i3.ConfigRepository>(),
             apiKey: get<String>(instanceName: 'apiKey'),
           ));
-  gh.factory<_i12.SearchApiClient>(() => _i12.SearchApiClient(
+  gh.factory<_i14.SearchApiClient>(() => _i14.SearchApiClient(
         get<_i4.Dio>(),
         baseUrl: get<String>(instanceName: 'baseUrl'),
       ));
-  gh.lazySingleton<_i13.SearchRepository>(() => _i13.SearchRepository(
-        searchApi: get<_i12.SearchApiClient>(),
+  gh.lazySingleton<_i15.SearchRepository>(() => _i15.SearchRepository(
+        searchApi: get<_i14.SearchApiClient>(),
         apiKey: get<String>(instanceName: 'apiKey'),
         configRepository: get<_i3.ConfigRepository>(),
       ));
-  gh.factory<_i14.AuthBloc>(
-      () => _i14.AuthBloc(authRepository: get<_i7.AuthRepository>()));
-  gh.factory<_i15.SearchBloc>(
-      () => _i15.SearchBloc(repository: get<_i13.SearchRepository>()));
+  gh.factory<_i16.AuthBloc>(
+      () => _i16.AuthBloc(authRepository: get<_i7.AuthRepository>()));
+  gh.factoryParam<_i17.FavoritesBloc, _i18.ContentId, dynamic>((
+    contentId,
+    _,
+  ) =>
+      _i17.FavoritesBloc(
+        repository: get<_i11.FavoritesRepository>(),
+        contentId: contentId,
+      ));
+  gh.factory<_i19.SearchBloc>(
+      () => _i19.SearchBloc(repository: get<_i15.SearchRepository>()));
   return get;
 }
 
-class _$AppModule extends _i16.AppModule {}
+class _$AppModule extends _i20.AppModule {}

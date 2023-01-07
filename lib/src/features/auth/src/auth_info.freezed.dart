@@ -18,19 +18,22 @@ final _privateConstructorUsedError = UnsupportedError(
 mixin _$AuthInfo {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String sessionId, String name) authenticated,
+    required TResult Function(int accountId, String sessionId, String name)
+        authenticated,
     required TResult Function() anonymous,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String sessionId, String name)? authenticated,
+    TResult Function(int accountId, String sessionId, String name)?
+        authenticated,
     TResult Function()? anonymous,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String sessionId, String name)? authenticated,
+    TResult Function(int accountId, String sessionId, String name)?
+        authenticated,
     TResult Function()? anonymous,
     required TResult orElse(),
   }) =>
@@ -76,7 +79,7 @@ abstract class _$$AuthenticatedCopyWith<$Res> {
   factory _$$AuthenticatedCopyWith(
           _$Authenticated value, $Res Function(_$Authenticated) then) =
       __$$AuthenticatedCopyWithImpl<$Res>;
-  $Res call({String sessionId, String name});
+  $Res call({int accountId, String sessionId, String name});
 }
 
 /// @nodoc
@@ -91,10 +94,15 @@ class __$$AuthenticatedCopyWithImpl<$Res> extends _$AuthInfoCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? accountId = freezed,
     Object? sessionId = freezed,
     Object? name = freezed,
   }) {
     return _then(_$Authenticated(
+      accountId: accountId == freezed
+          ? _value.accountId
+          : accountId // ignore: cast_nullable_to_non_nullable
+              as int,
       sessionId: sessionId == freezed
           ? _value.sessionId
           : sessionId // ignore: cast_nullable_to_non_nullable
@@ -110,8 +118,11 @@ class __$$AuthenticatedCopyWithImpl<$Res> extends _$AuthInfoCopyWithImpl<$Res>
 /// @nodoc
 
 class _$Authenticated implements Authenticated {
-  const _$Authenticated({required this.sessionId, required this.name});
+  const _$Authenticated(
+      {required this.accountId, required this.sessionId, required this.name});
 
+  @override
+  final int accountId;
   @override
   final String sessionId;
   @override
@@ -119,7 +130,7 @@ class _$Authenticated implements Authenticated {
 
   @override
   String toString() {
-    return 'AuthInfo.authenticated(sessionId: $sessionId, name: $name)';
+    return 'AuthInfo.authenticated(accountId: $accountId, sessionId: $sessionId, name: $name)';
   }
 
   @override
@@ -127,6 +138,7 @@ class _$Authenticated implements Authenticated {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _$Authenticated &&
+            const DeepCollectionEquality().equals(other.accountId, accountId) &&
             const DeepCollectionEquality().equals(other.sessionId, sessionId) &&
             const DeepCollectionEquality().equals(other.name, name));
   }
@@ -134,6 +146,7 @@ class _$Authenticated implements Authenticated {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(accountId),
       const DeepCollectionEquality().hash(sessionId),
       const DeepCollectionEquality().hash(name));
 
@@ -145,30 +158,33 @@ class _$Authenticated implements Authenticated {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String sessionId, String name) authenticated,
+    required TResult Function(int accountId, String sessionId, String name)
+        authenticated,
     required TResult Function() anonymous,
   }) {
-    return authenticated(sessionId, name);
+    return authenticated(accountId, sessionId, name);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String sessionId, String name)? authenticated,
+    TResult Function(int accountId, String sessionId, String name)?
+        authenticated,
     TResult Function()? anonymous,
   }) {
-    return authenticated?.call(sessionId, name);
+    return authenticated?.call(accountId, sessionId, name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String sessionId, String name)? authenticated,
+    TResult Function(int accountId, String sessionId, String name)?
+        authenticated,
     TResult Function()? anonymous,
     required TResult orElse(),
   }) {
     if (authenticated != null) {
-      return authenticated(sessionId, name);
+      return authenticated(accountId, sessionId, name);
     }
     return orElse();
   }
@@ -207,9 +223,11 @@ class _$Authenticated implements Authenticated {
 
 abstract class Authenticated implements AuthInfo {
   const factory Authenticated(
-      {required final String sessionId,
+      {required final int accountId,
+      required final String sessionId,
       required final String name}) = _$Authenticated;
 
+  int get accountId;
   String get sessionId;
   String get name;
   @JsonKey(ignore: true)
@@ -257,7 +275,8 @@ class _$Anonymous implements Anonymous {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String sessionId, String name) authenticated,
+    required TResult Function(int accountId, String sessionId, String name)
+        authenticated,
     required TResult Function() anonymous,
   }) {
     return anonymous();
@@ -266,7 +285,8 @@ class _$Anonymous implements Anonymous {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String sessionId, String name)? authenticated,
+    TResult Function(int accountId, String sessionId, String name)?
+        authenticated,
     TResult Function()? anonymous,
   }) {
     return anonymous?.call();
@@ -275,7 +295,8 @@ class _$Anonymous implements Anonymous {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String sessionId, String name)? authenticated,
+    TResult Function(int accountId, String sessionId, String name)?
+        authenticated,
     TResult Function()? anonymous,
     required TResult orElse(),
   }) {
