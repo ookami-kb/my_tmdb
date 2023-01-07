@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../module.dart';
+import '../auth_info.dart';
+import 'login_form.dart';
 
 class AuthDialog extends StatefulWidget {
   const AuthDialog({super.key});
