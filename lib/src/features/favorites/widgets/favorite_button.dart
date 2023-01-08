@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../core/content.dart';
-import '../../../../di.dart';
-import '../../../auth/module.dart';
-import '../favorites_bloc.dart';
+import '../../../core/content.dart';
+import '../../../di.dart';
+import '../../auth/auth_ext.dart';
+import '../../auth/models/auth_info.dart';
+import '../../auth/widgets/auth_dialog.dart';
+import '../src/favorites_bloc.dart';
 
 class FavoriteButton extends StatelessWidget {
   const FavoriteButton({super.key, required this.contentId});

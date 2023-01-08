@@ -3,7 +3,7 @@ import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
 
 import '../../core/content.dart';
-import '../../features/search/module.dart';
+import '../../features/search/widgets/search_widget.dart';
 import '../routes.gr.dart';
 
 class SearchScreen extends StatelessWidget {

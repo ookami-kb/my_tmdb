@@ -2,7 +2,7 @@ import 'package:dfunc/dfunc.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/content.dart';
-import '../../auth/module.dart';
+import '../../auth/models/auth_info.dart';
 import 'api/favorites_api_client.dart';
 
 @injectable

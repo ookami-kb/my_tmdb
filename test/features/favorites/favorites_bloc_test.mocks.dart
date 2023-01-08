@@ -8,7 +8,7 @@ import 'dart:async' as _i4;
 import 'package:dfunc/dfunc.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:my_tmdb/src/core/content.dart' as _i5;
-import 'package:my_tmdb/src/features/auth/module.dart' as _i6;
+import 'package:my_tmdb/src/features/auth/models/auth_info.dart' as _i6;
 import 'package:my_tmdb/src/features/favorites/src/favorites_repository.dart'
     as _i3;
 

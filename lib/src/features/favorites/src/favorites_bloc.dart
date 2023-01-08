@@ -5,7 +5,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
 import '../../../core/content.dart';
-import '../../auth/module.dart';
+import '../../auth/models/auth_info.dart';
 import 'favorites_repository.dart';
 
 part 'favorites_bloc.freezed.dart';

@@ -7,12 +7,6 @@ import '../../di.dart';
 import 'src/auth_bloc.dart';
 import 'src/widgets/auth_failure_notifier.dart';
 
-export 'src/auth_ext.dart';
-export 'src/models/auth_info.dart';
-export 'src/widgets/auth_dialog.dart';
-export 'src/widgets/login_form.dart';
-export 'src/widgets/logout_button.dart';
-
 class AuthModule extends SingleChildStatelessWidget {
   const AuthModule({super.key});
 

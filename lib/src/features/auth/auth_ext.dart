@@ -2,9 +2,9 @@ import 'package:dfunc/dfunc.dart';
 import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
-import 'auth_bloc.dart';
 import 'models/auth_info.dart';
 import 'models/auth_status.dart';
+import 'src/auth_bloc.dart';
 
 extension AuthExt on BuildContext {
   AuthInfo readAuthInfo() => read<AuthBloc>().state.info;

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../auth_bloc.dart';
 import '../auth_ext.dart';
 import '../models/auth_info.dart';
+import '../src/auth_bloc.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key, this.onAuthenticated});

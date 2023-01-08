@@ -4,9 +4,9 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
+import '../models/auth_info.dart';
+import '../models/auth_status.dart';
 import 'auth_repository.dart';
-import 'models/auth_info.dart';
-import 'models/auth_status.dart';
 
 part 'auth_bloc.freezed.dart';
 

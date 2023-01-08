@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../../core/content.dart';
 import '../../core/widgets/palette_theme.dart';
-import '../../features/details/module.dart';
-import '../../features/favorites/module.dart';
+import '../../features/details/widgets/details_widget.dart';
+import '../../features/favorites/widgets/favorite_button.dart';
 
 class DetailsScreen extends StatelessWidget {
   const DetailsScreen({

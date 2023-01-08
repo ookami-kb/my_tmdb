@@ -2,8 +2,8 @@ import 'package:dfunc/dfunc.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
+import '../models/auth_info.dart';
 import 'api/auth_api_client.dart';
-import 'models/auth_info.dart';
 
 @injectable
 class AuthRepository {

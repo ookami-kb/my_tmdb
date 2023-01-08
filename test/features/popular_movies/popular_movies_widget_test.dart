@@ -8,7 +8,7 @@ import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:my_tmdb/src/features/popular_movies/src/models/popular_movie.dart';
 import 'package:my_tmdb/src/features/popular_movies/src/popular_movies_repository.dart';
-import 'package:my_tmdb/src/features/popular_movies/src/widgets/popular_movies_widget.dart';
+import 'package:my_tmdb/src/features/popular_movies/widgets/popular_movies_widget.dart';
 
 import '../../di.dart';
 import 'popular_movies_widget_test.mocks.dart';
