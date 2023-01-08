@@ -9,7 +9,7 @@ import 'package:dfunc/dfunc.dart' as _i2;
 import 'package:fast_immutable_collections/fast_immutable_collections.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:my_tmdb/src/features/popular_movies/src/popular_movie.dart'
+import 'package:my_tmdb/src/features/popular_movies/src/models/popular_movie.dart'
     as _i6;
 import 'package:my_tmdb/src/features/popular_movies/src/popular_movies_repository.dart'
     as _i3;

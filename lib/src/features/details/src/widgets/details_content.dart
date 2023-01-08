@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-import '../details.dart';
+import '../models/details.dart';
 
 part 'details_content.freezed.dart';
 

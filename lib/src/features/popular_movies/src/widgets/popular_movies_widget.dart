@@ -3,7 +3,7 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
 import '../../../../di.dart';
-import '../popular_movie.dart';
+import '../models/popular_movie.dart';
 import '../popular_movies_repository.dart';
 import 'popular_movies_list.dart';
 

@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../config/config_repository.dart';
 import 'api/popular_movies_api_client.dart';
-import 'popular_movie.dart';
+import 'models/popular_movie.dart';
 
 @lazySingleton
 class PopularMoviesRepository {

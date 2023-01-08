@@ -3,7 +3,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:injectable/injectable.dart';
 
 import 'api/auth_api_client.dart';
-import 'auth_info.dart';
+import 'models/auth_info.dart';
 
 @injectable
 class AuthRepository {

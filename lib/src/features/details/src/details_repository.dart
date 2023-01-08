@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 import '../../../core/content.dart';
 import '../../config/config_repository.dart';
 import 'api/details_api_client.dart';
-import 'details.dart';
+import 'models/details.dart';
 
 @lazySingleton
 class DetailsRepository {

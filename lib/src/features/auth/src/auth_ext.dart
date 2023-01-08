@@ -3,8 +3,8 @@ import 'package:flutter/widgets.dart';
 import 'package:provider/provider.dart';
 
 import 'auth_bloc.dart';
-import 'auth_info.dart';
-import 'auth_status.dart';
+import 'models/auth_info.dart';
+import 'models/auth_status.dart';
 
 extension AuthExt on BuildContext {
   AuthInfo readAuthInfo() => read<AuthBloc>().state.info;

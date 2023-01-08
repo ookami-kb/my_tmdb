@@ -4,7 +4,7 @@ import 'package:injectable/injectable.dart';
 
 import '../../config/config_repository.dart';
 import 'api/search_api_client.dart';
-import 'search_result.dart';
+import 'models/search_result.dart';
 
 @lazySingleton
 class SearchRepository {

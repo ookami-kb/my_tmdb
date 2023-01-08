@@ -3,7 +3,7 @@ import 'package:provider/provider.dart';
 
 import '../auth_bloc.dart';
 import '../auth_ext.dart';
-import '../auth_info.dart';
+import '../models/auth_info.dart';
 
 class LoginForm extends StatefulWidget {
   const LoginForm({super.key, this.onAuthenticated});
