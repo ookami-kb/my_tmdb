@@ -2,7 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/content.dart';
+import '../../core/models/content.dart';
 import '../../features/search/widgets/search_widget.dart';
 import '../routes.gr.dart';
 

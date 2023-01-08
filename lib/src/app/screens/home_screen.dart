@@ -1,7 +1,7 @@
 import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
-import '../../core/content.dart';
+import '../../core/models/content.dart';
 import '../../features/popular_movies/widgets/popular_movies_widget.dart';
 import '../routes.gr.dart';
 

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../core/content.dart';
+import '../../core/models/content.dart';
 import '../../core/widgets/palette_theme.dart';
 import '../../features/details/widgets/details_widget.dart';
 import '../../features/favorites/widgets/favorite_button.dart';

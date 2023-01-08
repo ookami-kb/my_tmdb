@@ -1,7 +1,7 @@
 import 'package:dfunc/dfunc.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../core/content.dart';
+import '../../../core/models/content.dart';
 import '../../config/config_repository.dart';
 import 'api/details_api_client.dart';
 import 'models/details.dart';

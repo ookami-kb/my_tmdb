@@ -2,7 +2,7 @@ import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../../core/content.dart';
+import '../../../core/models/content.dart';
 import '../../../core/widgets/palette_theme.dart';
 import '../../../di.dart';
 import '../src/details_repository.dart';

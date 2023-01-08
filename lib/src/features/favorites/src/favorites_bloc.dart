@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 
-import '../../../core/content.dart';
+import '../../../core/models/content.dart';
 import '../../auth/models/auth_info.dart';
 import 'favorites_repository.dart';
 

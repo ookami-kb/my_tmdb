@@ -10,7 +10,7 @@ import 'package:flutter_secure_storage/flutter_secure_storage.dart' as _i5;
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
 
-import 'core/content.dart' as _i18;
+import 'core/models/content.dart' as _i18;
 import 'di.dart' as _i20;
 import 'features/auth/src/api/auth_api_client.dart' as _i6;
 import 'features/auth/src/auth_bloc.dart' as _i16;
