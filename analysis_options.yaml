@@ -18,14 +18,18 @@ dart_code_metrics:
     avoid-banned-imports:
       severity: error
       entries:
-        - paths: ["lib/.*\\.dart"]
-          deny: ["[^./]+/src/.*"]
-          message: "Do not import from src directory outside of the module."
+        - paths: [".*/models/.+\\.dart"]
+          deny: [".*/(data|services|widgets|screens|ui|l10n)/.*"]
+          message: "Do not import data|services|widgets|screens|ui|l10n from models"
 
-        - paths: ["lib/src/core/.*\\.dart"]
-          deny: [".+/app/.*"]
-          message: "Core modules should not depend on app."
+        - paths: [".*/data/.+\\.dart"]
+          deny: [".*/(services|widgets|screens|ui)/.*"]
+          message: "Do not import services|widgets|screens|ui from data"
 
-        - paths: ["lib/src/features/.*\\.dart"]
-          deny: [".+/app/.*"]
-          message: "Feature modules should not depend on app."
+        - paths: [".*/services/.+\\.dart"]
+          deny: [".*/(widgets|screens|ui|l10n)/.*"]
+          message: "Do not import widgets|screens|ui|l10n from services"
+
+        - paths: [".*/ui/.+\\.dart"]
+          deny: [".*/features/.*"]
+          message: "Do not import features from ui"
