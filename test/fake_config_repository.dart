@@ -1,4 +1,4 @@
-import 'package:my_tmdb/src/features/config/config_repository.dart';
+import 'package:my_tmdb/features/config/data/config_repository.dart';
 
 class FakeConfigRepository implements ConfigRepository {
   const FakeConfigRepository();

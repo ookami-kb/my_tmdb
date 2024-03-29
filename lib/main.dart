@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:injectable/injectable.dart';
 
-import 'src/app/my_tmdb_app.dart';
-import 'src/di.dart';
+import 'di.dart';
+import 'my_tmdb_app.dart';
 
 Future<void> main() async {
   configureDependencies(env: prod.name);
