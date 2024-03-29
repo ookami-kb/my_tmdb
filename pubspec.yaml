@@ -33,7 +33,7 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   freezed: ^2.1.0+1
-  golden_toolkit: ^0.13.0
+  golden_toolkit: ^0.15.0
   injectable_generator: ^1.5.4
   json_serializable: ^6.4.1
   mews_pedantic: ^0.25.0
