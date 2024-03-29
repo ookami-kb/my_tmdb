@@ -36,7 +36,7 @@ class PopularMoviesList extends StatelessWidget {
                     CachedNetworkImage(
                       width: 160,
                       height: 230,
-                      imageUrl: poster.toString(),
+                      imageUrl: poster?.toString() ?? '',
                       errorWidget: (context, url, error) =>
                           const Icon(Icons.error),
                     ),

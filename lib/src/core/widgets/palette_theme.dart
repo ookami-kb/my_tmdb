@@ -3,6 +3,8 @@ import 'package:palette_generator/palette_generator.dart';
 import 'package:provider/provider.dart';
 
 abstract class PaletteThemeNotifier {
+  const PaletteThemeNotifier();
+
   Future<void> update(ImageProvider imageProvider);
 }
 
@@ -42,6 +44,8 @@ class _PaletteThemeState extends State<PaletteTheme>
   Future<void> update(ImageProvider imageProvider) async {
     try {
       final generator = await PaletteGenerator.fromImageProvider(imageProvider);
+      if (!mounted) return;
+
       final dominant = generator.dominantColor?.color;
       if (dominant == null) return;
 

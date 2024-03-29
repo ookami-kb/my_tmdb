@@ -8,16 +8,11 @@ import '../../../di.dart';
 import '../src/models/search_result.dart';
 import '../src/search_bloc.dart';
 
-class SearchWidget extends StatefulWidget {
+class SearchWidget extends StatelessWidget {
   const SearchWidget({super.key, required this.onItemPressed});
 
   final ValueSetter<SearchResult> onItemPressed;
 
-  @override
-  State<SearchWidget> createState() => _SearchWidgetState();
-}
-
-class _SearchWidgetState extends State<SearchWidget> {
   @override
   Widget build(BuildContext context) => MultiProvider(
         providers: [
@@ -30,7 +25,7 @@ class _SearchWidgetState extends State<SearchWidget> {
               child: _SearchField(),
             ),
             Expanded(
-              child: _SearchList(onItemPressed: widget.onItemPressed),
+              child: _SearchList(onItemPressed: onItemPressed),
             ),
           ],
         ),

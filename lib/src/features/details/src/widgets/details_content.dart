@@ -84,7 +84,7 @@ class _MovieTitle extends StatelessWidget {
         padding: const EdgeInsets.all(16),
         child: Text(
           title,
-          style: Theme.of(context).textTheme.headline4,
+          style: Theme.of(context).textTheme.headlineMedium,
         ),
       );
 }

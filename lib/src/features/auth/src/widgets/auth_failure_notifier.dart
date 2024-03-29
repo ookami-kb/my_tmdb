@@ -12,11 +12,12 @@ class AuthFailureNotifier extends SingleChildStatelessWidget {
   Widget buildWithChild(BuildContext context, Widget? child) =>
       BlocListener<AuthBloc, AuthState>(
         listener: (context, state) {
-          if (state.status is AuthStatusFailure) {
-            const snackBar = SnackBar(
-              content: Text('Authentication failed'),
-            );
-            ScaffoldMessenger.of(context).showSnackBar(snackBar);
+          switch (state.status) {
+            case AuthStatusFailure():
+              const snackBar = SnackBar(
+                content: Text('Authentication failed'),
+              );
+              ScaffoldMessenger.of(context).showSnackBar(snackBar);
           }
         },
         listenWhen: (previous, current) => previous.status != current.status,

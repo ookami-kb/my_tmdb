@@ -62,6 +62,8 @@ final _repository = MockPopularMoviesRepository();
 
 @module
 abstract class TestModule {
+  const TestModule();
+
   @LazySingleton(env: ['popular_movies_widget_test'])
   PopularMoviesRepository get popularMoviesRepository => _repository;
 }

@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import '../models/auth_info.dart';
 import 'login_form.dart';
 
-class AuthDialog extends StatefulWidget {
+class AuthDialog extends StatelessWidget {
   const AuthDialog({super.key});
 
   static Future<Authenticated?> show(BuildContext context) => showDialog(
@@ -11,11 +11,6 @@ class AuthDialog extends StatefulWidget {
         builder: (_) => const AuthDialog(),
       );
 
-  @override
-  State<AuthDialog> createState() => _AuthDialogState();
-}
-
-class _AuthDialogState extends State<AuthDialog> {
   @override
   Widget build(BuildContext context) => AlertDialog(
         content: LoginForm(

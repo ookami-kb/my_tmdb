@@ -23,7 +23,7 @@ void main() {
     final repository = SearchRepository(
       searchApi: client,
       apiKey: 'stubApiKey',
-      configRepository: FakeConfigRepository(),
+      configRepository: const FakeConfigRepository(),
     );
 
     when(

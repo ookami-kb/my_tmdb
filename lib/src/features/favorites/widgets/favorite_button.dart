@@ -36,35 +36,35 @@ class _ButtonState extends State<_Button> {
 
     final info = context.watchAuthInfo();
 
-    if (info is! Authenticated) {
-      return FloatingActionButton(
-        onPressed: () async {
-          final info = await AuthDialog.show(context);
-          if (info == null || !mounted) return;
-
-          context
-              .read<FavoritesBloc>()
-              .add(FavoritesEvent.addToFavorites(info: info));
-        },
-        child: nonFavoriteIcon,
-      );
-    }
-
-    return BlocBuilder<FavoritesBloc, FavoritesState>(
-      builder: (context, state) => state.maybeMap(
-        fetched: (state) => FloatingActionButton(
-          onPressed: () => context.read<FavoritesBloc>().add(
-                state.isFavorite
-                    ? FavoritesEvent.removeFromFavorites(info: info)
-                    : FavoritesEvent.addToFavorites(info: info),
+    return info is! Authenticated
+        ? FloatingActionButton(
+            heroTag: 'FAB',
+            onPressed: () async {
+              final info = await AuthDialog.show(context);
+              if (info == null || !mounted) return;
+              context
+                  .read<FavoritesBloc>()
+                  .add(FavoritesEvent.addToFavorites(info: info));
+            },
+            child: nonFavoriteIcon,
+          )
+        : BlocBuilder<FavoritesBloc, FavoritesState>(
+            builder: (context, state) => state.maybeMap(
+              fetched: (state) => FloatingActionButton(
+                heroTag: 'FAB',
+                onPressed: () => context.read<FavoritesBloc>().add(
+                      state.isFavorite
+                          ? FavoritesEvent.removeFromFavorites(info: info)
+                          : FavoritesEvent.addToFavorites(info: info),
+                    ),
+                child: state.isFavorite ? favoriteIcon : nonFavoriteIcon,
               ),
-          child: state.isFavorite ? favoriteIcon : nonFavoriteIcon,
-        ),
-        orElse: () => const FloatingActionButton(
-          onPressed: null,
-          child: nonFavoriteIcon,
-        ),
-      ),
-    );
+              orElse: () => const FloatingActionButton(
+                heroTag: 'FAB',
+                onPressed: null,
+                child: nonFavoriteIcon,
+              ),
+            ),
+          );
   }
 }

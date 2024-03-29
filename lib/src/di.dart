@@ -13,6 +13,8 @@ void configureDependencies({required String env}) =>
 
 @module
 abstract class AppModule {
+  const AppModule();
+
   @lazySingleton
   Dio get dio => Dio();
 

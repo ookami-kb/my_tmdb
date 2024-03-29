@@ -22,6 +22,8 @@ import 'screens/search_screen.dart';
     AutoRoute(page: DetailsScreen),
   ],
 )
-class $AppRouter {}
+class $AppRouter {
+  const $AppRouter();
+}
 
 class MyTmdbRouter extends AppRouter {}

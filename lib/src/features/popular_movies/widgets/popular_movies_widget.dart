@@ -38,7 +38,7 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
               padding: const EdgeInsets.all(12),
               child: Text(
                 'Popular Movies',
-                style: Theme.of(context).textTheme.headline4,
+                style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),
             SizedBox(
@@ -47,17 +47,18 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                 future: _result,
                 builder: (context, snapshot) {
                   final data = snapshot.data;
-                  if (data == null) {
-                    return const Center(child: CircularProgressIndicator());
-                  }
 
-                  return data.fold(
-                    (_) => const Center(child: Text('Something went wrong.')),
-                    (movies) => PopularMoviesList(
-                      movies: movies,
-                      onItemPressed: widget.onItemPressed,
-                    ),
-                  );
+                  return data == null
+                      ? const Center(child: CircularProgressIndicator())
+                      : data.fold(
+                          (_) => const Center(
+                            child: Text('Something went wrong.'),
+                          ),
+                          (movies) => PopularMoviesList(
+                            movies: movies,
+                            onItemPressed: widget.onItemPressed,
+                          ),
+                        );
                 },
               ),
             ),

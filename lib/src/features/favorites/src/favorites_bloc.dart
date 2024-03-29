@@ -35,8 +35,7 @@ class FavoritesBloc extends Bloc<_Event, _State> {
         removeFromFavorites: (event) => _handleRemoveFromFavorites(event, emit),
       );
 
-  Future<void> _handleInit(Init event, _Emitter emit) async =>
-      event.authInfo.map(
+  void _handleInit(Init event, _Emitter emit) => event.authInfo.map(
         authenticated: (info) async {
           emit(const FavoritesState.processing());
 
