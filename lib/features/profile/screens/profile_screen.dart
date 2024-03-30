@@ -6,7 +6,7 @@ import '../../../routes.gr.dart';
 import '../../auth/models/auth_info.dart';
 import '../../auth/services/auth_service.dart';
 import '../../auth/widgets/login_form.dart';
-import '../../auth/widgets/logout_button.dart';
+import '../widgets/profile_info.dart';
 
 @RoutePage()
 class ProfileScreen extends StatelessWidget {
@@ -20,16 +20,7 @@ class ProfileScreen extends StatelessWidget {
         body: ValueListenableBuilder(
           valueListenable: sl<AuthService>(),
           builder: (context, value, child) => switch (value) {
-            Authenticated(:final name, :final accountId) => Center(
-                child: Column(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text(name),
-                    Text(accountId.toString()),
-                    const LogoutButton(),
-                  ],
-                ),
-              ),
+            Authenticated() => Center(child: ProfileInfo(data: value)),
             Anonymous() => const Center(child: LoginForm()),
           },
         ),
