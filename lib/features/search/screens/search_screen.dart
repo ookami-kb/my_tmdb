@@ -19,7 +19,7 @@ class SearchScreen extends StatelessWidget {
         body: SearchWidget(
           onItemPressed: (item) => context.router.navigate(
             DetailsScreen.route(
-              id: ContentId(
+              id: (
                 value: item.id,
                 type: switch (item) {
                   SearchResultMovie() => ContentType.movie,

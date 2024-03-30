@@ -19,15 +19,17 @@ typedef _Emitter = Emitter<_State>;
 class FavoritesBloc extends Bloc<_Event, _State> {
   FavoritesBloc({
     required FavoritesRepository repository,
-    @factoryParam required ContentId contentId,
   })  : _repository = repository,
-        _contentId = contentId,
-        super(const FavoritesState.initial()) {
+        super(
+          const FavoritesState(
+            id: (value: 0, type: ContentType.movie),
+            processingState: FavoritesProcessingState.none(),
+          ),
+        ) {
     on<_Event>(_handler, transformer: restartable());
   }
 
   final FavoritesRepository _repository;
-  final ContentId _contentId;
 
   _EventHandler get _handler => (event, emit) => switch (event) {
         Init() => _handleInit(event, emit),
@@ -36,19 +38,20 @@ class FavoritesBloc extends Bloc<_Event, _State> {
       };
 
   Future<void> _handleInit(Init event, _Emitter emit) async {
+    emit(state.copyWith(id: event.id));
     switch (event.authInfo) {
       case Authenticated(:final sessionId):
-        emit(const FavoritesState.processing());
+        emit(state.processing());
 
         final newState = await _repository
-            .isFavorite(id: _contentId, sessionId: sessionId)
+            .isFavorite(id: state.id, sessionId: sessionId)
             .foldAsync(
-              (_) => const FavoritesState.failure(),
-              (isFavorite) => FavoritesState.fetched(isFavorite: isFavorite),
+              (_) => state.failure(),
+              (isFavorite) => state.fetched(isFavorite: isFavorite),
             );
         emit(newState);
       case Anonymous():
-        emit(const FavoritesState.fetched(isFavorite: false));
+        emit(state.fetched(isFavorite: false));
     }
   }
 
@@ -56,13 +59,13 @@ class FavoritesBloc extends Bloc<_Event, _State> {
     AddToFavorites event,
     _Emitter emit,
   ) async {
-    emit(const FavoritesState.processing());
+    emit(state.processing());
 
     final newState = await _repository
-        .addToFavorites(id: _contentId, info: event.info)
+        .addToFavorites(id: state.id, info: event.info)
         .foldAsync(
-          (_) => const FavoritesState.failure(),
-          (_) => const FavoritesState.fetched(isFavorite: true),
+          (_) => state.failure(),
+          (_) => state.fetched(isFavorite: true),
         );
     emit(newState);
   }
@@ -71,29 +74,56 @@ class FavoritesBloc extends Bloc<_Event, _State> {
     RemoveFromFavorites event,
     _Emitter emit,
   ) async {
-    emit(const FavoritesState.processing());
+    emit(state.processing());
 
     final newState = await _repository
-        .removeFromFavorites(id: _contentId, info: event.info)
+        .removeFromFavorites(id: state.id, info: event.info)
         .foldAsync(
-          (_) => const FavoritesState.failure(),
-          (_) => const FavoritesState.fetched(isFavorite: false),
+          (_) => state.failure(),
+          (_) => state.fetched(isFavorite: false),
         );
     emit(newState);
   }
 }
 
 @freezed
-sealed class FavoritesState with _$FavoritesState {
-  const factory FavoritesState.initial() = Initial;
-  const factory FavoritesState.processing() = Processing;
-  const factory FavoritesState.failure() = Failure;
-  const factory FavoritesState.fetched({required bool isFavorite}) = Fetched;
+class FavoritesState with _$FavoritesState {
+  const factory FavoritesState({
+    required ContentId id,
+    required FavoritesProcessingState processingState,
+  }) = _FavoritesState;
+
+  const FavoritesState._();
+
+  FavoritesState processing() => copyWith(
+        processingState: const FavoritesProcessingState.processing(),
+      );
+
+  FavoritesState failure() => copyWith(
+        processingState: const FavoritesProcessingState.failure(),
+      );
+
+  FavoritesState fetched({required bool isFavorite}) => copyWith(
+        processingState:
+            FavoritesProcessingState.fetched(isFavorite: isFavorite),
+      );
+}
+
+@freezed
+sealed class FavoritesProcessingState with _$FavoritesProcessingState {
+  const factory FavoritesProcessingState.none() = None;
+  const factory FavoritesProcessingState.processing() = Processing;
+  const factory FavoritesProcessingState.failure() = Failure;
+  const factory FavoritesProcessingState.fetched({required bool isFavorite}) =
+      Fetched;
 }
 
 @freezed
 sealed class FavoritesEvent with _$FavoritesEvent {
-  const factory FavoritesEvent.init({required AuthInfo authInfo}) = Init;
+  const factory FavoritesEvent.init({
+    required AuthInfo authInfo,
+    required ContentId id,
+  }) = Init;
 
   const factory FavoritesEvent.addToFavorites({
     required Authenticated info,

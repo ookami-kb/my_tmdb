@@ -15,8 +15,13 @@ class FavoriteButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) => BlocProvider(
-        create: (context) => sl<FavoritesBloc>(param1: contentId)
-          ..add(FavoritesEvent.init(authInfo: sl<AuthService>().value)),
+        create: (context) => sl<FavoritesBloc>()
+          ..add(
+            FavoritesEvent.init(
+              authInfo: sl<AuthService>().value,
+              id: contentId,
+            ),
+          ),
         child: const _Button(),
       );
 }
@@ -49,15 +54,15 @@ class _ButtonState extends State<_Button> {
               child: nonFavoriteIcon,
             )
           : BlocBuilder<FavoritesBloc, FavoritesState>(
-              builder: (context, state) => switch (state) {
-                Fetched() => FloatingActionButton(
+              builder: (context, state) => switch (state.processingState) {
+                Fetched(:final isFavorite) => FloatingActionButton(
                     heroTag: 'FAB',
                     onPressed: () => context.read<FavoritesBloc>().add(
-                          state.isFavorite
+                          isFavorite
                               ? FavoritesEvent.removeFromFavorites(info: info)
                               : FavoritesEvent.addToFavorites(info: info),
                         ),
-                    child: state.isFavorite ? favoriteIcon : nonFavoriteIcon,
+                    child: isFavorite ? favoriteIcon : nonFavoriteIcon,
                   ),
                 _ => const FloatingActionButton(
                     heroTag: 'FAB',

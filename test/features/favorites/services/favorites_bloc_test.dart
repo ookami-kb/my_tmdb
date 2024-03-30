@@ -25,12 +25,13 @@ void main() {
 
   blocTest<FavoritesBloc, FavoritesState>(
     'not added to favorite for anonymous user',
-    build: () => FavoritesBloc(
-      repository: repository,
-      contentId: const ContentId(value: 1, type: ContentType.movie),
+    build: () => FavoritesBloc(repository: repository),
+    act: (b) => b.add(
+      const FavoritesEvent.init(
+        authInfo: AuthInfo.anonymous(),
+        id: (value: 1, type: ContentType.movie),
+      ),
     ),
-    act: (b) =>
-        b.add(const FavoritesEvent.init(authInfo: AuthInfo.anonymous())),
     verify: (b) {
       verifyNever(
         repository.isFavorite(
@@ -40,18 +41,27 @@ void main() {
       );
     },
     expect: () => const [
-      FavoritesState.fetched(isFavorite: false),
+      FavoritesState(
+        id: (value: 1, type: ContentType.movie),
+        processingState: FavoritesProcessingState.none(),
+      ),
+      FavoritesState(
+        id: (value: 1, type: ContentType.movie),
+        processingState: FavoritesProcessingState.fetched(isFavorite: false),
+      ),
     ],
     wait: const Duration(milliseconds: 100),
   );
 
   blocTest<FavoritesBloc, FavoritesState>(
     'fetches initial information for authenticated user',
-    build: () => FavoritesBloc(
-      repository: repository,
-      contentId: const ContentId(value: 1, type: ContentType.movie),
+    build: () => FavoritesBloc(repository: repository),
+    act: (b) => b.add(
+      const FavoritesEvent.init(
+        authInfo: authenticated,
+        id: (value: 1, type: ContentType.movie),
+      ),
     ),
-    act: (b) => b.add(const FavoritesEvent.init(authInfo: authenticated)),
     setUp: () {
       when(
         repository.isFavorite(
@@ -69,8 +79,18 @@ void main() {
       ).called(1);
     },
     expect: () => const [
-      FavoritesState.processing(),
-      FavoritesState.fetched(isFavorite: true),
+      FavoritesState(
+        id: (value: 1, type: ContentType.movie),
+        processingState: FavoritesProcessingState.none(),
+      ),
+      FavoritesState(
+        id: (value: 1, type: ContentType.movie),
+        processingState: FavoritesProcessingState.processing(),
+      ),
+      FavoritesState(
+        id: (value: 1, type: ContentType.movie),
+        processingState: FavoritesProcessingState.fetched(isFavorite: true),
+      ),
     ],
     wait: const Duration(milliseconds: 100),
   );

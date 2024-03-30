@@ -80,7 +80,7 @@ class DashboardRoute extends _i6.PageRouteInfo<void> {
 class DetailsRoute extends _i6.PageRouteInfo<DetailsRouteArgs> {
   DetailsRoute({
     _i7.Key? key,
-    required _i8.ContentId id,
+    required ({_i8.ContentType type, int value}) id,
     String initialTitle = '',
     List<_i6.PageRouteInfo>? children,
   }) : super(
@@ -108,7 +108,7 @@ class DetailsRouteArgs {
 
   final _i7.Key? key;
 
-  final _i8.ContentId id;
+  final ({_i8.ContentType type, int value}) id;
 
   final String initialTitle;
 

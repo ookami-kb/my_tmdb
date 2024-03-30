@@ -23,10 +23,7 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => PaletteTheme(
         child: Scaffold(
-          body: DetailsWidget(
-            id: id,
-            initialTitle: initialTitle,
-          ),
+          body: DetailsWidget(id: id, initialTitle: initialTitle),
           floatingActionButton: FavoriteButton(contentId: id),
         ),
       );

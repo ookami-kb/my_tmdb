@@ -18,7 +18,7 @@ class HomeScreen extends StatelessWidget {
         body: PopularMoviesWidget(
           onItemPressed: (movie) => context.router.navigate(
             DetailsScreen.route(
-              id: ContentId(type: ContentType.movie, value: movie.id),
+              id: (type: ContentType.movie, value: movie.id),
               initialTitle: movie.title,
             ),
           ),
