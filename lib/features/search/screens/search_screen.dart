@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../routes.gr.dart';
 import '../../content/models/content.dart';
+import '../../details/screens/details_screen.dart';
 import '../models/search_result.dart';
 import '../widgets/search_widget.dart';
 
@@ -10,12 +11,14 @@ import '../widgets/search_widget.dart';
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 
+  static const route = SearchRoute.new;
+
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('Search')),
         body: SearchWidget(
           onItemPressed: (item) => context.router.navigate(
-            DetailsRoute(
+            DetailsScreen.route(
               id: ContentId(
                 value: item.id,
                 type: switch (item) {
