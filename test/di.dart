@@ -5,4 +5,4 @@ import 'di.config.dart';
 
 @InjectableInit(generateForDir: ['test'])
 void configureTestDependencies({required String env}) =>
-    $initGetIt(GetIt.instance, environment: env);
+    GetIt.instance.init(environment: env);

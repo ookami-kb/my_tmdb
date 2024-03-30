@@ -1,41 +1,37 @@
-// **************************************************************************
-// AutoRouteGenerator
-// **************************************************************************
-
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
 // **************************************************************************
-// AutoRouteGenerator
+// AutoRouterGenerator
 // **************************************************************************
-//
+
 // ignore_for_file: type=lint
+// coverage:ignore-file
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:auto_route/auto_route.dart' as _i6;
 import 'package:flutter/material.dart' as _i7;
+import 'package:my_tmdb/features/content/models/content.dart' as _i8;
+import 'package:my_tmdb/features/dashboard/screens/dashboard_screen.dart'
+    as _i1;
+import 'package:my_tmdb/features/details/screens/details_screen.dart' as _i2;
+import 'package:my_tmdb/features/home/screens/home_screen.dart' as _i3;
+import 'package:my_tmdb/features/profile/screens/profile_screen.dart' as _i4;
+import 'package:my_tmdb/features/search/screens/search_screen.dart' as _i5;
 
-import 'features/content/models/content.dart' as _i8;
-import 'features/dashboard/screens/dashboard_screen.dart' as _i1;
-import 'features/details/screens/details_screen.dart' as _i2;
-import 'features/home/screens/home_screen.dart' as _i3;
-import 'features/profile/screens/profile_screen.dart' as _i5;
-import 'features/search/screens/search_screen.dart' as _i4;
-
-class AppRouter extends _i6.RootStackRouter {
-  AppRouter([_i7.GlobalKey<_i7.NavigatorState>? navigatorKey])
-      : super(navigatorKey);
+abstract class $MyTmdbRouter extends _i6.RootStackRouter {
+  $MyTmdbRouter({super.navigatorKey});
 
   @override
   final Map<String, _i6.PageFactory> pagesMap = {
     DashboardRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i1.DashboardScreen(),
       );
     },
     DetailsRoute.name: (routeData) {
       final args = routeData.argsAs<DetailsRouteArgs>();
-      return _i6.MaterialPageX<dynamic>(
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: _i2.DetailsScreen(
           key: args.key,
@@ -45,53 +41,24 @@ class AppRouter extends _i6.RootStackRouter {
       );
     },
     HomeRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
         child: const _i3.HomeScreen(),
       );
     },
-    SearchRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+    ProfileRoute.name: (routeData) {
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i4.SearchScreen(),
+        child: const _i4.ProfileScreen(),
       );
     },
-    ProfileRoute.name: (routeData) {
-      return _i6.MaterialPageX<dynamic>(
+    SearchRoute.name: (routeData) {
+      return _i6.AutoRoutePage<dynamic>(
         routeData: routeData,
-        child: const _i5.ProfileScreen(),
+        child: const _i5.SearchScreen(),
       );
     },
   };
-
-  @override
-  List<_i6.RouteConfig> get routes => [
-        _i6.RouteConfig(
-          DashboardRoute.name,
-          path: '/',
-          children: [
-            _i6.RouteConfig(
-              HomeRoute.name,
-              path: '',
-              parent: DashboardRoute.name,
-            ),
-            _i6.RouteConfig(
-              SearchRoute.name,
-              path: 'search-screen',
-              parent: DashboardRoute.name,
-            ),
-            _i6.RouteConfig(
-              ProfileRoute.name,
-              path: 'profile-screen',
-              parent: DashboardRoute.name,
-            ),
-          ],
-        ),
-        _i6.RouteConfig(
-          DetailsRoute.name,
-          path: '/details-screen',
-        ),
-      ];
 }
 
 /// generated route for
@@ -100,11 +67,12 @@ class DashboardRoute extends _i6.PageRouteInfo<void> {
   const DashboardRoute({List<_i6.PageRouteInfo>? children})
       : super(
           DashboardRoute.name,
-          path: '/',
           initialChildren: children,
         );
 
   static const String name = 'DashboardRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
 /// generated route for
@@ -114,17 +82,21 @@ class DetailsRoute extends _i6.PageRouteInfo<DetailsRouteArgs> {
     _i7.Key? key,
     required _i8.ContentId id,
     String initialTitle = '',
+    List<_i6.PageRouteInfo>? children,
   }) : super(
           DetailsRoute.name,
-          path: '/details-screen',
           args: DetailsRouteArgs(
             key: key,
             id: id,
             initialTitle: initialTitle,
           ),
+          initialChildren: children,
         );
 
   static const String name = 'DetailsRoute';
+
+  static const _i6.PageInfo<DetailsRouteArgs> page =
+      _i6.PageInfo<DetailsRouteArgs>(name);
 }
 
 class DetailsRouteArgs {
@@ -149,35 +121,41 @@ class DetailsRouteArgs {
 /// generated route for
 /// [_i3.HomeScreen]
 class HomeRoute extends _i6.PageRouteInfo<void> {
-  const HomeRoute()
+  const HomeRoute({List<_i6.PageRouteInfo>? children})
       : super(
           HomeRoute.name,
-          path: '',
+          initialChildren: children,
         );
 
   static const String name = 'HomeRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }
 
 /// generated route for
-/// [_i4.SearchScreen]
-class SearchRoute extends _i6.PageRouteInfo<void> {
-  const SearchRoute()
-      : super(
-          SearchRoute.name,
-          path: 'search-screen',
-        );
-
-  static const String name = 'SearchRoute';
-}
-
-/// generated route for
-/// [_i5.ProfileScreen]
+/// [_i4.ProfileScreen]
 class ProfileRoute extends _i6.PageRouteInfo<void> {
-  const ProfileRoute()
+  const ProfileRoute({List<_i6.PageRouteInfo>? children})
       : super(
           ProfileRoute.name,
-          path: 'profile-screen',
+          initialChildren: children,
         );
 
   static const String name = 'ProfileRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
+}
+
+/// generated route for
+/// [_i5.SearchScreen]
+class SearchRoute extends _i6.PageRouteInfo<void> {
+  const SearchRoute({List<_i6.PageRouteInfo>? children})
+      : super(
+          SearchRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'SearchRoute';
+
+  static const _i6.PageInfo<void> page = _i6.PageInfo<void>(name);
 }

@@ -5,6 +5,7 @@ import '../../../routes.gr.dart';
 import '../../content/models/content.dart';
 import '../../popular_movies/widgets/popular_movies_widget.dart';
 
+@RoutePage()
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
 

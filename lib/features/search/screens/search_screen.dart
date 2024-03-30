@@ -6,6 +6,7 @@ import '../../../routes.gr.dart';
 import '../../content/models/content.dart';
 import '../widgets/search_widget.dart';
 
+@RoutePage()
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
 

@@ -6,9 +6,9 @@ import 'di.dart';
 import 'my_tmdb_app.dart';
 
 Future<void> main() async {
-  configureDependencies(env: prod.name);
-
   WidgetsFlutterBinding.ensureInitialized();
+  await configureDependencies(env: prod.name);
+
   await SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,

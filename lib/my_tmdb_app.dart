@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-import 'features/auth/auth_module.dart';
 import 'routes.dart';
 
 class MyTmdbApp extends StatelessWidget {
@@ -15,12 +13,6 @@ class MyTmdbApp extends StatelessWidget {
         darkTheme: ThemeData.dark(),
         routerDelegate: _appRouter.delegate(),
         routeInformationParser: _appRouter.defaultRouteParser(),
-        builder: (context, child) => MultiProvider(
-          providers: const [
-            AuthModule(),
-          ],
-          child: child,
-        ),
       );
 }
 

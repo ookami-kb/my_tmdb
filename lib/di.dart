@@ -8,8 +8,8 @@ import 'di.config.dart';
 final sl = GetIt.instance;
 
 @InjectableInit()
-void configureDependencies({required String env}) =>
-    $initGetIt(sl, environment: env);
+Future<void> configureDependencies({required String env}) =>
+    sl.init(environment: env);
 
 @module
 abstract class AppModule {

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../routes.gr.dart';
 
+@RoutePage()
 class DashboardScreen extends StatelessWidget {
   const DashboardScreen({super.key});
 
@@ -13,7 +14,7 @@ class DashboardScreen extends StatelessWidget {
           SearchRoute(),
           ProfileRoute(),
         ],
-        builder: (context, child, animation) {
+        builder: (context, child) {
           final tabsRouter = AutoTabsRouter.of(context);
 
           return Scaffold(
