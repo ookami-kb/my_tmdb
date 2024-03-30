@@ -2,6 +2,7 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import '../../../di.dart';
+import '../../auth/models/auth_info.dart';
 import '../../auth/services/auth_service.dart';
 import '../../auth/widgets/login_form.dart';
 import '../../auth/widgets/logout_button.dart';
@@ -15,19 +16,19 @@ class ProfileScreen extends StatelessWidget {
         appBar: AppBar(title: const Text('My profile')),
         body: ValueListenableBuilder(
           valueListenable: sl<AuthService>(),
-          builder: (context, value, child) => value.map(
-            authenticated: (info) => Center(
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                children: [
-                  Text(info.name),
-                  Text(info.accountId.toString()),
-                  const LogoutButton(),
-                ],
+          builder: (context, value, child) => switch (value) {
+            Authenticated(:final name, :final accountId) => Center(
+                child: Column(
+                  mainAxisSize: MainAxisSize.min,
+                  children: [
+                    Text(name),
+                    Text(accountId.toString()),
+                    const LogoutButton(),
+                  ],
+                ),
               ),
-            ),
-            anonymous: (_) => const Center(child: LoginForm()),
-          ),
+            Anonymous() => const Center(child: LoginForm()),
+          },
         ),
       );
 }

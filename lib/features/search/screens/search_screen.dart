@@ -1,9 +1,9 @@
 import 'package:auto_route/auto_route.dart';
-import 'package:dfunc/dfunc.dart';
 import 'package:flutter/material.dart';
 
 import '../../../routes.gr.dart';
 import '../../content/models/content.dart';
+import '../models/search_result.dart';
 import '../widgets/search_widget.dart';
 
 @RoutePage()
@@ -18,10 +18,10 @@ class SearchScreen extends StatelessWidget {
             DetailsRoute(
               id: ContentId(
                 value: item.id,
-                type: item.map(
-                  movie: always(ContentType.movie),
-                  tvShow: always(ContentType.tv),
-                ),
+                type: switch (item) {
+                  SearchResultMovie() => ContentType.movie,
+                  SearchResultTvShow() => ContentType.tv,
+                },
               ),
               initialTitle: item.title,
             ),

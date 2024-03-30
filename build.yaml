@@ -1,6 +1,15 @@
+global_options:
+  freezed:
+    runs_before:
+      - json_serializable
+
 targets:
   $default:
     builders:
       json_serializable:
         options:
           field_rename: snake
+      freezed:
+        options:
+          map: false
+          when: false

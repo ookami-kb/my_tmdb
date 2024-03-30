@@ -19,44 +19,6 @@ mixin _$SearchResult {
   int get id => throw _privateConstructorUsedError;
   String get title => throw _privateConstructorUsedError;
   Uri? get poster => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int id, String title, Uri? poster) movie,
-    required TResult Function(int id, String title, Uri? poster) tvShow,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id, String title, Uri? poster)? movie,
-    TResult? Function(int id, String title, Uri? poster)? tvShow,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String title, Uri? poster)? movie,
-    TResult Function(int id, String title, Uri? poster)? tvShow,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchResultMovie value) movie,
-    required TResult Function(SearchResultTvShow value) tvShow,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchResultMovie value)? movie,
-    TResult? Function(SearchResultTvShow value)? tvShow,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchResultMovie value)? movie,
-    TResult Function(SearchResultTvShow value)? tvShow,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchResultCopyWith<SearchResult> get copyWith =>
@@ -186,68 +148,6 @@ class _$SearchResultMovieImpl implements SearchResultMovie {
   _$$SearchResultMovieImplCopyWith<_$SearchResultMovieImpl> get copyWith =>
       __$$SearchResultMovieImplCopyWithImpl<_$SearchResultMovieImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int id, String title, Uri? poster) movie,
-    required TResult Function(int id, String title, Uri? poster) tvShow,
-  }) {
-    return movie(id, title, poster);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id, String title, Uri? poster)? movie,
-    TResult? Function(int id, String title, Uri? poster)? tvShow,
-  }) {
-    return movie?.call(id, title, poster);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String title, Uri? poster)? movie,
-    TResult Function(int id, String title, Uri? poster)? tvShow,
-    required TResult orElse(),
-  }) {
-    if (movie != null) {
-      return movie(id, title, poster);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchResultMovie value) movie,
-    required TResult Function(SearchResultTvShow value) tvShow,
-  }) {
-    return movie(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchResultMovie value)? movie,
-    TResult? Function(SearchResultTvShow value)? tvShow,
-  }) {
-    return movie?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchResultMovie value)? movie,
-    TResult Function(SearchResultTvShow value)? tvShow,
-    required TResult orElse(),
-  }) {
-    if (movie != null) {
-      return movie(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SearchResultMovie implements SearchResult {
@@ -348,68 +248,6 @@ class _$SearchResultTvShowImpl implements SearchResultTvShow {
   _$$SearchResultTvShowImplCopyWith<_$SearchResultTvShowImpl> get copyWith =>
       __$$SearchResultTvShowImplCopyWithImpl<_$SearchResultTvShowImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int id, String title, Uri? poster) movie,
-    required TResult Function(int id, String title, Uri? poster) tvShow,
-  }) {
-    return tvShow(id, title, poster);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int id, String title, Uri? poster)? movie,
-    TResult? Function(int id, String title, Uri? poster)? tvShow,
-  }) {
-    return tvShow?.call(id, title, poster);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int id, String title, Uri? poster)? movie,
-    TResult Function(int id, String title, Uri? poster)? tvShow,
-    required TResult orElse(),
-  }) {
-    if (tvShow != null) {
-      return tvShow(id, title, poster);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchResultMovie value) movie,
-    required TResult Function(SearchResultTvShow value) tvShow,
-  }) {
-    return tvShow(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchResultMovie value)? movie,
-    TResult? Function(SearchResultTvShow value)? tvShow,
-  }) {
-    return tvShow?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchResultMovie value)? movie,
-    TResult Function(SearchResultTvShow value)? tvShow,
-    required TResult orElse(),
-  }) {
-    if (tvShow != null) {
-      return tvShow(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SearchResultTvShow implements SearchResult {
@@ -431,47 +269,7 @@ abstract class SearchResultTvShow implements SearchResult {
 }
 
 /// @nodoc
-mixin _$SearchResultWrapper {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(IList<SearchResult> results, int totalPages)
-        success,
-    required TResult Function() failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(IList<SearchResult> results, int totalPages)? success,
-    TResult? Function()? failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(IList<SearchResult> results, int totalPages)? success,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchResultSuccess value) success,
-    required TResult Function(SearchResultFailure value) failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchResultSuccess value)? success,
-    TResult? Function(SearchResultFailure value)? failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchResultSuccess value)? success,
-    TResult Function(SearchResultFailure value)? failure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SearchResultWrapper {}
 
 /// @nodoc
 abstract class $SearchResultWrapperCopyWith<$Res> {
@@ -563,69 +361,6 @@ class _$SearchResultSuccessImpl implements SearchResultSuccess {
   _$$SearchResultSuccessImplCopyWith<_$SearchResultSuccessImpl> get copyWith =>
       __$$SearchResultSuccessImplCopyWithImpl<_$SearchResultSuccessImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(IList<SearchResult> results, int totalPages)
-        success,
-    required TResult Function() failure,
-  }) {
-    return success(results, totalPages);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(IList<SearchResult> results, int totalPages)? success,
-    TResult? Function()? failure,
-  }) {
-    return success?.call(results, totalPages);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(IList<SearchResult> results, int totalPages)? success,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(results, totalPages);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchResultSuccess value) success,
-    required TResult Function(SearchResultFailure value) failure,
-  }) {
-    return success(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchResultSuccess value)? success,
-    TResult? Function(SearchResultFailure value)? failure,
-  }) {
-    return success?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchResultSuccess value)? success,
-    TResult Function(SearchResultFailure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (success != null) {
-      return success(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SearchResultSuccess implements SearchResultWrapper {
@@ -675,69 +410,6 @@ class _$SearchResultFailureImpl implements SearchResultFailure {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(IList<SearchResult> results, int totalPages)
-        success,
-    required TResult Function() failure,
-  }) {
-    return failure();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(IList<SearchResult> results, int totalPages)? success,
-    TResult? Function()? failure,
-  }) {
-    return failure?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(IList<SearchResult> results, int totalPages)? success,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchResultSuccess value) success,
-    required TResult Function(SearchResultFailure value) failure,
-  }) {
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchResultSuccess value)? success,
-    TResult? Function(SearchResultFailure value)? failure,
-  }) {
-    return failure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchResultSuccess value)? success,
-    TResult Function(SearchResultFailure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SearchResultFailure implements SearchResultWrapper {

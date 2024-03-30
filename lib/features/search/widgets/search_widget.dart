@@ -91,8 +91,8 @@ class _SearchSuffixIcon extends StatelessWidget {
 }
 
 extension on SearchResult {
-  Widget get icon => this.map(
-        movie: (_) => const Icon(Icons.movie),
-        tvShow: (_) => const Icon(Icons.tv),
-      );
+  Widget get icon => switch (this) {
+        SearchResultMovie() => const Icon(Icons.movie),
+        SearchResultTvShow() => const Icon(Icons.tv),
+      };
 }

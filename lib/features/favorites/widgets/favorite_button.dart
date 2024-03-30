@@ -49,22 +49,22 @@ class _ButtonState extends State<_Button> {
               child: nonFavoriteIcon,
             )
           : BlocBuilder<FavoritesBloc, FavoritesState>(
-              builder: (context, state) => state.maybeMap(
-                fetched: (state) => FloatingActionButton(
-                  heroTag: 'FAB',
-                  onPressed: () => context.read<FavoritesBloc>().add(
-                        state.isFavorite
-                            ? FavoritesEvent.removeFromFavorites(info: info)
-                            : FavoritesEvent.addToFavorites(info: info),
-                      ),
-                  child: state.isFavorite ? favoriteIcon : nonFavoriteIcon,
-                ),
-                orElse: () => const FloatingActionButton(
-                  heroTag: 'FAB',
-                  onPressed: null,
-                  child: nonFavoriteIcon,
-                ),
-              ),
+              builder: (context, state) => switch (state) {
+                Fetched() => FloatingActionButton(
+                    heroTag: 'FAB',
+                    onPressed: () => context.read<FavoritesBloc>().add(
+                          state.isFavorite
+                              ? FavoritesEvent.removeFromFavorites(info: info)
+                              : FavoritesEvent.addToFavorites(info: info),
+                        ),
+                    child: state.isFavorite ? favoriteIcon : nonFavoriteIcon,
+                  ),
+                _ => const FloatingActionButton(
+                    heroTag: 'FAB',
+                    onPressed: null,
+                    child: nonFavoriteIcon,
+                  ),
+              },
             ),
     );
   }

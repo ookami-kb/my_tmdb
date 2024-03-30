@@ -29,26 +29,28 @@ class FavoritesBloc extends Bloc<_Event, _State> {
   final FavoritesRepository _repository;
   final ContentId _contentId;
 
-  _EventHandler get _handler => (event, emit) => event.map(
-        init: (event) => _handleInit(event, emit),
-        addToFavorites: (event) => _handleAddToFavorites(event, emit),
-        removeFromFavorites: (event) => _handleRemoveFromFavorites(event, emit),
-      );
+  _EventHandler get _handler => (event, emit) => switch (event) {
+        Init() => _handleInit(event, emit),
+        AddToFavorites() => _handleAddToFavorites(event, emit),
+        RemoveFromFavorites() => _handleRemoveFromFavorites(event, emit),
+      };
 
-  void _handleInit(Init event, _Emitter emit) => event.authInfo.map(
-        authenticated: (info) async {
-          emit(const FavoritesState.processing());
+  Future<void> _handleInit(Init event, _Emitter emit) async {
+    switch (event.authInfo) {
+      case Authenticated(:final sessionId):
+        emit(const FavoritesState.processing());
 
-          final newState = await _repository
-              .isFavorite(id: _contentId, sessionId: info.sessionId)
-              .foldAsync(
-                (_) => const FavoritesState.failure(),
-                (isFavorite) => FavoritesState.fetched(isFavorite: isFavorite),
-              );
-          emit(newState);
-        },
-        anonymous: (_) => emit(const FavoritesState.fetched(isFavorite: false)),
-      );
+        final newState = await _repository
+            .isFavorite(id: _contentId, sessionId: sessionId)
+            .foldAsync(
+              (_) => const FavoritesState.failure(),
+              (isFavorite) => FavoritesState.fetched(isFavorite: isFavorite),
+            );
+        emit(newState);
+      case Anonymous():
+        emit(const FavoritesState.fetched(isFavorite: false));
+    }
+  }
 
   Future<void> _handleAddToFavorites(
     AddToFavorites event,
@@ -82,7 +84,7 @@ class FavoritesBloc extends Bloc<_Event, _State> {
 }
 
 @freezed
-class FavoritesState with _$FavoritesState {
+sealed class FavoritesState with _$FavoritesState {
   const factory FavoritesState.initial() = Initial;
   const factory FavoritesState.processing() = Processing;
   const factory FavoritesState.failure() = Failure;
@@ -90,7 +92,7 @@ class FavoritesState with _$FavoritesState {
 }
 
 @freezed
-class FavoritesEvent with _$FavoritesEvent {
+sealed class FavoritesEvent with _$FavoritesEvent {
   const factory FavoritesEvent.init({required AuthInfo authInfo}) = Init;
 
   const factory FavoritesEvent.addToFavorites({

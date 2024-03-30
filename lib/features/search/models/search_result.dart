@@ -4,7 +4,7 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 part 'search_result.freezed.dart';
 
 @freezed
-class SearchResult with _$SearchResult {
+sealed class SearchResult with _$SearchResult {
   const factory SearchResult.movie({
     required int id,
     required String title,

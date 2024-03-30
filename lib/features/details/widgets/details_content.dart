@@ -7,7 +7,7 @@ import '../models/details.dart';
 part 'details_content.freezed.dart';
 
 @freezed
-class DetailsLoadingStatus with _$DetailsLoadingStatus {
+sealed class DetailsLoadingStatus with _$DetailsLoadingStatus {
   const factory DetailsLoadingStatus.loading() = _Loading;
   const factory DetailsLoadingStatus.failure() = _Failure;
   const factory DetailsLoadingStatus.success(Details value) = _Success;
@@ -26,9 +26,18 @@ class DetailsContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final title = status.whenOrNull(success: (it) => it.title) ?? initialTitle;
-    final posterUrl = status.whenOrNull(success: (it) => it.poster);
-    final backdropUrl = status.whenOrNull(success: (it) => it.backdrop);
+    final title = switch (status) {
+      _Success(:final value) => value.title,
+      _ => initialTitle,
+    };
+    final posterUrl = switch (status) {
+      _Success(:final value) => value.poster,
+      _ => null,
+    };
+    final backdropUrl = switch (status) {
+      _Success(:final value) => value.backdrop,
+      _ => null,
+    };
 
     return CustomScrollView(
       slivers: [
@@ -58,17 +67,17 @@ class DetailsContent extends StatelessWidget {
           ),
         ),
         SliverToBoxAdapter(child: _MovieTitle(title: title)),
-        status.when(
-          loading: () => const SliverFillRemaining(
-            child: Center(child: CircularProgressIndicator()),
-          ),
-          failure: () => const SliverFillRemaining(
-            child: Center(child: Text('Something went wrong.')),
-          ),
-          success: (v) => SliverToBoxAdapter(
-            child: _MovieOverview(overview: v.overview),
-          ),
-        ),
+        switch (status) {
+          _Loading() => const SliverFillRemaining(
+              child: Center(child: CircularProgressIndicator()),
+            ),
+          _Failure() => const SliverFillRemaining(
+              child: Center(child: Text('Something went wrong.')),
+            ),
+          _Success(:final value) => SliverToBoxAdapter(
+              child: _MovieOverview(overview: value.overview),
+            ),
+        },
       ],
     );
   }

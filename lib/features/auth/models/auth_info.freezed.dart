@@ -15,49 +15,7 @@ final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
 /// @nodoc
-mixin _$AuthInfo {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountId, String sessionId, String name)
-        authenticated,
-    required TResult Function() anonymous,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountId, String sessionId, String name)?
-        authenticated,
-    TResult? Function()? anonymous,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountId, String sessionId, String name)?
-        authenticated,
-    TResult Function()? anonymous,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Authenticated value) authenticated,
-    required TResult Function(Anonymous value) anonymous,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Authenticated value)? authenticated,
-    TResult? Function(Anonymous value)? anonymous,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Authenticated value)? authenticated,
-    TResult Function(Anonymous value)? anonymous,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$AuthInfo {}
 
 /// @nodoc
 abstract class $AuthInfoCopyWith<$Res> {
@@ -155,71 +113,6 @@ class _$AuthenticatedImpl implements Authenticated {
   @pragma('vm:prefer-inline')
   _$$AuthenticatedImplCopyWith<_$AuthenticatedImpl> get copyWith =>
       __$$AuthenticatedImplCopyWithImpl<_$AuthenticatedImpl>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountId, String sessionId, String name)
-        authenticated,
-    required TResult Function() anonymous,
-  }) {
-    return authenticated(accountId, sessionId, name);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountId, String sessionId, String name)?
-        authenticated,
-    TResult? Function()? anonymous,
-  }) {
-    return authenticated?.call(accountId, sessionId, name);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountId, String sessionId, String name)?
-        authenticated,
-    TResult Function()? anonymous,
-    required TResult orElse(),
-  }) {
-    if (authenticated != null) {
-      return authenticated(accountId, sessionId, name);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Authenticated value) authenticated,
-    required TResult Function(Anonymous value) anonymous,
-  }) {
-    return authenticated(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Authenticated value)? authenticated,
-    TResult? Function(Anonymous value)? anonymous,
-  }) {
-    return authenticated?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Authenticated value)? authenticated,
-    TResult Function(Anonymous value)? anonymous,
-    required TResult orElse(),
-  }) {
-    if (authenticated != null) {
-      return authenticated(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class Authenticated implements AuthInfo {
@@ -270,71 +163,6 @@ class _$AnonymousImpl implements Anonymous {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(int accountId, String sessionId, String name)
-        authenticated,
-    required TResult Function() anonymous,
-  }) {
-    return anonymous();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(int accountId, String sessionId, String name)?
-        authenticated,
-    TResult? Function()? anonymous,
-  }) {
-    return anonymous?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(int accountId, String sessionId, String name)?
-        authenticated,
-    TResult Function()? anonymous,
-    required TResult orElse(),
-  }) {
-    if (anonymous != null) {
-      return anonymous();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(Authenticated value) authenticated,
-    required TResult Function(Anonymous value) anonymous,
-  }) {
-    return anonymous(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(Authenticated value)? authenticated,
-    TResult? Function(Anonymous value)? anonymous,
-  }) {
-    return anonymous?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(Authenticated value)? authenticated,
-    TResult Function(Anonymous value)? anonymous,
-    required TResult orElse(),
-  }) {
-    if (anonymous != null) {
-      return anonymous(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class Anonymous implements AuthInfo {

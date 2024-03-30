@@ -10,7 +10,7 @@ import '../models/search_result.dart';
 part 'search_bloc.freezed.dart';
 
 @freezed
-class SearchEvent with _$SearchEvent {
+sealed class SearchEvent with _$SearchEvent {
   const factory SearchEvent.search(String query) = SearchEventSearch;
 }
 
@@ -45,9 +45,9 @@ class SearchBloc extends Bloc<_Event, _State> {
 
   final SearchRepository _repository;
 
-  _EventHandler get _handler => (event, emit) => event.map(
-        search: (e) => _handleSearch(e, emit),
-      );
+  _EventHandler get _handler => (event, emit) => switch (event) {
+        SearchEventSearch() => _handleSearch(event, emit),
+  };
 
   Future<void> _handleSearch(SearchEventSearch event, _Emitter emit) async {
     if (event.query.isEmpty) {

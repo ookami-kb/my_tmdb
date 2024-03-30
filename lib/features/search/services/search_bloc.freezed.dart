@@ -17,38 +17,6 @@ final _privateConstructorUsedError = UnsupportedError(
 /// @nodoc
 mixin _$SearchEvent {
   String get query => throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String query) search,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String query)? search,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String query)? search,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchEventSearch value) search,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchEventSearch value)? search,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchEventSearch value)? search,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SearchEventCopyWith<SearchEvent> get copyWith =>
@@ -151,62 +119,6 @@ class _$SearchEventSearchImpl implements SearchEventSearch {
   _$$SearchEventSearchImplCopyWith<_$SearchEventSearchImpl> get copyWith =>
       __$$SearchEventSearchImplCopyWithImpl<_$SearchEventSearchImpl>(
           this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String query) search,
-  }) {
-    return search(query);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function(String query)? search,
-  }) {
-    return search?.call(query);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String query)? search,
-    required TResult orElse(),
-  }) {
-    if (search != null) {
-      return search(query);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchEventSearch value) search,
-  }) {
-    return search(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchEventSearch value)? search,
-  }) {
-    return search?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchEventSearch value)? search,
-    required TResult orElse(),
-  }) {
-    if (search != null) {
-      return search(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SearchEventSearch implements SearchEvent {
@@ -370,52 +282,7 @@ abstract class _SearchState implements SearchState {
 }
 
 /// @nodoc
-mixin _$SearchStatus {
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() inProgress,
-    required TResult Function() failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function()? inProgress,
-    TResult? Function()? failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? inProgress,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchStatusNone value) none,
-    required TResult Function(SearchStatusInProgress value) inProgress,
-    required TResult Function(SearchStatusFailure value) failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchStatusNone value)? none,
-    TResult? Function(SearchStatusInProgress value)? inProgress,
-    TResult? Function(SearchStatusFailure value)? failure,
-  }) =>
-      throw _privateConstructorUsedError;
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchStatusNone value)? none,
-    TResult Function(SearchStatusInProgress value)? inProgress,
-    TResult Function(SearchStatusFailure value)? failure,
-    required TResult orElse(),
-  }) =>
-      throw _privateConstructorUsedError;
-}
+mixin _$SearchStatus {}
 
 /// @nodoc
 abstract class $SearchStatusCopyWith<$Res> {
@@ -469,74 +336,6 @@ class _$SearchStatusNoneImpl implements SearchStatusNone {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() inProgress,
-    required TResult Function() failure,
-  }) {
-    return none();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function()? inProgress,
-    TResult? Function()? failure,
-  }) {
-    return none?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? inProgress,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchStatusNone value) none,
-    required TResult Function(SearchStatusInProgress value) inProgress,
-    required TResult Function(SearchStatusFailure value) failure,
-  }) {
-    return none(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchStatusNone value)? none,
-    TResult? Function(SearchStatusInProgress value)? inProgress,
-    TResult? Function(SearchStatusFailure value)? failure,
-  }) {
-    return none?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchStatusNone value)? none,
-    TResult Function(SearchStatusInProgress value)? inProgress,
-    TResult Function(SearchStatusFailure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (none != null) {
-      return none(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SearchStatusNone implements SearchStatus {
@@ -580,74 +379,6 @@ class _$SearchStatusInProgressImpl implements SearchStatusInProgress {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() inProgress,
-    required TResult Function() failure,
-  }) {
-    return inProgress();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function()? inProgress,
-    TResult? Function()? failure,
-  }) {
-    return inProgress?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? inProgress,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (inProgress != null) {
-      return inProgress();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchStatusNone value) none,
-    required TResult Function(SearchStatusInProgress value) inProgress,
-    required TResult Function(SearchStatusFailure value) failure,
-  }) {
-    return inProgress(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchStatusNone value)? none,
-    TResult? Function(SearchStatusInProgress value)? inProgress,
-    TResult? Function(SearchStatusFailure value)? failure,
-  }) {
-    return inProgress?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchStatusNone value)? none,
-    TResult Function(SearchStatusInProgress value)? inProgress,
-    TResult Function(SearchStatusFailure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (inProgress != null) {
-      return inProgress(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SearchStatusInProgress implements SearchStatus {
@@ -689,74 +420,6 @@ class _$SearchStatusFailureImpl implements SearchStatusFailure {
 
   @override
   int get hashCode => runtimeType.hashCode;
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function() none,
-    required TResult Function() inProgress,
-    required TResult Function() failure,
-  }) {
-    return failure();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult? Function()? none,
-    TResult? Function()? inProgress,
-    TResult? Function()? failure,
-  }) {
-    return failure?.call();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function()? none,
-    TResult Function()? inProgress,
-    TResult Function()? failure,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure();
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(SearchStatusNone value) none,
-    required TResult Function(SearchStatusInProgress value) inProgress,
-    required TResult Function(SearchStatusFailure value) failure,
-  }) {
-    return failure(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult? Function(SearchStatusNone value)? none,
-    TResult? Function(SearchStatusInProgress value)? inProgress,
-    TResult? Function(SearchStatusFailure value)? failure,
-  }) {
-    return failure?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(SearchStatusNone value)? none,
-    TResult Function(SearchStatusInProgress value)? inProgress,
-    TResult Function(SearchStatusFailure value)? failure,
-    required TResult orElse(),
-  }) {
-    if (failure != null) {
-      return failure(this);
-    }
-    return orElse();
-  }
 }
 
 abstract class SearchStatusFailure implements SearchStatus {
