@@ -47,6 +47,8 @@ class DetailsContent extends StatelessWidget {
           floating: false,
           expandedHeight: 400,
           flexibleSpace: FlexibleSpaceBar(
+            centerTitle: true,
+            titlePadding: const EdgeInsets.all(32),
             title: posterUrl == null
                 ? null
                 : SizedBox(
