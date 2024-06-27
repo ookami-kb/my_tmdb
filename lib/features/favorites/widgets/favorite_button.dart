@@ -26,14 +26,9 @@ class FavoriteButton extends StatelessWidget {
       );
 }
 
-class _Button extends StatefulWidget {
+class _Button extends StatelessWidget {
   const _Button();
 
-  @override
-  State<_Button> createState() => _ButtonState();
-}
-
-class _ButtonState extends State<_Button> {
   @override
   Widget build(BuildContext context) {
     const favoriteIcon = Icon(Icons.favorite);
@@ -46,7 +41,7 @@ class _ButtonState extends State<_Button> {
               heroTag: 'FAB',
               onPressed: () async {
                 final info = await AuthDialog.show(context);
-                if (info == null || !mounted) return;
+                if (info == null || !context.mounted) return;
                 context
                     .read<FavoritesBloc>()
                     .add(FavoritesEvent.addToFavorites(info: info));

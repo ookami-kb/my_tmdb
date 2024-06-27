@@ -7,7 +7,7 @@ import 'auth_api_client.dart';
 
 @injectable
 class AuthRepository {
-  AuthRepository({
+  const AuthRepository({
     required AuthApiClient apiClient,
     required FlutterSecureStorage storage,
     @Named('apiKey') required String apiKey,

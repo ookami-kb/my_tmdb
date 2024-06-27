@@ -8,7 +8,7 @@ import 'search_api_client.dart';
 
 @lazySingleton
 class SearchRepository {
-  SearchRepository({
+  const SearchRepository({
     required SearchApiClient searchApi,
     @Named('apiKey') required String apiKey,
     required ConfigRepository configRepository,

@@ -7,7 +7,7 @@ import 'favorites_api_client.dart';
 
 @injectable
 class FavoritesRepository {
-  FavoritesRepository({
+  const FavoritesRepository({
     required FavoritesApiClient api,
     @Named('apiKey') required String apiKey,
   })  : _apiKey = apiKey,

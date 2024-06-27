@@ -8,7 +8,7 @@ import 'popular_movies_api_client.dart';
 
 @lazySingleton
 class PopularMoviesRepository {
-  PopularMoviesRepository({
+  const PopularMoviesRepository({
     required PopularMoviesApiClient apiClient,
     required ConfigRepository configRepository,
     @Named('apiKey') required String apiKey,

@@ -8,7 +8,7 @@ import 'details_api_client.dart';
 
 @lazySingleton
 class DetailsRepository {
-  DetailsRepository({
+  const DetailsRepository({
     required DetailsApiClient apiClient,
     @Named('apiKey') required String apiKey,
     required ConfigRepository configRepository,
