@@ -9,6 +9,7 @@ import 'package:dfunc/dfunc.dart' as _i2;
 import 'package:fast_immutable_collections/fast_immutable_collections.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
+import 'package:my_tmdb/features/content/models/content.dart' as _i7;
 import 'package:my_tmdb/features/popular_movies/data/popular_movies_repository.dart'
     as _i3;
 import 'package:my_tmdb/features/popular_movies/models/popular_movie.dart'
@@ -48,18 +49,18 @@ class MockPopularMoviesRepository extends _i1.Mock
 
   @override
   _i4.Future<_i2.Either<Exception, _i5.IList<_i6.PopularMovie>>>
-      fetchPopularMovies() => (super.noSuchMethod(
+      fetchPopularContent(_i7.ContentType? type) => (super.noSuchMethod(
             Invocation.method(
-              #fetchPopularMovies,
-              [],
+              #fetchPopularContent,
+              [type],
             ),
             returnValue: _i4.Future<
                     _i2.Either<Exception, _i5.IList<_i6.PopularMovie>>>.value(
                 _FakeEither_0<Exception, _i5.IList<_i6.PopularMovie>>(
               this,
               Invocation.method(
-                #fetchPopularMovies,
-                [],
+                #fetchPopularContent,
+                [type],
               ),
             )),
           ) as _i4.Future<_i2.Either<Exception, _i5.IList<_i6.PopularMovie>>>);

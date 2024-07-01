@@ -3,6 +3,7 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
 import '../../../di.dart';
+import '../../content/models/content.dart';
 import '../data/popular_movies_repository.dart';
 import '../models/popular_movie.dart';
 import 'popular_movies_list.dart';
@@ -11,9 +12,11 @@ class PopularMoviesWidget extends StatefulWidget {
   const PopularMoviesWidget({
     super.key,
     required this.onItemPressed,
+    required this.type,
   });
 
   final ValueSetter<PopularMovie> onItemPressed;
+  final ContentType type;
 
   @override
   State<PopularMoviesWidget> createState() => _PopularMoviesWidgetState();
@@ -26,7 +29,7 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
   void initState() {
     super.initState();
 
-    _result = sl<PopularMoviesRepository>().fetchPopularMovies();
+    _result = sl<PopularMoviesRepository>().fetchPopularContent(widget.type);
   }
 
   @override
@@ -37,7 +40,10 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
             Padding(
               padding: const EdgeInsets.all(12),
               child: Text(
-                'Popular Movies',
+                switch (widget.type) {
+                  ContentType.movie => 'Popular Movies',
+                  ContentType.tv => 'Popular TV Shows',
+                },
                 style: Theme.of(context).textTheme.headlineMedium,
               ),
             ),

@@ -14,35 +14,37 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more information: https://github.com/rrousselGit/freezed#adding-getters-and-methods-to-our-models');
 
-PopularMoviesResponseDto _$PopularMoviesResponseDtoFromJson(
-    Map<String, dynamic> json) {
-  return _PopularMoviesResponseDto.fromJson(json);
+PopularContentResponseDto<T> _$PopularContentResponseDtoFromJson<T>(
+    Map<String, dynamic> json, T Function(Object?) fromJsonT) {
+  return _PopularContentResponseDto<T>.fromJson(json, fromJsonT);
 }
 
 /// @nodoc
-mixin _$PopularMoviesResponseDto {
-  List<PopularMovieDto> get results => throw _privateConstructorUsedError;
+mixin _$PopularContentResponseDto<T> {
+  List<T> get results => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
-  @JsonKey(ignore: true)
-  $PopularMoviesResponseDtoCopyWith<PopularMoviesResponseDto> get copyWith =>
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) =>
       throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PopularContentResponseDtoCopyWith<T, PopularContentResponseDto<T>>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $PopularMoviesResponseDtoCopyWith<$Res> {
-  factory $PopularMoviesResponseDtoCopyWith(PopularMoviesResponseDto value,
-          $Res Function(PopularMoviesResponseDto) then) =
-      _$PopularMoviesResponseDtoCopyWithImpl<$Res, PopularMoviesResponseDto>;
+abstract class $PopularContentResponseDtoCopyWith<T, $Res> {
+  factory $PopularContentResponseDtoCopyWith(PopularContentResponseDto<T> value,
+          $Res Function(PopularContentResponseDto<T>) then) =
+      _$PopularContentResponseDtoCopyWithImpl<T, $Res,
+          PopularContentResponseDto<T>>;
   @useResult
-  $Res call({List<PopularMovieDto> results});
+  $Res call({List<T> results});
 }
 
 /// @nodoc
-class _$PopularMoviesResponseDtoCopyWithImpl<$Res,
-        $Val extends PopularMoviesResponseDto>
-    implements $PopularMoviesResponseDtoCopyWith<$Res> {
-  _$PopularMoviesResponseDtoCopyWithImpl(this._value, this._then);
+class _$PopularContentResponseDtoCopyWithImpl<T, $Res,
+        $Val extends PopularContentResponseDto<T>>
+    implements $PopularContentResponseDtoCopyWith<T, $Res> {
+  _$PopularContentResponseDtoCopyWithImpl(this._value, this._then);
 
   // ignore: unused_field
   final $Val _value;
@@ -58,31 +60,31 @@ class _$PopularMoviesResponseDtoCopyWithImpl<$Res,
       results: null == results
           ? _value.results
           : results // ignore: cast_nullable_to_non_nullable
-              as List<PopularMovieDto>,
+              as List<T>,
     ) as $Val);
   }
 }
 
 /// @nodoc
-abstract class _$$PopularMoviesResponseDtoImplCopyWith<$Res>
-    implements $PopularMoviesResponseDtoCopyWith<$Res> {
-  factory _$$PopularMoviesResponseDtoImplCopyWith(
-          _$PopularMoviesResponseDtoImpl value,
-          $Res Function(_$PopularMoviesResponseDtoImpl) then) =
-      __$$PopularMoviesResponseDtoImplCopyWithImpl<$Res>;
+abstract class _$$PopularContentResponseDtoImplCopyWith<T, $Res>
+    implements $PopularContentResponseDtoCopyWith<T, $Res> {
+  factory _$$PopularContentResponseDtoImplCopyWith(
+          _$PopularContentResponseDtoImpl<T> value,
+          $Res Function(_$PopularContentResponseDtoImpl<T>) then) =
+      __$$PopularContentResponseDtoImplCopyWithImpl<T, $Res>;
   @override
   @useResult
-  $Res call({List<PopularMovieDto> results});
+  $Res call({List<T> results});
 }
 
 /// @nodoc
-class __$$PopularMoviesResponseDtoImplCopyWithImpl<$Res>
-    extends _$PopularMoviesResponseDtoCopyWithImpl<$Res,
-        _$PopularMoviesResponseDtoImpl>
-    implements _$$PopularMoviesResponseDtoImplCopyWith<$Res> {
-  __$$PopularMoviesResponseDtoImplCopyWithImpl(
-      _$PopularMoviesResponseDtoImpl _value,
-      $Res Function(_$PopularMoviesResponseDtoImpl) _then)
+class __$$PopularContentResponseDtoImplCopyWithImpl<T, $Res>
+    extends _$PopularContentResponseDtoCopyWithImpl<T, $Res,
+        _$PopularContentResponseDtoImpl<T>>
+    implements _$$PopularContentResponseDtoImplCopyWith<T, $Res> {
+  __$$PopularContentResponseDtoImplCopyWithImpl(
+      _$PopularContentResponseDtoImpl<T> _value,
+      $Res Function(_$PopularContentResponseDtoImpl<T>) _then)
       : super(_value, _then);
 
   @pragma('vm:prefer-inline')
@@ -90,28 +92,29 @@ class __$$PopularMoviesResponseDtoImplCopyWithImpl<$Res>
   $Res call({
     Object? results = null,
   }) {
-    return _then(_$PopularMoviesResponseDtoImpl(
+    return _then(_$PopularContentResponseDtoImpl<T>(
       results: null == results
           ? _value._results
           : results // ignore: cast_nullable_to_non_nullable
-              as List<PopularMovieDto>,
+              as List<T>,
     ));
   }
 }
 
 /// @nodoc
-@JsonSerializable()
-class _$PopularMoviesResponseDtoImpl implements _PopularMoviesResponseDto {
-  const _$PopularMoviesResponseDtoImpl(
-      {required final List<PopularMovieDto> results})
+@JsonSerializable(genericArgumentFactories: true)
+class _$PopularContentResponseDtoImpl<T>
+    implements _PopularContentResponseDto<T> {
+  const _$PopularContentResponseDtoImpl({required final List<T> results})
       : _results = results;
 
-  factory _$PopularMoviesResponseDtoImpl.fromJson(Map<String, dynamic> json) =>
-      _$$PopularMoviesResponseDtoImplFromJson(json);
+  factory _$PopularContentResponseDtoImpl.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =>
+      _$$PopularContentResponseDtoImplFromJson(json, fromJsonT);
 
-  final List<PopularMovieDto> _results;
+  final List<T> _results;
   @override
-  List<PopularMovieDto> get results {
+  List<T> get results {
     if (_results is EqualUnmodifiableListView) return _results;
     // ignore: implicit_dynamic_type
     return EqualUnmodifiableListView(_results);
@@ -119,14 +122,14 @@ class _$PopularMoviesResponseDtoImpl implements _PopularMoviesResponseDto {
 
   @override
   String toString() {
-    return 'PopularMoviesResponseDto(results: $results)';
+    return 'PopularContentResponseDto<$T>(results: $results)';
   }
 
   @override
   bool operator ==(Object other) {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
-            other is _$PopularMoviesResponseDtoImpl &&
+            other is _$PopularContentResponseDtoImpl<T> &&
             const DeepCollectionEquality().equals(other._results, _results));
   }
 
@@ -138,31 +141,32 @@ class _$PopularMoviesResponseDtoImpl implements _PopularMoviesResponseDto {
   @JsonKey(ignore: true)
   @override
   @pragma('vm:prefer-inline')
-  _$$PopularMoviesResponseDtoImplCopyWith<_$PopularMoviesResponseDtoImpl>
-      get copyWith => __$$PopularMoviesResponseDtoImplCopyWithImpl<
-          _$PopularMoviesResponseDtoImpl>(this, _$identity);
+  _$$PopularContentResponseDtoImplCopyWith<T,
+          _$PopularContentResponseDtoImpl<T>>
+      get copyWith => __$$PopularContentResponseDtoImplCopyWithImpl<T,
+          _$PopularContentResponseDtoImpl<T>>(this, _$identity);
 
   @override
-  Map<String, dynamic> toJson() {
-    return _$$PopularMoviesResponseDtoImplToJson(
-      this,
-    );
+  Map<String, dynamic> toJson(Object? Function(T) toJsonT) {
+    return _$$PopularContentResponseDtoImplToJson<T>(this, toJsonT);
   }
 }
 
-abstract class _PopularMoviesResponseDto implements PopularMoviesResponseDto {
-  const factory _PopularMoviesResponseDto(
-          {required final List<PopularMovieDto> results}) =
-      _$PopularMoviesResponseDtoImpl;
+abstract class _PopularContentResponseDto<T>
+    implements PopularContentResponseDto<T> {
+  const factory _PopularContentResponseDto({required final List<T> results}) =
+      _$PopularContentResponseDtoImpl<T>;
 
-  factory _PopularMoviesResponseDto.fromJson(Map<String, dynamic> json) =
-      _$PopularMoviesResponseDtoImpl.fromJson;
+  factory _PopularContentResponseDto.fromJson(
+          Map<String, dynamic> json, T Function(Object?) fromJsonT) =
+      _$PopularContentResponseDtoImpl<T>.fromJson;
 
   @override
-  List<PopularMovieDto> get results;
+  List<T> get results;
   @override
   @JsonKey(ignore: true)
-  _$$PopularMoviesResponseDtoImplCopyWith<_$PopularMoviesResponseDtoImpl>
+  _$$PopularContentResponseDtoImplCopyWith<T,
+          _$PopularContentResponseDtoImpl<T>>
       get copyWith => throw _privateConstructorUsedError;
 }
 
@@ -337,5 +341,178 @@ abstract class _PopularMovieDto implements PopularMovieDto {
   @override
   @JsonKey(ignore: true)
   _$$PopularMovieDtoImplCopyWith<_$PopularMovieDtoImpl> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+PopularTvDto _$PopularTvDtoFromJson(Map<String, dynamic> json) {
+  return _PopularTvDto.fromJson(json);
+}
+
+/// @nodoc
+mixin _$PopularTvDto {
+  int get id => throw _privateConstructorUsedError;
+  String get name => throw _privateConstructorUsedError;
+  String? get posterPath => throw _privateConstructorUsedError;
+
+  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
+  @JsonKey(ignore: true)
+  $PopularTvDtoCopyWith<PopularTvDto> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class $PopularTvDtoCopyWith<$Res> {
+  factory $PopularTvDtoCopyWith(
+          PopularTvDto value, $Res Function(PopularTvDto) then) =
+      _$PopularTvDtoCopyWithImpl<$Res, PopularTvDto>;
+  @useResult
+  $Res call({int id, String name, String? posterPath});
+}
+
+/// @nodoc
+class _$PopularTvDtoCopyWithImpl<$Res, $Val extends PopularTvDto>
+    implements $PopularTvDtoCopyWith<$Res> {
+  _$PopularTvDtoCopyWithImpl(this._value, this._then);
+
+  // ignore: unused_field
+  final $Val _value;
+  // ignore: unused_field
+  final $Res Function($Val) _then;
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? posterPath = freezed,
+  }) {
+    return _then(_value.copyWith(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      posterPath: freezed == posterPath
+          ? _value.posterPath
+          : posterPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ) as $Val);
+  }
+}
+
+/// @nodoc
+abstract class _$$PopularTvDtoImplCopyWith<$Res>
+    implements $PopularTvDtoCopyWith<$Res> {
+  factory _$$PopularTvDtoImplCopyWith(
+          _$PopularTvDtoImpl value, $Res Function(_$PopularTvDtoImpl) then) =
+      __$$PopularTvDtoImplCopyWithImpl<$Res>;
+  @override
+  @useResult
+  $Res call({int id, String name, String? posterPath});
+}
+
+/// @nodoc
+class __$$PopularTvDtoImplCopyWithImpl<$Res>
+    extends _$PopularTvDtoCopyWithImpl<$Res, _$PopularTvDtoImpl>
+    implements _$$PopularTvDtoImplCopyWith<$Res> {
+  __$$PopularTvDtoImplCopyWithImpl(
+      _$PopularTvDtoImpl _value, $Res Function(_$PopularTvDtoImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? id = null,
+    Object? name = null,
+    Object? posterPath = freezed,
+  }) {
+    return _then(_$PopularTvDtoImpl(
+      id: null == id
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: null == name
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      posterPath: freezed == posterPath
+          ? _value.posterPath
+          : posterPath // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+@JsonSerializable()
+class _$PopularTvDtoImpl implements _PopularTvDto {
+  const _$PopularTvDtoImpl(
+      {required this.id, required this.name, this.posterPath});
+
+  factory _$PopularTvDtoImpl.fromJson(Map<String, dynamic> json) =>
+      _$$PopularTvDtoImplFromJson(json);
+
+  @override
+  final int id;
+  @override
+  final String name;
+  @override
+  final String? posterPath;
+
+  @override
+  String toString() {
+    return 'PopularTvDto(id: $id, name: $name, posterPath: $posterPath)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$PopularTvDtoImpl &&
+            (identical(other.id, id) || other.id == id) &&
+            (identical(other.name, name) || other.name == name) &&
+            (identical(other.posterPath, posterPath) ||
+                other.posterPath == posterPath));
+  }
+
+  @JsonKey(ignore: true)
+  @override
+  int get hashCode => Object.hash(runtimeType, id, name, posterPath);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$PopularTvDtoImplCopyWith<_$PopularTvDtoImpl> get copyWith =>
+      __$$PopularTvDtoImplCopyWithImpl<_$PopularTvDtoImpl>(this, _$identity);
+
+  @override
+  Map<String, dynamic> toJson() {
+    return _$$PopularTvDtoImplToJson(
+      this,
+    );
+  }
+}
+
+abstract class _PopularTvDto implements PopularTvDto {
+  const factory _PopularTvDto(
+      {required final int id,
+      required final String name,
+      final String? posterPath}) = _$PopularTvDtoImpl;
+
+  factory _PopularTvDto.fromJson(Map<String, dynamic> json) =
+      _$PopularTvDtoImpl.fromJson;
+
+  @override
+  int get id;
+  @override
+  String get name;
+  @override
+  String? get posterPath;
+  @override
+  @JsonKey(ignore: true)
+  _$$PopularTvDtoImplCopyWith<_$PopularTvDtoImpl> get copyWith =>
       throw _privateConstructorUsedError;
 }

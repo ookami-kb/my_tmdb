@@ -15,12 +15,29 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) => Scaffold(
         appBar: AppBar(title: const Text('MyTMDB')),
-        body: PopularMoviesWidget(
-          onItemPressed: (movie) => context.router.navigate(
-            DetailsScreen.route(
-              id: (type: ContentType.movie, value: movie.id),
-              initialTitle: movie.title,
-            ),
+        body: SingleChildScrollView(
+          child: Column(
+            children: [
+              PopularMoviesWidget(
+                type: ContentType.movie,
+                onItemPressed: (movie) => context.router.navigate(
+                  DetailsScreen.route(
+                    id: (type: ContentType.movie, value: movie.id),
+                    initialTitle: movie.title,
+                  ),
+                ),
+              ),
+              const SizedBox(height: 32),
+              PopularMoviesWidget(
+                type: ContentType.tv,
+                onItemPressed: (movie) => context.router.navigate(
+                  DetailsScreen.route(
+                    id: (type: ContentType.tv, value: movie.id),
+                    initialTitle: movie.title,
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       );

@@ -6,18 +6,20 @@ part of 'popular_movies_api_client.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PopularMoviesResponseDtoImpl _$$PopularMoviesResponseDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$PopularMoviesResponseDtoImpl(
-      results: (json['results'] as List<dynamic>)
-          .map((e) => PopularMovieDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
+_$PopularContentResponseDtoImpl<T> _$$PopularContentResponseDtoImplFromJson<T>(
+  Map<String, dynamic> json,
+  T Function(Object? json) fromJsonT,
+) =>
+    _$PopularContentResponseDtoImpl<T>(
+      results: (json['results'] as List<dynamic>).map(fromJsonT).toList(),
     );
 
-Map<String, dynamic> _$$PopularMoviesResponseDtoImplToJson(
-        _$PopularMoviesResponseDtoImpl instance) =>
+Map<String, dynamic> _$$PopularContentResponseDtoImplToJson<T>(
+  _$PopularContentResponseDtoImpl<T> instance,
+  Object? Function(T value) toJsonT,
+) =>
     <String, dynamic>{
-      'results': instance.results,
+      'results': instance.results.map(toJsonT).toList(),
     };
 
 _$PopularMovieDtoImpl _$$PopularMovieDtoImplFromJson(
@@ -33,6 +35,20 @@ Map<String, dynamic> _$$PopularMovieDtoImplToJson(
     <String, dynamic>{
       'id': instance.id,
       'title': instance.title,
+      'poster_path': instance.posterPath,
+    };
+
+_$PopularTvDtoImpl _$$PopularTvDtoImplFromJson(Map<String, dynamic> json) =>
+    _$PopularTvDtoImpl(
+      id: json['id'] as int,
+      name: json['name'] as String,
+      posterPath: json['poster_path'] as String?,
+    );
+
+Map<String, dynamic> _$$PopularTvDtoImplToJson(_$PopularTvDtoImpl instance) =>
+    <String, dynamic>{
+      'id': instance.id,
+      'name': instance.name,
       'poster_path': instance.posterPath,
     };
 
@@ -53,13 +69,14 @@ class _PopularMoviesApiClient implements PopularMoviesApiClient {
   String? baseUrl;
 
   @override
-  Future<PopularMoviesResponseDto> getPopularMovies({required apiKey}) async {
+  Future<PopularContentResponseDto<PopularMovieDto>> getPopularMovies(
+      {required apiKey}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api_key': apiKey};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PopularMoviesResponseDto>(Options(
+        _setStreamType<PopularContentResponseDto<PopularMovieDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -71,7 +88,37 @@ class _PopularMoviesApiClient implements PopularMoviesApiClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = PopularMoviesResponseDto.fromJson(_result.data!);
+    final value = PopularContentResponseDto<PopularMovieDto>.fromJson(
+      _result.data!,
+      (json) => PopularMovieDto.fromJson(json as Map<String, dynamic>),
+    );
+    return value;
+  }
+
+  @override
+  Future<PopularContentResponseDto<PopularTvDto>> getPopularTvShows(
+      {required apiKey}) async {
+    const _extra = <String, dynamic>{};
+    final queryParameters = <String, dynamic>{r'api_key': apiKey};
+    final _headers = <String, dynamic>{};
+    final _data = <String, dynamic>{};
+    final _result = await _dio.fetch<Map<String, dynamic>>(
+        _setStreamType<PopularContentResponseDto<PopularTvDto>>(Options(
+      method: 'GET',
+      headers: _headers,
+      extra: _extra,
+    )
+            .compose(
+              _dio.options,
+              '/tv/popular',
+              queryParameters: queryParameters,
+              data: _data,
+            )
+            .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
+    final value = PopularContentResponseDto<PopularTvDto>.fromJson(
+      _result.data!,
+      (json) => PopularTvDto.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 

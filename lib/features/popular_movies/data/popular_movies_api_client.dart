@@ -16,19 +16,27 @@ abstract class PopularMoviesApiClient {
   }) = _PopularMoviesApiClient;
 
   @GET('/movie/popular')
-  Future<PopularMoviesResponseDto> getPopularMovies({
+  Future<PopularContentResponseDto<PopularMovieDto>> getPopularMovies({
+    @Query('api_key') required String apiKey,
+  });
+
+  @GET('/tv/popular')
+  Future<PopularContentResponseDto<PopularTvDto>> getPopularTvShows({
     @Query('api_key') required String apiKey,
   });
 }
 
-@freezed
-class PopularMoviesResponseDto with _$PopularMoviesResponseDto {
-  const factory PopularMoviesResponseDto({
-    required List<PopularMovieDto> results,
-  }) = _PopularMoviesResponseDto;
+@Freezed(genericArgumentFactories: true)
+class PopularContentResponseDto<T> with _$PopularContentResponseDto<T> {
+  const factory PopularContentResponseDto({
+    required List<T> results,
+  }) = _PopularContentResponseDto;
 
-  factory PopularMoviesResponseDto.fromJson(Map<String, dynamic> json) =>
-      _$PopularMoviesResponseDtoFromJson(json);
+  factory PopularContentResponseDto.fromJson(
+    Map<String, dynamic> json,
+    T Function(Object? json) fromJsonT,
+  ) =>
+      _$PopularContentResponseDtoFromJson(json, fromJsonT);
 }
 
 @freezed
@@ -41,4 +49,16 @@ class PopularMovieDto with _$PopularMovieDto {
 
   factory PopularMovieDto.fromJson(Map<String, dynamic> json) =>
       _$PopularMovieDtoFromJson(json);
+}
+
+@freezed
+class PopularTvDto with _$PopularTvDto {
+  const factory PopularTvDto({
+    required int id,
+    required String name,
+    String? posterPath,
+  }) = _PopularTvDto;
+
+  factory PopularTvDto.fromJson(Map<String, dynamic> json) =>
+      _$PopularTvDtoFromJson(json);
 }

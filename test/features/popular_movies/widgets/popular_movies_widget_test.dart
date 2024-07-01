@@ -8,6 +8,7 @@ import 'package:get_it/get_it.dart';
 import 'package:injectable/injectable.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
+import 'package:my_tmdb/features/content/models/content.dart';
 import 'package:my_tmdb/features/popular_movies/data/popular_movies_repository.dart';
 import 'package:my_tmdb/features/popular_movies/models/popular_movie.dart';
 import 'package:my_tmdb/features/popular_movies/widgets/popular_movies_widget.dart';
@@ -28,12 +29,15 @@ void main() {
 
   final sut = MaterialApp(
     home: Scaffold(
-      body: PopularMoviesWidget(onItemPressed: (_) {}),
+      body: PopularMoviesWidget(
+        onItemPressed: (_) {},
+        type: ContentType.movie,
+      ),
     ),
   );
 
   testWidgets('shows error message when loading failed', (tester) async {
-    when(_repository.fetchPopularMovies())
+    when(_repository.fetchPopularContent(ContentType.movie))
         .thenAnswer((_) async => Result.left(Exception()));
 
     await tester.pumpWidget(sut);
@@ -43,7 +47,7 @@ void main() {
   });
 
   testWidgets('shows cards when loading succeeded', (tester) async {
-    when(_repository.fetchPopularMovies()).thenAnswer(
+    when(_repository.fetchPopularContent(ContentType.movie)).thenAnswer(
       (_) async => Result.right(
         [
           const PopularMovie(id: 1, title: 'Movie #1'),
