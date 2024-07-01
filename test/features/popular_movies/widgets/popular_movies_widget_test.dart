@@ -9,9 +9,9 @@ import 'package:injectable/injectable.dart';
 import 'package:mockito/annotations.dart';
 import 'package:mockito/mockito.dart';
 import 'package:my_tmdb/features/content/models/content.dart';
-import 'package:my_tmdb/features/popular_movies/data/popular_movies_repository.dart';
-import 'package:my_tmdb/features/popular_movies/models/popular_movie.dart';
-import 'package:my_tmdb/features/popular_movies/widgets/popular_movies_widget.dart';
+import 'package:my_tmdb/features/popular/data/popular_content_repository.dart';
+import 'package:my_tmdb/features/popular/models/popular_content.dart';
+import 'package:my_tmdb/features/popular/widgets/popular_content_widget.dart';
 
 import '../../../di.dart';
 import 'popular_movies_widget_test.mocks.dart';
@@ -29,7 +29,7 @@ void main() {
 
   final sut = MaterialApp(
     home: Scaffold(
-      body: PopularMoviesWidget(
+      body: PopularContentWidget(
         onItemPressed: (_) {},
         type: ContentType.movie,
       ),
@@ -50,8 +50,14 @@ void main() {
     when(_repository.fetchPopularContent(ContentType.movie)).thenAnswer(
       (_) async => Result.right(
         [
-          const PopularMovie(id: 1, title: 'Movie #1'),
-          const PopularMovie(id: 2, title: 'Movie #2'),
+          const PopularContent(
+            id: (type: ContentType.movie, value: 1),
+            title: 'Movie #1',
+          ),
+          const PopularContent(
+            id: (type: ContentType.movie, value: 2),
+            title: 'Movie #2',
+          ),
         ].lock,
       ),
     );

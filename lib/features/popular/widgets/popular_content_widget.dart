@@ -4,26 +4,26 @@ import 'package:flutter/material.dart';
 
 import '../../../di.dart';
 import '../../content/models/content.dart';
-import '../data/popular_movies_repository.dart';
-import '../models/popular_movie.dart';
-import 'popular_movies_list.dart';
+import '../data/popular_content_repository.dart';
+import '../models/popular_content.dart';
+import 'popular_content_list.dart';
 
-class PopularMoviesWidget extends StatefulWidget {
-  const PopularMoviesWidget({
+class PopularContentWidget extends StatefulWidget {
+  const PopularContentWidget({
     super.key,
     required this.onItemPressed,
     required this.type,
   });
 
-  final ValueSetter<PopularMovie> onItemPressed;
+  final ValueSetter<PopularContent> onItemPressed;
   final ContentType type;
 
   @override
-  State<PopularMoviesWidget> createState() => _PopularMoviesWidgetState();
+  State<PopularContentWidget> createState() => _PopularContentWidgetState();
 }
 
-class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
-  late final AsyncResult<IList<PopularMovie>> _result;
+class _PopularContentWidgetState extends State<PopularContentWidget> {
+  late final AsyncResult<IList<PopularContent>> _result;
 
   @override
   void initState() {
@@ -60,7 +60,7 @@ class _PopularMoviesWidgetState extends State<PopularMoviesWidget> {
                           (_) => const Center(
                             child: Text('Something went wrong.'),
                           ),
-                          (movies) => PopularMoviesList(
+                          (movies) => PopularContentList(
                             movies: movies,
                             onItemPressed: widget.onItemPressed,
                           ),

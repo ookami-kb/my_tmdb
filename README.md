@@ -14,6 +14,10 @@ Why "crowdsourced"? You're free to participate in this project in any form: ask 
 
 ![Dependencies graph](deps.png)
 
+### Features
+
+![Features graph](features.png)
+
 ## Attribution
 
 This product uses the TMDB API but is not endorsed or certified by TMDB.

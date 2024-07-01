@@ -25,9 +25,9 @@ import 'package:my_tmdb/features/favorites/data/favorites_repository.dart'
     as _i12;
 import 'package:my_tmdb/features/favorites/services/favorites_bloc.dart'
     as _i17;
-import 'package:my_tmdb/features/popular_movies/data/popular_movies_api_client.dart'
+import 'package:my_tmdb/features/popular/data/popular_content_api_client.dart'
     as _i13;
-import 'package:my_tmdb/features/popular_movies/data/popular_movies_repository.dart'
+import 'package:my_tmdb/features/popular/data/popular_content_repository.dart'
     as _i14;
 import 'package:my_tmdb/features/search/data/search_api_client.dart' as _i15;
 import 'package:my_tmdb/features/search/data/search_repository.dart' as _i16;

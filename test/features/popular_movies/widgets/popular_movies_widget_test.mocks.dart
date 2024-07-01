@@ -10,10 +10,9 @@ import 'package:fast_immutable_collections/fast_immutable_collections.dart'
     as _i5;
 import 'package:mockito/mockito.dart' as _i1;
 import 'package:my_tmdb/features/content/models/content.dart' as _i7;
-import 'package:my_tmdb/features/popular_movies/data/popular_movies_repository.dart'
+import 'package:my_tmdb/features/popular/data/popular_content_repository.dart'
     as _i3;
-import 'package:my_tmdb/features/popular_movies/models/popular_movie.dart'
-    as _i6;
+import 'package:my_tmdb/features/popular/models/popular_content.dart' as _i6;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -48,20 +47,22 @@ class MockPopularMoviesRepository extends _i1.Mock
   }
 
   @override
-  _i4.Future<_i2.Either<Exception, _i5.IList<_i6.PopularMovie>>>
-      fetchPopularContent(_i7.ContentType? type) => (super.noSuchMethod(
-            Invocation.method(
-              #fetchPopularContent,
-              [type],
-            ),
-            returnValue: _i4.Future<
-                    _i2.Either<Exception, _i5.IList<_i6.PopularMovie>>>.value(
-                _FakeEither_0<Exception, _i5.IList<_i6.PopularMovie>>(
-              this,
-              Invocation.method(
-                #fetchPopularContent,
-                [type],
-              ),
-            )),
-          ) as _i4.Future<_i2.Either<Exception, _i5.IList<_i6.PopularMovie>>>);
+  _i4.Future<
+      _i2.Either<Exception, _i5.IList<_i6.PopularContent>>> fetchPopularContent(
+          _i7.ContentType? type) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #fetchPopularContent,
+          [type],
+        ),
+        returnValue: _i4
+            .Future<_i2.Either<Exception, _i5.IList<_i6.PopularContent>>>.value(
+            _FakeEither_0<Exception, _i5.IList<_i6.PopularContent>>(
+          this,
+          Invocation.method(
+            #fetchPopularContent,
+            [type],
+          ),
+        )),
+      ) as _i4.Future<_i2.Either<Exception, _i5.IList<_i6.PopularContent>>>);
 }

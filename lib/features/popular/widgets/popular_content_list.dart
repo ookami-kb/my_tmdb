@@ -2,17 +2,17 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fast_immutable_collections/fast_immutable_collections.dart';
 import 'package:flutter/material.dart';
 
-import '../models/popular_movie.dart';
+import '../models/popular_content.dart';
 
-class PopularMoviesList extends StatelessWidget {
-  const PopularMoviesList({
+class PopularContentList extends StatelessWidget {
+  const PopularContentList({
     super.key,
     required this.movies,
     required this.onItemPressed,
   });
 
-  final IList<PopularMovie> movies;
-  final ValueSetter<PopularMovie> onItemPressed;
+  final IList<PopularContent> movies;
+  final ValueSetter<PopularContent> onItemPressed;
 
   @override
   Widget build(BuildContext context) => ListView.builder(

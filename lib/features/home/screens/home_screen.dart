@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import '../../../routes.gr.dart';
 import '../../content/models/content.dart';
 import '../../details/screens/details_screen.dart';
-import '../../popular_movies/widgets/popular_movies_widget.dart';
+import '../../popular/widgets/popular_content_widget.dart';
 
 @RoutePage()
 class HomeScreen extends StatelessWidget {
@@ -18,22 +18,22 @@ class HomeScreen extends StatelessWidget {
         body: SingleChildScrollView(
           child: Column(
             children: [
-              PopularMoviesWidget(
+              PopularContentWidget(
                 type: ContentType.movie,
-                onItemPressed: (movie) => context.router.navigate(
+                onItemPressed: (content) => context.router.navigate(
                   DetailsScreen.route(
-                    id: (type: ContentType.movie, value: movie.id),
-                    initialTitle: movie.title,
+                    id: content.id,
+                    initialTitle: content.title,
                   ),
                 ),
               ),
               const SizedBox(height: 32),
-              PopularMoviesWidget(
+              PopularContentWidget(
                 type: ContentType.tv,
-                onItemPressed: (movie) => context.router.navigate(
+                onItemPressed: (content) => context.router.navigate(
                   DetailsScreen.route(
-                    id: (type: ContentType.tv, value: movie.id),
-                    initialTitle: movie.title,
+                    id: content.id,
+                    initialTitle: content.title,
                   ),
                 ),
               ),

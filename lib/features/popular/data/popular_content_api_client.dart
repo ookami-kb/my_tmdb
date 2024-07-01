@@ -3,8 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
-part 'popular_movies_api_client.freezed.dart';
-part 'popular_movies_api_client.g.dart';
+part 'popular_content_api_client.freezed.dart';
+part 'popular_content_api_client.g.dart';
 
 @injectable
 @RestApi()

@@ -10,7 +10,7 @@
 // ignore_for_file: no_leading_underscores_for_library_prefixes
 import 'package:get_it/get_it.dart' as _i1;
 import 'package:injectable/injectable.dart' as _i2;
-import 'package:my_tmdb/features/popular_movies/data/popular_movies_repository.dart'
+import 'package:my_tmdb/features/popular/data/popular_content_repository.dart'
     as _i3;
 
 import '/my_tmdb/test/features/popular_movies/widgets/popular_movies_widget_test.dart'
