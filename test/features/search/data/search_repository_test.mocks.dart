@@ -3,10 +3,11 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:my_tmdb/features/search/data/search_api_client.dart' as _i2;
+import 'package:my_tmdb/features/search/data/search_api_client.dart' as _i3;
+import 'package:my_tmdb/utils/paginated_response_dto.dart' as _i2;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -21,20 +22,9 @@ import 'package:my_tmdb/features/search/data/search_api_client.dart' as _i2;
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
-class _FakeSearchMoviesResponseDto_0 extends _i1.SmartFake
-    implements _i2.SearchMoviesResponseDto {
-  _FakeSearchMoviesResponseDto_0(
-    Object parent,
-    Invocation parentInvocation,
-  ) : super(
-          parent,
-          parentInvocation,
-        );
-}
-
-class _FakeSearchTvShowsResponseDto_1 extends _i1.SmartFake
-    implements _i2.SearchTvShowsResponseDto {
-  _FakeSearchTvShowsResponseDto_1(
+class _FakePaginatedResponseDto_0<T> extends _i1.SmartFake
+    implements _i2.PaginatedResponseDto<T> {
+  _FakePaginatedResponseDto_0(
     Object parent,
     Invocation parentInvocation,
   ) : super(
@@ -46,13 +36,13 @@ class _FakeSearchTvShowsResponseDto_1 extends _i1.SmartFake
 /// A class which mocks [SearchApiClient].
 ///
 /// See the documentation for Mockito's code generation for more information.
-class MockSearchApiClient extends _i1.Mock implements _i2.SearchApiClient {
+class MockSearchApiClient extends _i1.Mock implements _i3.SearchApiClient {
   MockSearchApiClient() {
     _i1.throwOnMissingStub(this);
   }
 
   @override
-  _i3.Future<_i2.SearchMoviesResponseDto> searchMovies({
+  _i4.Future<_i2.PaginatedResponseDto<_i3.SearchMoviesResultDto>> searchMovies({
     required String? apiKey,
     required String? query,
     required int? page,
@@ -67,8 +57,9 @@ class MockSearchApiClient extends _i1.Mock implements _i2.SearchApiClient {
             #page: page,
           },
         ),
-        returnValue: _i3.Future<_i2.SearchMoviesResponseDto>.value(
-            _FakeSearchMoviesResponseDto_0(
+        returnValue: _i4
+            .Future<_i2.PaginatedResponseDto<_i3.SearchMoviesResultDto>>.value(
+            _FakePaginatedResponseDto_0<_i3.SearchMoviesResultDto>(
           this,
           Invocation.method(
             #searchMovies,
@@ -80,10 +71,11 @@ class MockSearchApiClient extends _i1.Mock implements _i2.SearchApiClient {
             },
           ),
         )),
-      ) as _i3.Future<_i2.SearchMoviesResponseDto>);
+      ) as _i4.Future<_i2.PaginatedResponseDto<_i3.SearchMoviesResultDto>>);
 
   @override
-  _i3.Future<_i2.SearchTvShowsResponseDto> searchTvShows({
+  _i4.Future<
+      _i2.PaginatedResponseDto<_i3.SearchTvShowsResultDto>> searchTvShows({
     required String? apiKey,
     required String? query,
     required int? page,
@@ -98,8 +90,9 @@ class MockSearchApiClient extends _i1.Mock implements _i2.SearchApiClient {
             #page: page,
           },
         ),
-        returnValue: _i3.Future<_i2.SearchTvShowsResponseDto>.value(
-            _FakeSearchTvShowsResponseDto_1(
+        returnValue: _i4
+            .Future<_i2.PaginatedResponseDto<_i3.SearchTvShowsResultDto>>.value(
+            _FakePaginatedResponseDto_0<_i3.SearchTvShowsResultDto>(
           this,
           Invocation.method(
             #searchTvShows,
@@ -111,5 +104,5 @@ class MockSearchApiClient extends _i1.Mock implements _i2.SearchApiClient {
             },
           ),
         )),
-      ) as _i3.Future<_i2.SearchTvShowsResponseDto>);
+      ) as _i4.Future<_i2.PaginatedResponseDto<_i3.SearchTvShowsResultDto>>);
 }

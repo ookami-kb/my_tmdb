@@ -1,3 +1,5 @@
+// ignore_for_file: cast_nullable_to_non_nullable
+
 import 'package:flutter_test/flutter_test.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:mockito/annotations.dart';
@@ -5,6 +7,7 @@ import 'package:mockito/mockito.dart';
 import 'package:my_tmdb/features/search/data/search_api_client.dart';
 import 'package:my_tmdb/features/search/data/search_repository.dart';
 import 'package:my_tmdb/features/search/models/search_result.dart';
+import 'package:my_tmdb/utils/paginated_response_dto.dart';
 
 import '../../../fake_config_repository.dart';
 import 'search_repository_test.mocks.dart';
@@ -33,7 +36,10 @@ void main() {
         page: anyNamed('page'),
       ),
     ).thenAnswer(
-      (_) async => SearchMoviesResponseDto.fromJson(searchMovieResponse),
+      (_) async => PaginatedResponseDto.fromJson(
+        searchMovieResponse,
+        (json) => SearchMoviesResultDto.fromJson(json as Map<String, dynamic>),
+      ),
     );
 
     final result = await repository.searchMovies('stubQuery', page: 1);
@@ -59,7 +65,10 @@ void main() {
         page: anyNamed('page'),
       ),
     ).thenAnswer(
-      (_) async => SearchTvShowsResponseDto.fromJson(searchTvResponse),
+      (_) async => PaginatedResponseDto.fromJson(
+        searchTvResponse,
+        (json) => SearchTvShowsResultDto.fromJson(json as Map<String, dynamic>),
+      ),
     );
 
     final result = await repository.searchTvShows('stubQuery', page: 1);

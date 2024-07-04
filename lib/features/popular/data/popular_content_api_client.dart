@@ -3,6 +3,8 @@ import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:retrofit/retrofit.dart';
 
+import '../../../utils/paginated_response_dto.dart';
+
 part 'popular_content_api_client.freezed.dart';
 part 'popular_content_api_client.g.dart';
 
@@ -16,27 +18,14 @@ abstract class PopularMoviesApiClient {
   }) = _PopularMoviesApiClient;
 
   @GET('/movie/popular')
-  Future<PopularContentResponseDto<PopularMovieDto>> getPopularMovies({
+  Future<PaginatedResponseDto<PopularMovieDto>> getPopularMovies({
     @Query('api_key') required String apiKey,
   });
 
   @GET('/tv/popular')
-  Future<PopularContentResponseDto<PopularTvDto>> getPopularTvShows({
+  Future<PaginatedResponseDto<PopularTvDto>> getPopularTvShows({
     @Query('api_key') required String apiKey,
   });
-}
-
-@Freezed(genericArgumentFactories: true)
-class PopularContentResponseDto<T> with _$PopularContentResponseDto<T> {
-  const factory PopularContentResponseDto({
-    required List<T> results,
-  }) = _PopularContentResponseDto;
-
-  factory PopularContentResponseDto.fromJson(
-    Map<String, dynamic> json,
-    T Function(Object? json) fromJsonT,
-  ) =>
-      _$PopularContentResponseDtoFromJson(json, fromJsonT);
 }
 
 @freezed

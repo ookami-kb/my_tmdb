@@ -6,22 +6,6 @@ part of 'search_api_client.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$SearchMoviesResponseDtoImpl _$$SearchMoviesResponseDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SearchMoviesResponseDtoImpl(
-      results: (json['results'] as List<dynamic>)
-          .map((e) => SearchMoviesResultDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      totalPages: json['total_pages'] as int,
-    );
-
-Map<String, dynamic> _$$SearchMoviesResponseDtoImplToJson(
-        _$SearchMoviesResponseDtoImpl instance) =>
-    <String, dynamic>{
-      'results': instance.results,
-      'total_pages': instance.totalPages,
-    };
-
 _$SearchMoviesResultDtoImpl _$$SearchMoviesResultDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$SearchMoviesResultDtoImpl(
@@ -36,23 +20,6 @@ Map<String, dynamic> _$$SearchMoviesResultDtoImplToJson(
       'id': instance.id,
       'title': instance.title,
       'poster_path': instance.posterPath,
-    };
-
-_$SearchTvShowsResponseDtoImpl _$$SearchTvShowsResponseDtoImplFromJson(
-        Map<String, dynamic> json) =>
-    _$SearchTvShowsResponseDtoImpl(
-      results: (json['results'] as List<dynamic>)
-          .map(
-              (e) => SearchTvShowsResultDto.fromJson(e as Map<String, dynamic>))
-          .toList(),
-      totalPages: json['total_pages'] as int,
-    );
-
-Map<String, dynamic> _$$SearchTvShowsResponseDtoImplToJson(
-        _$SearchTvShowsResponseDtoImpl instance) =>
-    <String, dynamic>{
-      'results': instance.results,
-      'total_pages': instance.totalPages,
     };
 
 _$SearchTvShowsResultDtoImpl _$$SearchTvShowsResultDtoImplFromJson(
@@ -88,7 +55,7 @@ class _SearchApiClient implements SearchApiClient {
   String? baseUrl;
 
   @override
-  Future<SearchMoviesResponseDto> searchMovies({
+  Future<PaginatedResponseDto<SearchMoviesResultDto>> searchMovies({
     required apiKey,
     required query,
     required page,
@@ -102,7 +69,7 @@ class _SearchApiClient implements SearchApiClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<SearchMoviesResponseDto>(Options(
+        _setStreamType<PaginatedResponseDto<SearchMoviesResultDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -114,12 +81,15 @@ class _SearchApiClient implements SearchApiClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = SearchMoviesResponseDto.fromJson(_result.data!);
+    final value = PaginatedResponseDto<SearchMoviesResultDto>.fromJson(
+      _result.data!,
+      (json) => SearchMoviesResultDto.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 
   @override
-  Future<SearchTvShowsResponseDto> searchTvShows({
+  Future<PaginatedResponseDto<SearchTvShowsResultDto>> searchTvShows({
     required apiKey,
     required query,
     required page,
@@ -133,7 +103,7 @@ class _SearchApiClient implements SearchApiClient {
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<SearchTvShowsResponseDto>(Options(
+        _setStreamType<PaginatedResponseDto<SearchTvShowsResultDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -145,7 +115,10 @@ class _SearchApiClient implements SearchApiClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = SearchTvShowsResponseDto.fromJson(_result.data!);
+    final value = PaginatedResponseDto<SearchTvShowsResultDto>.fromJson(
+      _result.data!,
+      (json) => SearchTvShowsResultDto.fromJson(json as Map<String, dynamic>),
+    );
     return value;
   }
 

@@ -6,22 +6,6 @@ part of 'popular_content_api_client.dart';
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$PopularContentResponseDtoImpl<T> _$$PopularContentResponseDtoImplFromJson<T>(
-  Map<String, dynamic> json,
-  T Function(Object? json) fromJsonT,
-) =>
-    _$PopularContentResponseDtoImpl<T>(
-      results: (json['results'] as List<dynamic>).map(fromJsonT).toList(),
-    );
-
-Map<String, dynamic> _$$PopularContentResponseDtoImplToJson<T>(
-  _$PopularContentResponseDtoImpl<T> instance,
-  Object? Function(T value) toJsonT,
-) =>
-    <String, dynamic>{
-      'results': instance.results.map(toJsonT).toList(),
-    };
-
 _$PopularMovieDtoImpl _$$PopularMovieDtoImplFromJson(
         Map<String, dynamic> json) =>
     _$PopularMovieDtoImpl(
@@ -69,14 +53,14 @@ class _PopularMoviesApiClient implements PopularMoviesApiClient {
   String? baseUrl;
 
   @override
-  Future<PopularContentResponseDto<PopularMovieDto>> getPopularMovies(
+  Future<PaginatedResponseDto<PopularMovieDto>> getPopularMovies(
       {required apiKey}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api_key': apiKey};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PopularContentResponseDto<PopularMovieDto>>(Options(
+        _setStreamType<PaginatedResponseDto<PopularMovieDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -88,7 +72,7 @@ class _PopularMoviesApiClient implements PopularMoviesApiClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = PopularContentResponseDto<PopularMovieDto>.fromJson(
+    final value = PaginatedResponseDto<PopularMovieDto>.fromJson(
       _result.data!,
       (json) => PopularMovieDto.fromJson(json as Map<String, dynamic>),
     );
@@ -96,14 +80,14 @@ class _PopularMoviesApiClient implements PopularMoviesApiClient {
   }
 
   @override
-  Future<PopularContentResponseDto<PopularTvDto>> getPopularTvShows(
+  Future<PaginatedResponseDto<PopularTvDto>> getPopularTvShows(
       {required apiKey}) async {
     const _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'api_key': apiKey};
     final _headers = <String, dynamic>{};
     final _data = <String, dynamic>{};
     final _result = await _dio.fetch<Map<String, dynamic>>(
-        _setStreamType<PopularContentResponseDto<PopularTvDto>>(Options(
+        _setStreamType<PaginatedResponseDto<PopularTvDto>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -115,7 +99,7 @@ class _PopularMoviesApiClient implements PopularMoviesApiClient {
               data: _data,
             )
             .copyWith(baseUrl: baseUrl ?? _dio.options.baseUrl)));
-    final value = PopularContentResponseDto<PopularTvDto>.fromJson(
+    final value = PaginatedResponseDto<PopularTvDto>.fromJson(
       _result.data!,
       (json) => PopularTvDto.fromJson(json as Map<String, dynamic>),
     );
